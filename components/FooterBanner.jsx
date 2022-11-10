@@ -1,7 +1,7 @@
 import React from "react";
 
 const FooterBanner = () => {
-  return <div>FooterBanner</div>;
+  return <div className="">FooterBanner</div>;
 };
 
 export default FooterBanner;
