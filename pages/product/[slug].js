@@ -6,6 +6,8 @@ import {
   AiFillStar,
   AiOutlineStar,
 } from "react-icons/ai";
+import Product from "../../components/Product";
+import { useStateContext } from "../../context/StateContext";
 
 export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type == "class" && slug.current == '${slug}'][0]`;
@@ -40,6 +42,7 @@ export const getStaticPaths = async () => {
 
 const ProductDetails = ({ product }) => {
   const { image, name, details, price } = product;
+  const { onAdd, setShowCart } = useStateContext();
 
   return (
     <div>
@@ -70,10 +73,18 @@ const ProductDetails = ({ product }) => {
           <p>£{price}</p>
         </div>
         <div className="flex gap-3">
-          <button className="px-2 bg-blue-300" type="button" OnClick="">
+          <button
+            className="px-2 bg-blue-300"
+            type="button"
+            onClick={() => onAdd(product)}
+          >
             Add To Cart
           </button>
-          <button className="px-2 border " type="button" OnClick="">
+          <button
+            className="px-2 border "
+            type="button"
+            onClick={() => onAdd(product)}
+          >
             Buy Now
           </button>
         </div>
