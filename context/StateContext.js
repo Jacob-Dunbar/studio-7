@@ -9,6 +9,36 @@ export const StateContext = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuant, setTotalQuant] = useState();
 
+  // Local storage
+
+  // Cart items
+
+  useEffect(() => {
+    const data = window.localStorage.getItem("STUDIO_7_CART_ITEMS");
+    setCartItems(JSON.parse(data));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem(
+      "STUDIO_7_CART_ITEMS",
+      JSON.stringify(cartItems)
+    );
+  }, [cartItems]);
+
+  // Total price
+
+  useEffect(() => {
+    const data = window.localStorage.getItem("STUDIO_7_TOTAL_PRICE");
+    setTotalPrice(JSON.parse(data));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem(
+      "STUDIO_7_TOTAL_PRICE",
+      JSON.stringify(totalPrice)
+    );
+  }, [totalPrice]);
+
   let foundProduct;
   let index;
 

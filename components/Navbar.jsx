@@ -5,7 +5,7 @@ import Cart from "./Cart.jsx";
 import { useStateContext } from "../context/StateContext";
 
 const Navbar = () => {
-  const { cartItems, showCart, setShowCart, totalQuant } = useStateContext();
+  const { cartItems, showCart, setShowCart } = useStateContext();
 
   return (
     <div className="z-30 flex justify-between px-4">
@@ -20,7 +20,7 @@ const Navbar = () => {
       >
         <AiOutlineShopping />
         <span className="absolute top-0 w-4 h-4 text-xs text-white bg-red-600 rounded-lg ">
-          {cartItems.length}
+          {cartItems.length > 0 ? cartItems.length : 0}
         </span>
       </button>
 
