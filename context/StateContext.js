@@ -6,7 +6,7 @@ const Context = createContext();
 export const StateContext = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState();
+  const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuant, setTotalQuant] = useState();
 
   const onAdd = (product) => {
@@ -19,6 +19,7 @@ export const StateContext = ({ children }) => {
       console.log(cartItems.length);
     } else {
       setCartItems([...cartItems, { product }]);
+      setTotalPrice((prevTotal) => prevTotal + product.price);
       console.log(cartItems.length);
       toast.success(`${product.name} was added to your basket.`);
     }
