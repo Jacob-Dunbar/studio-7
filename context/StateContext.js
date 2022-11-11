@@ -10,20 +10,17 @@ export const StateContext = ({ children }) => {
   const [totalQuant, setTotalQuant] = useState();
 
   const onAdd = (product) => {
-    //fix this next, why doesnt it detect that there is the product already in cart, look up .find
     const checkProductInCart = cartItems.find(
-      (item) => item._id === product._id
+      (item) => item.product._id === product._id
     );
 
-    setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price);
-
-    if (checkProductInCart === true) {
+    if (checkProductInCart) {
       toast.success(`${product.name} is already in your basket.`);
-      console.log();
+      console.log(cartItems.length);
     } else {
       setCartItems([...cartItems, { product }]);
+      console.log(cartItems.length);
       toast.success(`${product.name} was added to your basket.`);
-      console.log(cartItems);
     }
   };
 
@@ -31,6 +28,7 @@ export const StateContext = ({ children }) => {
     <Context.Provider
       value={{
         showCart,
+        setShowCart,
         cartItems,
         totalPrice,
         totalQuant,
