@@ -14,14 +14,14 @@ export const StateContext = ({ children }) => {
 
   const onAdd = (product) => {
     const checkProductInCart = cartItems.find(
-      (item) => item.product._id === product._id
+      (item) => item._id === product._id
     );
 
     if (checkProductInCart) {
       toast.success(`${product.name} is already in your basket.`);
       console.log(cartItems.length);
     } else {
-      setCartItems([...cartItems, { product }]);
+      setCartItems([...cartItems, { ...product }]);
       setTotalPrice((prevTotal) => prevTotal + product.price);
       console.log(cartItems.length);
       toast.success(`${product.name} was added to your basket.`);
@@ -29,18 +29,13 @@ export const StateContext = ({ children }) => {
   };
 
   const onRemove = (product) => {
-    foundProduct = cartItems.find(
-      (item) => item.product._id === product.product._id
-    );
+    foundProduct = cartItems.find((item) => item._id === product._id);
 
-    const newCartItems = cartItems.filter(
-      (item) => item.product._id !== product.product._id
-    );
+    const newCartItems = cartItems.filter((item) => item._id !== product._id);
 
-    setTotalPrice((prevPrice) => prevPrice - product.product.price);
+    setTotalPrice((prevPrice) => prevPrice - product.price);
     setTotalQuant((prevTotal) => prevTotal - 1);
     setCartItems(newCartItems);
-    console.log(newCartItems);
   };
 
   return (
