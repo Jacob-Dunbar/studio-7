@@ -9,6 +9,9 @@ export const StateContext = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuant, setTotalQuant] = useState();
 
+  let foundProduct;
+  let index;
+
   const onAdd = (product) => {
     const checkProductInCart = cartItems.find(
       (item) => item.product._id === product._id
@@ -25,6 +28,21 @@ export const StateContext = ({ children }) => {
     }
   };
 
+  const onRemove = (product) => {
+    foundProduct = cartItems.find(
+      (item) => item.product._id === product.product._id
+    );
+
+    const newCartItems = cartItems.filter(
+      (item) => item.product._id !== product.product._id
+    );
+
+    setTotalPrice((prevPrice) => prevPrice - product.product.price);
+    setTotalQuant((prevTotal) => prevTotal - 1);
+    setCartItems(newCartItems);
+    console.log(newCartItems);
+  };
+
   return (
     <Context.Provider
       value={{
@@ -34,6 +52,7 @@ export const StateContext = ({ children }) => {
         totalPrice,
         totalQuant,
         onAdd,
+        onRemove,
       }}
     >
       {children}

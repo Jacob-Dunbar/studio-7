@@ -13,7 +13,7 @@ import { urlFor } from "../lib/client";
 
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, cartItems, setShowCart } = useStateContext();
+  const { totalPrice, cartItems, setShowCart, onRemove } = useStateContext();
   return (
     <div className="fixed right-0 z-10 h-screen bg-red-500 " ref={cartRef}>
       <div>
@@ -38,7 +38,7 @@ const Cart = () => {
         <div>
           {cartItems.length >= 1 &&
             cartItems.map((item) => (
-              <div key={item._id}>
+              <div key={item.product._id}>
                 <img
                   className=" w-28"
                   src={urlFor(item.product.image[0])}
@@ -47,7 +47,7 @@ const Cart = () => {
                 <h5>{item.product.name}</h5>
                 <h4>£{item.product.price}</h4>
                 <div>
-                  <button type="button">
+                  <button onClick={() => onRemove(item)} type="button">
                     <TiDeleteOutline />
                   </button>
                 </div>
