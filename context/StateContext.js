@@ -7,7 +7,6 @@ export const StateContext = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [totalQuant, setTotalQuant] = useState();
 
   // Local storage
 
@@ -64,7 +63,7 @@ export const StateContext = ({ children }) => {
     const newCartItems = cartItems.filter((item) => item._id !== product._id);
 
     setTotalPrice((prevPrice) => prevPrice - product.price);
-    setTotalQuant((prevTotal) => prevTotal - 1);
+
     setCartItems(newCartItems);
   };
 
@@ -75,12 +74,11 @@ export const StateContext = ({ children }) => {
         setShowCart,
         cartItems,
         totalPrice,
-        totalQuant,
+
         onAdd,
         onRemove,
         setCartItems,
         setTotalPrice,
-        setTotalQuant,
       }}
     >
       {children}

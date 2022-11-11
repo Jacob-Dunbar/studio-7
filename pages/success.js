@@ -6,13 +6,12 @@ import { useStateContext } from "../context/StateContext";
 import { AiOutlineOrderedList } from "react-icons/ai";
 
 const Success = () => {
-  const { setCartItems, setTotalPrice, setTotalQuant } = useStateContext();
+  const { setCartItems, setTotalPrice } = useStateContext();
 
   useEffect(() => {
     localStorage.clear();
     setCartItems([]);
     setTotalPrice(0);
-    setTotalQuant(0);
   }, []);
 
   return (
