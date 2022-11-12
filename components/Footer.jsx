@@ -3,7 +3,7 @@ import { AiFillInstagram, AiOutlineTwitter } from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <div className=" flex flex-col items-center">
+    <div className="flex flex-col items-center bg-red-400 ">
       <p>2022 Studio 7 All rights reserved</p>
       <p className="flex gap-2">
         <AiFillInstagram />

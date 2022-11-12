@@ -37,7 +37,10 @@ const Cart = () => {
   };
 
   return (
-    <div className="fixed right-0 z-10 h-screen bg-red-500 " ref={cartRef}>
+    <div
+      className="fixed top-0 right-0 z-10 h-screen bg-red-500 "
+      ref={cartRef}
+    >
       <div>
         <button type="button" onClick={() => setShowCart(false)}>
           <AiOutlineLeft />
