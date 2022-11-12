@@ -9,11 +9,11 @@ const Layout = ({ children }) => {
       <Head>
         <title>Studio 7</title>
       </Head>
-      <div className="min-h-screen ">
-        <header>
+      <div className="flex flex-col min-h-screen">
+        <header className="z-30">
           <Navbar />
         </header>
-        <main className="flex-grow ">{children}</main>
+        <main className="flex-grow bg-green-200 ">{children}</main>
       </div>
       <footer>
         <Footer />
