@@ -27,6 +27,12 @@ export default {
       },
     },
     {
+      name: "catagories",
+      title: "Catagories",
+      type: "array",
+      of: [{ type: "string" }],
+    },
+    {
       name: "price",
       title: "Price",
       type: "number",
