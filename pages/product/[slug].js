@@ -40,6 +40,27 @@ export const getStaticPaths = async () => {
   };
 };
 
+// Options object for toLocaleDateString method to format date
+const options = {
+  month: "numeric",
+  day: "numeric",
+  year: "numeric",
+};
+
+// add days to date
+Date.prototype.addDays = function (days) {
+  const date = new Date(this.valueOf());
+  date.setDate(date.getDate() + days);
+  return date;
+};
+
+// current date
+const date = new Date();
+
+console.log(date.addDays(5).toLocaleDateString("en-GB", options));
+console.log(date.toLocaleDateString("en-GB", options));
+// console.log(date.addDays(5));
+
 const ProductDetails = ({ product }) => {
   const { image, name, details, price } = product;
   const { onAdd, setShowCart } = useStateContext();
@@ -62,6 +83,8 @@ const ProductDetails = ({ product }) => {
                 <img src={urlFor(item)} />
             ))}
           </div> */}
+          {/* <h1>{date}</h1> */}
+          {/* <h1>{date.addDays(5)}</h1> */}
         </div>
         <div>
           <h1>{name}</h1>
