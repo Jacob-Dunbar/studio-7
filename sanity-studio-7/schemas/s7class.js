@@ -27,6 +27,11 @@ export default {
       },
     },
     {
+      name: "length",
+      title: "Length",
+      type: "number",
+    },
+    {
       name: "catagories",
       title: "Catagories",
       type: "array",
