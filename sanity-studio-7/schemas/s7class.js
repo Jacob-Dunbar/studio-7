@@ -47,5 +47,10 @@ export default {
       title: "Details",
       type: "string",
     },
+    {
+      name: "trainer",
+      title: "Trainer",
+      type: "string",
+    },
   ],
 };

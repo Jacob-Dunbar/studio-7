@@ -17,8 +17,11 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const query2 = `*[_type == "session" && class == '${slug}']`;
   const sessions = await client.fetch(query2);
 
+  const trainerQuery = '*[_type == "trainer"]';
+  const trainers = await client.fetch(trainerQuery);
+
   return {
-    props: { product, sessions },
+    props: { product, sessions, trainers },
   };
 };
 
@@ -60,7 +63,7 @@ Date.prototype.addDays = function (days) {
 // current date
 const date = new Date();
 
-const ProductDetails = ({ product, sessions }) => {
+const ProductDetails = ({ product, sessions, trainers }) => {
   const { image, name, details, price } = product;
   const { onAdd } = useStateContext();
 
@@ -69,6 +72,16 @@ const ProductDetails = ({ product, sessions }) => {
   // });
 
   // console.log(sessionByDate);
+
+  // Selection right trainer for this class from trainers array
+
+  const classTrainer = trainers.find(
+    (trainer) => trainer.name === product.trainer
+  );
+  console.log(trainers[1].name);
+  console.log(product.trainer);
+  console.log(classTrainer);
+  // console.log(trainers);
 
   return (
     <div>
@@ -121,7 +134,12 @@ const ProductDetails = ({ product, sessions }) => {
       </div>
 
       <div>
-        <h2> What out members say</h2>
+        <img
+          src={urlFor(classTrainer.image && classTrainer.image)}
+          alt="trainer profile picture"
+        />
+        <h1>{classTrainer.name}</h1>
+        <p> {classTrainer.desc}</p>
       </div>
     </div>
   );

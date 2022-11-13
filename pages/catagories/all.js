@@ -7,12 +7,15 @@ export const getServerSideProps = async () => {
   //   const query = '*[[details, name, catagories] match ["fighting"]]';
   const products = await client.fetch(query);
 
+  const trainerQuery = '*[_type == "trainer"]';
+  const trainers = await client.fetch(trainerQuery);
+
   return {
-    props: { products },
+    props: { products, trainers },
   };
 };
 
-const cardio = ({ products }) => {
+const cardio = ({ products, trainers }) => {
   console.log(products);
   return (
     <div>

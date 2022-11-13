@@ -11,15 +11,18 @@ export const getServerSideProps = async () => {
   const bannerQuery = '*[_type == "banner"]';
   const bannerData = await client.fetch(bannerQuery);
 
+  const trainerQuery = '*[_type == "trainer"]';
+  const trainers = await client.fetch(trainerQuery);
+
   return {
-    props: { products, bannerData },
+    props: { products, bannerData, trainers },
   };
 };
 
-const Classes = ({ products, bannerData }) => {
+const Classes = ({ products, bannerData, trainers }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  console.log(products);
+  console.log(trainers);
   return (
     <div className="py-4 ">
       <input
@@ -70,7 +73,9 @@ const Classes = ({ products, bannerData }) => {
               return product;
             }
           })
-          .map((product) => <Product product={product} />)
+          .map((product) => (
+            <Product key={product._id} trainers={trainers} product={product} />
+          ))
       )}
     </div>
   );

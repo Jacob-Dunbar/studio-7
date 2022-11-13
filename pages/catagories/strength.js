@@ -7,18 +7,21 @@ export const getServerSideProps = async () => {
   //   const query = '*[[details, name, catagories] match ["fighting"]]';
   const products = await client.fetch(query);
 
+  const trainerQuery = '*[_type == "trainer"]';
+  const trainers = await client.fetch(trainerQuery);
+
   return {
-    props: { products },
+    props: { products, trainers },
   };
 };
 
-const strength = ({ products }) => {
+const strength = ({ products, trainers }) => {
   return (
     <div>
       <h1>Mind</h1>
       <div className="">
         {products?.map((product) => (
-          <Product key={product._id} product={product} />
+          <Product trainers={trainers} key={product._id} product={product} />
         ))}
       </div>
     </div>
