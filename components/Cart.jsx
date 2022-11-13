@@ -187,6 +187,10 @@ const Cart = () => {
             groupArr.map((group) => (
               <div>
                 <h1>{group[0].name}</h1>
+                <img
+                  src={urlFor(group[0].image && group[0].image)}
+                  alt="class thumbnail"
+                />
                 {group.map((session) => (
                   <div>
                     <p>
