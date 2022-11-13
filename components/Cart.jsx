@@ -16,6 +16,95 @@ const Cart = () => {
   const cartRef = useRef();
   const { totalPrice, cartItems, setShowCart, onRemove } = useStateContext();
 
+  // Sort cart into groups
+  const groupSessions = (cartItems) => {
+    let bodybuilding = [];
+    let ashtanga = [];
+    let row = [];
+    let stretch = [];
+    let spin = [];
+    let killer = [];
+    let bJitsu = [];
+    let sweat = [];
+    let bThai = [];
+    let take = [];
+    let hatha = [];
+    let spirit = [];
+    let iThai = [];
+    let iJitsu = [];
+    let gymtastic = [];
+    let burn = [];
+    let bodyweight = [];
+
+    cartItems.map((item) => {
+      if (item.class === "bodybuilding-foundations") {
+        bodybuilding.push(item);
+      } else if (item.class === "ashtanga-yoga") {
+        ashtanga.push(item);
+      } else if (item.class === "row-your-boat") {
+        row.push(item);
+      } else if (item.class === "stretch-armstrong") {
+        stretch.push(item);
+      } else if (item.class === "spin-that") {
+        spin.push(item);
+      } else if (item.class === "killer-circuits") {
+        killer.push(item);
+      } else if (item.class === "beginners-jiu-jitsu") {
+        bJitsu.push(item);
+      } else if (item.class === "sweat-rep-repeat") {
+        sweat.push(item);
+      } else if (item.class === "beginners-muay-thai") {
+        bThai.push(item);
+      } else if (item.class === "take-60") {
+        take.push(item);
+      } else if (item.class === "hatha-yoga") {
+        hatha.push(item);
+      } else if (item.class === "spirit-food") {
+        spirit.push(item);
+      } else if (item.class === "intermediate-muay-thai") {
+        iThai.push(item);
+      } else if (item.class === "intermediate-jiu-jitsu") {
+        iJitsu.push(item);
+      } else if (item.class === "gymtastic-gymnastics") {
+        gymtastic.push(item);
+      } else if (item.class === "burn") {
+        burn.push(item);
+      } else if (item.class === "bodyweight-blaster") {
+        bodyweight.push(item);
+      }
+    });
+
+    const groupedSessionsArr = [
+      bodybuilding,
+      ashtanga,
+      row,
+      stretch,
+      spin,
+      killer,
+      bJitsu,
+      sweat,
+      bThai,
+      take,
+      hatha,
+      spirit,
+      iThai,
+      iJitsu,
+      gymtastic,
+      burn,
+      bodyweight,
+    ];
+
+    const truthyGroupSessionsArr = [];
+
+    groupedSessionsArr.map(
+      (group) => group.length > 0 && truthyGroupSessionsArr.push(group)
+    );
+
+    return truthyGroupSessionsArr;
+  };
+
+  const groupArr = groupSessions(cartItems);
+
   // Options object for toLocaleDateString method to format date
   const options = {
     month: "numeric",
@@ -95,38 +184,23 @@ const Cart = () => {
           )}
           {/* Card contents - full */}
           {cartItems.length >= 1 &&
-            cartItems.map((item) => (
-              <div
-                className="flex justify-start w-full gap-4 px-4 py-4 bg-slate-500"
-                key={item._id}
-              >
-                {/* Thumbmnail */}
-                {/* <img
-                  className="w-20 h-20 rounded-full "
-                  src={urlFor(item.image[0])}
-                  alt=""
-                /> */}
-                {/* Item details */}
-                <div className="flex flex-col flex-grow gap-2 bg-slate-600">
-                  {/* Heading */}
-                  <h5 className="text-2xl ">{item.name}</h5>
-                  {/* Details */}
-                  <div className="flex justify-between gap-4">
-                    <div className="flex flex-grow gap-2">
-                      <h4>
-                        {date
-                          .addDays(item.number)
-                          .toLocaleDateString("en-GB", options)}
-                      </h4>
-                      <h4>{item.time}</h4>
-                      <h4>£{item.price}</h4>
-                    </div>
-                    {/* delete */}
-                    <button onClick={() => onRemove(item)} type="button">
+            groupArr.map((group) => (
+              <div>
+                <h1>{group[0].name}</h1>
+                {group.map((session) => (
+                  <div>
+                    <p>
+                      {date
+                        .addDays(session.number)
+                        .toLocaleDateString("en-GB", options)}
+                    </p>
+                    <p>{session.time}</p>
+                    <p>£{session.price}</p>
+                    <button onClick={() => onRemove(session)} type="button">
                       <TiDeleteOutline />
                     </button>
                   </div>
-                </div>
+                ))}
               </div>
             ))}
         </div>

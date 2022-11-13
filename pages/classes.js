@@ -35,6 +35,9 @@ const Classes = ({ products, bannerData }) => {
         <Link href="/catagories/combat">
           <h2 className="w-full py-10 text-center bg-slate-400">Combat</h2>
         </Link>
+        <Link href="/catagories/all">
+          <h2 className="w-full py-10 text-center bg-slate-400">All</h2>
+        </Link>
       </div>
     </div>
   );
