@@ -16,6 +16,25 @@ const Cart = () => {
   const cartRef = useRef();
   const { totalPrice, cartItems, setShowCart, onRemove } = useStateContext();
 
+  // Options object for toLocaleDateString method to format date
+  const options = {
+    month: "numeric",
+    day: "numeric",
+    year: "numeric",
+  };
+
+  // add days to date
+  Date.prototype.addDays = function (days) {
+    const date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+  };
+
+  // current date
+  const date = new Date();
+
+  // console.log(date.addDays(5).toLocaleDateString("en-GB", options));
+
   // Handle checkout function
   const handleCheckout = async () => {
     const stripe = await getStripe();
@@ -82,11 +101,11 @@ const Cart = () => {
                 key={item._id}
               >
                 {/* Thumbmnail */}
-                <img
+                {/* <img
                   className="w-20 h-20 rounded-full "
                   src={urlFor(item.image[0])}
                   alt=""
-                />
+                /> */}
                 {/* Item details */}
                 <div className="flex flex-col flex-grow gap-2 bg-slate-600">
                   {/* Heading */}
@@ -94,8 +113,12 @@ const Cart = () => {
                   {/* Details */}
                   <div className="flex justify-between gap-4">
                     <div className="flex flex-grow gap-2">
-                      <h4>4th May</h4>
-                      <h4>1pm</h4>
+                      <h4>
+                        {date
+                          .addDays(item.number)
+                          .toLocaleDateString("en-GB", options)}
+                      </h4>
+                      <h4>{item.time}</h4>
                       <h4>£{item.price}</h4>
                     </div>
                     {/* delete */}

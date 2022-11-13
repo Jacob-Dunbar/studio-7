@@ -9,17 +9,20 @@ import {
 import Product from "../../components/Product";
 import { useStateContext } from "../../context/StateContext";
 
+// Fetch class details and avaible sessions
 export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type == "class" && slug.current == '${slug}'][0]`;
   const product = await client.fetch(query);
 
-  // could add similar products later on
+  const query2 = `*[_type == "session" && class == '${slug}']`;
+  const sessions = await client.fetch(query2);
 
   return {
-    props: { product },
+    props: { product, sessions },
   };
 };
 
+// Get static paths
 export const getStaticPaths = async () => {
   const query = `*[_type == "class"] {
         slug {
@@ -57,19 +60,15 @@ Date.prototype.addDays = function (days) {
 // current date
 const date = new Date();
 
-console.log(date.addDays(5).toLocaleDateString("en-GB", options));
-console.log(date.toLocaleDateString("en-GB", options));
-// console.log(date.addDays(5));
-
-const ProductDetails = ({ product }) => {
+const ProductDetails = ({ product, sessions }) => {
   const { image, name, details, price } = product;
-  const { onAdd, setShowCart } = useStateContext();
+  const { onAdd } = useStateContext();
 
-  const handleBuyNow = () => {
-    onAdd(product);
+  // const sessionByDate = sessions.sort((a, b) => {
+  //   return a.number - b.number;
+  // });
 
-    setShowCart(true);
-  };
+  // console.log(sessionByDate);
 
   return (
     <div>
@@ -101,18 +100,24 @@ const ProductDetails = ({ product }) => {
           <p>{details}</p>
           <p>£{price}</p>
         </div>
-        <div className="flex gap-3">
-          <button
-            className="px-2 bg-blue-300"
-            type="button"
-            onClick={() => onAdd(product)}
-          >
-            Add To Cart
-          </button>
-          <button className="px-2 border " type="button" onClick={handleBuyNow}>
-            Buy Now
-          </button>
-        </div>
+
+        {sessions.map((session) => (
+          <div>
+            <p>
+              {date
+                .addDays(session.number)
+                .toLocaleDateString("en-GB", options)}
+            </p>
+            <p>{session.time}</p>{" "}
+            <button
+              className="px-2 bg-blue-300"
+              type="button"
+              onClick={() => onAdd(session)}
+            >
+              Add To Cart
+            </button>
+          </div>
+        ))}
       </div>
 
       <div>

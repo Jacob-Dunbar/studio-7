@@ -20,17 +20,20 @@ const Classes = ({ products, bannerData }) => {
     <div className="py-4 ">
       <div className="button"> search </div>
       <div className="flex flex-col items-center gap-5 mt-6 text-2xl">
-        <Link href="/catagories/mindfullness">
-          <h2 className="w-full py-10 text-center bg-slate-400">Mindfullnes</h2>
+        <Link href="/catagories/mindfulness">
+          <h2 className="w-full py-10 text-center bg-slate-400">Mindfulness</h2>
         </Link>
-        <Link href="">
+        <Link href="/catagories/strength">
           <h2 className="w-full py-10 text-center bg-slate-400">Strength</h2>
         </Link>
-        <Link href="">
+        <Link href="/catagories/mobility">
           <h2 className="w-full py-10 text-center bg-slate-400">Mobilty</h2>
         </Link>
-        <Link href="">
+        <Link href="/catagories/cardio">
           <h2 className="w-full py-10 text-center bg-slate-400">Cardio</h2>
+        </Link>
+        <Link href="/catagories/combat">
+          <h2 className="w-full py-10 text-center bg-slate-400">Combat</h2>
         </Link>
       </div>
     </div>
