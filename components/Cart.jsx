@@ -191,11 +191,17 @@ const Cart = () => {
           {cartItems.length >= 1 &&
             groupArr.map((group) => (
               <div>
-                <h1>{group[0].name}</h1>
-                <img
-                  src={urlFor(group[0].image && group[0].image)}
-                  alt="class thumbnail"
-                />
+                <Link href={`/product/${group[0].class}`}>
+                  <h1 onClick={() => setShowCart(false)}>{group[0].name}</h1>
+                </Link>
+                <Link href={`/product/${group[0].class}`}>
+                  <img
+                    onClick={() => setShowCart(false)}
+                    src={urlFor(group[0].image && group[0].image)}
+                    alt="class thumbnail"
+                  />
+                </Link>
+
                 {group.map((session) => (
                   <div>
                     <p>
