@@ -8,6 +8,7 @@ import {
 } from "react-icons/ai";
 import Product from "../../components/Product";
 import { useStateContext } from "../../context/StateContext";
+import Link from "next/link";
 
 // Fetch class details and avaible sessions
 export const getStaticProps = async ({ params: { slug } }) => {
@@ -39,6 +40,8 @@ export const getStaticPaths = async () => {
       slug: product.slug.current,
     },
   }));
+
+  console.log(paths);
 
   return {
     paths,
@@ -78,8 +81,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
   const classTrainer = trainers.find(
     (trainer) => trainer.name === product.trainer
   );
-  console.log(trainers[1].name);
-  console.log(product.trainer);
+
   console.log(classTrainer);
   // console.log(trainers);
 
@@ -140,6 +142,9 @@ const ProductDetails = ({ product, sessions, trainers }) => {
         />
         <h1>{classTrainer.name}</h1>
         <p> {classTrainer.desc}</p>
+        <Link href={`/trainer/${classTrainer.slug.current}`}>
+          <button type="button">more</button>
+        </Link>
       </div>
     </div>
   );
