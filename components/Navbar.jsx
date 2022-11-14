@@ -11,15 +11,25 @@ const Navbar = () => {
 
   function handleClose() {
     setShowMobileMenu(false);
-    console.log("clicked");
   }
+
+  // function handleLogoClick() {
+  //   if (showCart === true) {
+
+  //   }
+  // }
 
   return (
     <div className="z-30 flex items-center justify-between px-4 py-3 bg-red-400">
       {/* logo */}
       <p>
         <Link href="/">
-          <h1 className="text-3xl font-medium">STUDIO 7</h1>
+          <h1
+            // onClick={showCart && setShowCart(false)}
+            className="text-3xl font-medium"
+          >
+            STUDIO 7
+          </h1>
         </Link>
       </p>
       {/* cart icon */}

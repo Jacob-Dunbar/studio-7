@@ -154,7 +154,12 @@ const Cart = () => {
         {/* Logo */}
         <p>
           <Link href="/">
-            <h1 className="text-3xl font-medium">STUDIO 7</h1>
+            <h1
+              onClick={() => setShowCart(false)}
+              className="text-3xl font-medium"
+            >
+              STUDIO 7
+            </h1>
           </Link>
         </p>
         {/* Close */}
