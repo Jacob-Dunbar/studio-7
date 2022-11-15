@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
         <header className="z-30">
           <Navbar />
         </header>
-        <main className="flex-grow bg-green-200 ">{children}</main>
+        <main className="flex-grow bg-green-200 h-5/6 ">{children}</main>
       </div>
       <footer>
         <Footer />
