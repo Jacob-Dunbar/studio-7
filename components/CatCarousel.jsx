@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { AiOutlineClose } from "react-icons/ai";
 
 export const CatCarousel = () => {
   const router = useRouter();
@@ -38,19 +39,30 @@ export const CatCarousel = () => {
 
   const currentPage = chooseCurrentPage();
 
-  const Array = chooseArray();
+  const array = chooseArray();
 
   return (
     <div className="flex w-screen gap-2 px-5 my-4 overflow-scroll ">
-      {Array.map((catagory) => (
-        <Link href={`/catagories/${catagory.toLowerCase()}`}>
-          <div>
-            <p className={currentPage === catagory ? "chip-active" : "chip"}>
-              {catagory}
-            </p>
-          </div>
-        </Link>
-      ))}
+      {array.map((catagory) => {
+        if (catagory === currentPage) {
+          return (
+            <Link href={`/catagories/all`}>
+              <div className="flex items-center gap-1 chip-active">
+                <p className="">{catagory}</p>
+                <AiOutlineClose />
+              </div>
+            </Link>
+          );
+        } else {
+          return (
+            <Link href={`/catagories/${catagory.toLowerCase()}`}>
+              <div>
+                <p className="chip">{catagory}</p>
+              </div>
+            </Link>
+          );
+        }
+      })}
     </div>
   );
 };
