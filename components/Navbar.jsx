@@ -48,12 +48,14 @@ const Navbar = () => {
       {/* cart ui */}
       {showCart && <Cart />}
       {/* mobile menu button */}
-      <div
-        onClick={() => setShowMobileMenu(true)}
-        className="fixed flex items-center justify-center w-16 h-16 bg-white rounded-full bg-opacity-60 bottom-10 right-10"
-      >
-        <AiOutlineMenu className="w-6 h-6 " />
-      </div>
+      {!showMobileMenu && (
+        <div
+          onClick={() => setShowMobileMenu(true)}
+          className="fixed flex items-center justify-center w-16 h-16 bg-white rounded-full bg-opacity-60 bottom-10 right-10"
+        >
+          <AiOutlineMenu className="w-6 h-6 " />
+        </div>
+      )}
       {/* Mobile menu */}
       {showMobileMenu && <MobileMenu close={setShowMobileMenu} />}
     </div>

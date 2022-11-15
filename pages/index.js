@@ -2,7 +2,10 @@ import Link from "next/link";
 
 const index = () => {
   return (
-    <div className="absolute top-0 z-20 flex flex-col justify-center bg-yellow-200 ">
+    <section
+      id="home"
+      className="absolute top-0 z-20 flex flex-col justify-center "
+    >
       <img
         className="object-cover object-right h-screen"
         src="/images/home-bg2.jpg"
@@ -24,7 +27,7 @@ const index = () => {
           nulla eu morbi euismod porttitor.
         </p>
       </section>
-    </div>
+    </section>
   );
 };
 
