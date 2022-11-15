@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { AiOutlineClose } from "react-icons/ai";
+import { useUser } from "@auth0/nextjs-auth0";
 
 const MobileMenu = (props) => {
+  const { user, error, isLoading } = useUser();
+  console.log(user);
   return (
     // Container
     <div className="absolute flex flex-col justify-start items-center bottom-0 left-0 w-full h-[90%] bg-slate-500">
@@ -14,6 +17,23 @@ const MobileMenu = (props) => {
       </div>
       {/* Menu */}
       <div className="flex flex-col items-center justify-center flex-grow w-full gap-6 bg-yellow-200">
+        {!user ? (
+          <Link href="/api/auth/login">
+            <h1 onClick={() => props.close(false)} className="text-4xl ">
+              login
+            </h1>
+          </Link>
+        ) : (
+          <div>
+            <img src={user.picture} alt="user profile picture" />
+            <h1>{user.given_name}</h1>
+            <Link href="/api/auth/logout">
+              <h1 onClick={() => props.close(false)} className="text-4xl ">
+                log out
+              </h1>
+            </Link>
+          </div>
+        )}
         <Link href="/">
           <h1 onClick={() => props.close(false)} className="text-4xl ">
             Home

@@ -12,7 +12,7 @@ export default async function handler(req, res) {
         payment_method_types: ["card"],
         billing_address_collection: "auto",
         line_items: req.body.map((item) => {
-          const img = item.image[0].asset._ref;
+          const img = item.image.asset._ref;
           const newImage = img
             .replace(
               "image-",

@@ -4,10 +4,12 @@ import { AiOutlineShopping, AiOutlineMenu } from "react-icons/ai";
 import Cart from "./Cart.jsx";
 import { useStateContext } from "../context/StateContext";
 import MobileMenu from "../components/MobileMenu";
+import { useUser } from "@auth0/nextjs-auth0";
 
 const Navbar = () => {
   const { cartItems, showCart, setShowCart } = useStateContext();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const { user, error, isLoading } = useUser();
 
   function handleClose() {
     setShowMobileMenu(false);
