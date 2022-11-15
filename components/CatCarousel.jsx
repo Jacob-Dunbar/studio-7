@@ -41,7 +41,7 @@ export const CatCarousel = () => {
   const Array = chooseArray();
 
   return (
-    <div className="flex w-screen gap-2 pl-5 my-4 overflow-scroll ">
+    <div className="flex w-screen gap-2 px-5 my-4 overflow-scroll ">
       {Array.map((catagory) => (
         <Link href={`/catagories/${catagory.toLowerCase()}`}>
           <div>
