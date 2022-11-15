@@ -5,7 +5,7 @@ import { urlFor } from "../lib/client";
 import { useRouter } from "next/router";
 
 const Product = (
-  { product: { image, name, slug, price, catagories, details } },
+  { product: { image, name, slug, price, catagories, details, length } },
   page
 ) => {
   const router = useRouter();

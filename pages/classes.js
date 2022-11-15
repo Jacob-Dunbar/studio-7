@@ -23,13 +23,15 @@ const Classes = ({ products, bannerData, trainers }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <div className="flex flex-col items-center w-full py-4 bg-green-200">
-      <input
-        className="pl-4 text-left searchBar"
-        type="text"
-        placeholder="search"
-        onChange={(event) => setSearchTerm(event.target.value)}
-      />
+    <div className="flex flex-col items-center py-4">
+      <div className="w-full px-5 ">
+        <input
+          className="pl-4 text-left searchBar"
+          type="text"
+          placeholder="search"
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+      </div>
 
       {!searchTerm ? (
         <div className="flex flex-col items-center w-full gap-3 mt-6 text-2xl">

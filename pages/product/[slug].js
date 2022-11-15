@@ -65,7 +65,7 @@ Date.prototype.addDays = function (days) {
 const date = new Date();
 
 const ProductDetails = ({ product, sessions, trainers }) => {
-  const { image, name, details, price, catagories } = product;
+  const { image, name, details, price, catagories, length } = product;
   const { onAdd } = useStateContext();
 
   // const sessionByDate = sessions.sort((a, b) => {
@@ -78,7 +78,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
     (trainer) => trainer.name === product.trainer
   );
 
-  console.log(image);
+  console.log(product);
   return (
     <div>
       <div>
@@ -86,7 +86,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
           <div className="flex w-full h-64 my-3 overflow-scroll bg-red-50">
             {image.map((image) => (
               <img
-                className="object-cover max-w-none"
+                className="object-cover"
                 src={urlFor(image)}
                 key={image._key}
                 alt="class image"
