@@ -7,12 +7,13 @@ import MobileMenu from "../components/MobileMenu";
 import { useUser } from "@auth0/nextjs-auth0";
 
 const Navbar = () => {
-  const { cartItems, showCart, setShowCart } = useStateContext();
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const { cartItems, showCart, setShowCart, showMenu, setShowMenu } =
+    useStateContext();
+  // const [showMobileMenu, setShowMobileMenu] = useState(false);
   const { user, error, isLoading } = useUser();
 
   function handleClose() {
-    setShowMobileMenu(false);
+    setShowMenu(false);
   }
 
   // function handleLogoClick() {
@@ -48,16 +49,16 @@ const Navbar = () => {
       {/* cart ui */}
       {showCart && <Cart />}
       {/* mobile menu button */}
-      {!showMobileMenu && (
+      {!showMenu && (
         <div
-          onClick={() => setShowMobileMenu(true)}
+          onClick={() => setShowMenu(true)}
           className="fixed flex items-center justify-center w-16 h-16 bg-white rounded-full bg-opacity-60 bottom-10 right-10"
         >
           <AiOutlineMenu className="w-6 h-6 " />
         </div>
       )}
       {/* Mobile menu */}
-      {showMobileMenu && <MobileMenu close={setShowMobileMenu} />}
+      {showMenu && <MobileMenu close={setShowMenu} />}
     </div>
   );
 };

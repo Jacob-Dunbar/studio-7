@@ -24,34 +24,87 @@ const Classes = ({ products, bannerData, trainers }) => {
 
   console.log(trainers);
   return (
-    <div className="py-4 ">
+    <div className="flex flex-col items-center py-4">
       <input
+        className=" button w-[90%] text-left pl-4"
         type="text"
         placeholder="search"
         onChange={(event) => setSearchTerm(event.target.value)}
       />
-      <div className="button"> search </div>
+
       {!searchTerm ? (
-        <div className="flex flex-col items-center gap-5 mt-6 text-2xl">
-          <Link href="/catagories/mindfulness">
-            <h2 className="w-full py-10 text-center bg-slate-400">
-              Mindfulness
-            </h2>
+        <div className="flex flex-col items-center w-full gap-3 mt-6 text-2xl">
+          <Link className="bg-mind" href="/catagories/mindfulness">
+            <div className="relative w-full">
+              <h2 className="w-full py-20 font-semibold text-center text-white bg-black bg-opacity-50">
+                Mindfulness
+              </h2>
+              <img
+                src="/images/mindfulness-bg.jpg"
+                className="absolute top-0 object-cover object-top w-full h-full opacity-60 -z-20"
+                alt=""
+              />
+            </div>
           </Link>
           <Link href="/catagories/strength">
-            <h2 className="w-full py-10 text-center bg-slate-400">Strength</h2>
+            <div className="relative w-full">
+              <h2 className="w-full py-20 font-semibold text-center text-white bg-black bg-opacity-50">
+                Strength
+              </h2>
+              <img
+                src="/images/strength-bg.jpg"
+                className="absolute top-0 object-cover object-top w-full h-full opacity-60 -z-20"
+                alt=""
+              />
+            </div>
           </Link>
           <Link href="/catagories/mobility">
-            <h2 className="w-full py-10 text-center bg-slate-400">Mobilty</h2>
+            <div className="relative w-full">
+              <h2 className="w-full py-20 font-semibold text-center text-white bg-black bg-opacity-50">
+                Mobility
+              </h2>
+              <img
+                src="/images/mobility-bg.jpg"
+                className="absolute top-0 object-cover object-center w-full h-full opacity-60 -z-20"
+                alt=""
+              />
+            </div>
           </Link>
           <Link href="/catagories/cardio">
-            <h2 className="w-full py-10 text-center bg-slate-400">Cardio</h2>
+            <div className="relative w-full">
+              <h2 className="w-full py-20 font-semibold text-center text-white bg-black bg-opacity-50">
+                Cardio
+              </h2>
+              <img
+                src="/images/cardio-bg.jpg"
+                className="absolute top-0 object-cover object-top w-full h-full opacity-60 -z-20"
+                alt=""
+              />
+            </div>
           </Link>
           <Link href="/catagories/combat">
-            <h2 className="w-full py-10 text-center bg-slate-400">Combat</h2>
+            <div className="relative w-full">
+              <h2 className="w-full py-20 font-semibold text-center text-white bg-black bg-opacity-50">
+                Combat
+              </h2>
+              <img
+                src="/images/combat-bg.jpg"
+                className="absolute top-0 object-cover object-top w-full h-full opacity-60 -z-20"
+                alt=""
+              />
+            </div>
           </Link>
           <Link href="/catagories/all">
-            <h2 className="w-full py-10 text-center bg-slate-400">All</h2>
+            <div className="relative w-full">
+              <h2 className="w-full py-20 font-semibold text-center text-white bg-black bg-opacity-50">
+                All
+              </h2>
+              <img
+                src="/images/all-bg.jpg"
+                className="absolute top-0 object-cover object-top w-full h-full opacity-60 -z-20"
+                alt=""
+              />
+            </div>
           </Link>
         </div>
       ) : (

@@ -6,6 +6,7 @@ const Context = createContext();
 export const StateContext = ({ children }) => {
   // Set show cart here not in navbar because we open from outside navbar
   const [showCart, setShowCart] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -73,6 +74,8 @@ export const StateContext = ({ children }) => {
       value={{
         showCart,
         setShowCart,
+        showMenu,
+        setShowMenu,
         cartItems,
         totalPrice,
 

@@ -4,10 +4,10 @@ import { useUser } from "@auth0/nextjs-auth0";
 
 const MobileMenu = (props) => {
   const { user, error, isLoading } = useUser();
-  console.log(user);
+
   return (
     // Container
-    <div className="absolute flex flex-col justify-start items-center bottom-0 left-0 w-full h-[90%] bg-opacity-50  bg-white">
+    <div className="fixed flex flex-col justify-start items-center bottom-0 left-0 w-full h-[90%] backdrop-blur-3xl   backdrop-brightness-150 ">
       {/* Close icon */}
       <div
         onClick={() => props.close(false)}

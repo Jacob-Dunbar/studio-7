@@ -6,7 +6,16 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        all: "url('/images/all-bg.jpg')",
+        mind: "url('/images/mindfulness-bg.jpg')",
+        strength: "url('/images/strength-bg.jpg')",
+        mobility: "url('/images/mobility-bg.jpg')",
+        cardio: "url('/images/cardio-bg.jpg')",
+        combat: "url('/images/combat-bg.jpg')",
+      },
+    },
   },
   plugins: [],
 };
