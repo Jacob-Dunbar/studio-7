@@ -22,18 +22,18 @@ const Navbar = () => {
   // }
 
   return (
-    <div className="z-30 flex items-center justify-between px-4 py-3 bg-red-400">
+    <div className="z-30 flex items-center justify-between px-4 py-3">
       {/* logo */}
-      <p>
-        <Link href="/">
-          <h1
-            // onClick={showCart && setShowCart(false)}
-            className="text-3xl font-medium"
-          >
-            STUDIO 7
-          </h1>
-        </Link>
-      </p>
+
+      <Link href="/">
+        <h1
+          // onClick={showCart && setShowCart(false)}
+          className="pt-2 text-4xl font-semibold"
+        >
+          STUDIO 7
+        </h1>
+      </Link>
+
       {/* cart icon */}
       <button
         className="relative "
@@ -50,7 +50,7 @@ const Navbar = () => {
       {/* mobile menu button */}
       <div
         onClick={() => setShowMobileMenu(true)}
-        className="fixed flex items-center justify-center w-16 h-16 bg-blue-500 rounded-full bottom-10 right-10"
+        className="fixed flex items-center justify-center w-16 h-16 bg-white rounded-full bg-opacity-60 bottom-10 right-10"
       >
         <AiOutlineMenu className="w-6 h-6 " />
       </div>

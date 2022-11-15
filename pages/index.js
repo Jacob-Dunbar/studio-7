@@ -5,7 +5,7 @@ const index = () => {
     <div className="absolute top-0 z-20 flex flex-col justify-center bg-yellow-200 ">
       <img
         className="object-cover object-right h-screen"
-        src="/images/yoga1.jpg"
+        src="/images/home-bg2.jpg"
         alt="background"
       />
       <button className=" absolute bottom-52 button w-[80%]" type="button">
