@@ -48,7 +48,6 @@ export const getStaticPaths = async () => {
 };
 
 const trainer = ({ trainer, products }) => {
-  console.log(products);
   return (
     <div>
       <div>

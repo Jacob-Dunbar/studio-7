@@ -41,8 +41,6 @@ export const getStaticPaths = async () => {
     },
   }));
 
-  console.log(paths);
-
   return {
     paths,
     fallback: "blocking",
@@ -74,16 +72,11 @@ const ProductDetails = ({ product, sessions, trainers }) => {
   //   return a.number - b.number;
   // });
 
-  // console.log(sessionByDate);
-
   // Selection right trainer for this class from trainers array
 
   const classTrainer = trainers.find(
     (trainer) => trainer.name === product.trainer
   );
-
-  console.log(classTrainer);
-  // console.log(trainers);
 
   return (
     <div>

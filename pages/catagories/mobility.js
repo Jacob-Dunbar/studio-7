@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Product from "../../components/Product";
 import { client } from "../../lib/client";
+import { CatCarousel } from "../../components/CatCarousel";
 
 export const getServerSideProps = async () => {
   const query = '*[_type == "class" && "Mobility" in catagories]';
@@ -20,16 +21,17 @@ const mobility = ({ products, trainers }) => {
 
   return (
     <div className="flex flex-col items-center py-4">
-      <input
-        className="pl-4 text-left searchBar"
-        type="text"
-        placeholder="search"
-        onChange={(event) => setSearchTerm(event.target.value)}
-      />
-
+      <div className="w-full px-5 ">
+        <input
+          className="pl-4 text-left searchBar"
+          type="text"
+          placeholder="search"
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+      </div>
+      <CatCarousel />
       {!searchTerm ? (
         <div>
-          <h1>Mind</h1>
           <div className="">
             {products?.map((product) => (
               <Product

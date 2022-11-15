@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { urlFor } from "../lib/client";
-import Chip from "./Chip.jsx";
+
 import { useRouter } from "next/router";
 
 const Product = (
@@ -9,7 +9,7 @@ const Product = (
   page
 ) => {
   const router = useRouter();
-  console.log(catagories);
+
   function chooseCurrentPage() {
     if (router.pathname === "/catagories/cardio") {
       return "Cardio";
@@ -28,7 +28,6 @@ const Product = (
 
   const currentPage = chooseCurrentPage();
 
-  console.log(currentPage);
   return (
     <div>
       <div className="flex justify-center mb-5 cursor-pointer bg-slate-100">

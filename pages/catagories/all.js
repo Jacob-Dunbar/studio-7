@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Product from "../../components/Product";
 import { client } from "../../lib/client";
+import { CatCarousel } from "../../components/CatCarousel";
 
 export const getServerSideProps = async () => {
   const query = '*[_type == "class"]';
@@ -26,7 +27,7 @@ const cardio = ({ products, trainers }) => {
         placeholder="search"
         onChange={(event) => setSearchTerm(event.target.value)}
       />
-
+      <CatCarousel />
       {!searchTerm ? (
         <div>
           <h1>Mind</h1>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CatCarousel } from "../../components/CatCarousel";
 import Product from "../../components/Product";
 import { client } from "../../lib/client";
 
@@ -21,15 +22,17 @@ const cardio = ({ products, trainers }) => {
 
   return (
     <div className="flex flex-col items-center py-4">
-      <input
-        className="pl-4 text-left searchBar"
-        type="text"
-        placeholder="search"
-        onChange={(event) => setSearchTerm(event.target.value)}
-      />
+      <div className="w-full px-5 ">
+        <input
+          className="pl-4 text-left searchBar"
+          type="text"
+          placeholder="search"
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+      </div>
+      <CatCarousel />
       {!searchTerm ? (
-        <div>
-          <h1>Mind</h1>
+        <div className="flex flex-col w-full">
           <div className="">
             {products?.map((product) => (
               <Product
