@@ -17,6 +17,8 @@ export const getServerSideProps = async () => {
 
 const cardio = ({ products, trainers }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [page, setPage] = useState("cardio");
+
   return (
     <div className="flex flex-col items-center py-4">
       <input
@@ -34,6 +36,7 @@ const cardio = ({ products, trainers }) => {
                 key={product._id}
                 trainers={trainers}
                 product={product}
+                page={page}
               />
             ))}
           </div>

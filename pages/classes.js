@@ -24,7 +24,7 @@ const Classes = ({ products, bannerData, trainers }) => {
 
   console.log(trainers);
   return (
-    <div className="flex flex-col items-center py-4">
+    <div className="flex flex-col items-center w-full py-4 bg-green-200">
       <input
         className="pl-4 text-left searchBar"
         type="text"
