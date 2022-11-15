@@ -11,10 +11,12 @@ import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
 import getStripe from "../lib/getStripe";
 import Button from "../components/Button";
+import { useUser } from "@auth0/nextjs-auth0";
 
 const Cart = () => {
   const cartRef = useRef();
   const { totalPrice, cartItems, setShowCart, onRemove } = useStateContext();
+  const { user, error, isLoading } = useUser();
 
   // Sort cart into groups
   const groupSessions = (cartItems) => {
@@ -171,6 +173,7 @@ const Cart = () => {
 
       <div className="flex flex-col justify-start flex-grow py-4 bg-yellow-100">
         <div>
+          {user && <h1>Hello {user.given_name}</h1>}
           <h2 className="px-4 text-xl">Your Basket :</h2>
         </div>
         <div className="flex flex-col items-center gap-4 my-4">
@@ -222,10 +225,18 @@ const Cart = () => {
         {cartItems.length >= 1 && (
           <div className="flex flex-col justify-end flex-grow gap-4 px-4 bg-blue-300">
             <h3 className="text-2xl ">Total : £{totalPrice}</h3>
-
-            <button className="button" type="button" onClick={handleCheckout}>
-              Pay with Stripe
-            </button>
+            {!user && <h4>Please login to checkout with Stripe</h4>}
+            {user ? (
+              <button className="button" type="button" onClick={handleCheckout}>
+                Pay with Stripe
+              </button>
+            ) : (
+              <Link href="/api/auth/login">
+                <button className="button" type="button">
+                  Login
+                </button>
+              </Link>
+            )}
           </div>
         )}
       </div>

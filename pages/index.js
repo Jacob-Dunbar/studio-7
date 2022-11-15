@@ -11,9 +11,9 @@ const index = () => {
       <button className=" absolute bottom-52 button w-[80%]" type="button">
         <Link href="/classes">Check out out classes</Link>
       </button>
-      <button className=" absolute  bottom-40 button w-[80%]" type="button">
+      {/* <button className=" absolute  bottom-40 button w-[80%]" type="button">
         <Link href="/api/auth/login">login</Link>
-      </button>
+      </button> */}
     </div>
   );
 };
