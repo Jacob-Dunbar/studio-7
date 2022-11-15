@@ -65,7 +65,7 @@ Date.prototype.addDays = function (days) {
 const date = new Date();
 
 const ProductDetails = ({ product, sessions, trainers }) => {
-  const { image, name, details, price } = product;
+  const { image, name, details, price, catagories } = product;
   const { onAdd } = useStateContext();
 
   // const sessionByDate = sessions.sort((a, b) => {
@@ -78,66 +78,79 @@ const ProductDetails = ({ product, sessions, trainers }) => {
     (trainer) => trainer.name === product.trainer
   );
 
+  console.log(image);
   return (
     <div>
       <div>
-        <div>
-          <div>
-            <img src={urlFor(image && image[0])} alt="" />
-          </div>
-          {/* <div>
-            {image?.map((item, index) => (
-                <img src={urlFor(item)} />
+        <div className="flex flex-col justify-center ">
+          <div className="flex w-full h-64 my-3 overflow-scroll bg-red-50">
+            {image.map((image) => (
+              <img
+                className="object-cover max-w-none"
+                src={urlFor(image)}
+                key={image._key}
+                alt="class image"
+              />
             ))}
-          </div> */}
-          {/* <h1>{date}</h1> */}
-          {/* <h1>{date.addDays(5)}</h1> */}
-        </div>
-        <div>
-          <h1>{name}</h1>
-          <div className="flex items-center">
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiOutlineStar />
-            <p>(20)</p>
           </div>
+          <div className=" flex flex-col gap-3  self-center w-[90%]">
+            <p className="text-3xl font-semibold">{name}</p>
+            <div className="flex gap-3 -my-1 text-sm font-bold text-gray-500">
+              <p>{length} hour</p>
+              <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+              <p>Low intensity</p>
+              <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+              <p>£{price}</p>
+            </div>
+            <div className="flex gap-2 ">
+              {catagories.map((catagory) => (
+                <p className="chip-active">{catagory}</p>
+              ))}
+            </div>
+            <p className="mb-5 text-sm leading-5 indent-5">{details}</p>
+          </div>
+          <section className="flex flex-col justify-center bg-gray-100 px-7 py-7 ">
+            <h1 className="mb-4 text-xl">Upcoming classes :</h1>
+            <div className="flex flex-col gap-3">
+              {sessions.map((session) => (
+                <div className="flex justify-end gap-5 ">
+                  <p className="flex-grow text-lg">
+                    {date
+                      .addDays(session.number)
+                      .toLocaleDateString("en-GB", options)}
+                  </p>
+                  <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
 
-          <h4>Details</h4>
-          <p>{details}</p>
-          <p>£{price}</p>
+                  <p>{session.time}</p>
+                  <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+
+                  <button
+                    className="px-2 text-xs button"
+                    type="button"
+                    onClick={() => onAdd(session)}
+                  >
+                    Add To Cart
+                  </button>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
 
-        {sessions.map((session) => (
-          <div>
-            <p>
-              {date
-                .addDays(session.number)
-                .toLocaleDateString("en-GB", options)}
-            </p>
-            <p>{session.time}</p>{" "}
-            <button
-              className="px-2 bg-blue-300"
-              type="button"
-              onClick={() => onAdd(session)}
-            >
-              Add To Cart
+        <div className="flex flex-col items-center w-full gap-4 mt-5">
+          <img
+            className="w-2/3 rounded-full "
+            src={urlFor(classTrainer.image && classTrainer.image)}
+            alt="trainer profile picture"
+          />
+          <h1 className="text-xl ">{classTrainer.name}</h1>
+          <p className=" w-[90%] indent-5"> {classTrainer.desc}</p>
+          <Link href={`/trainer/${classTrainer.slug.current}`}>
+            <button className="button w-[90%] mb-5" type="button">
+              Learn More
             </button>
-          </div>
-        ))}
-      </div>
-
-      <div>
-        <img
-          src={urlFor(classTrainer.image && classTrainer.image)}
-          alt="trainer profile picture"
-        />
-        <h1>{classTrainer.name}</h1>
-        <p> {classTrainer.desc}</p>
-        <Link href={`/trainer/${classTrainer.slug.current}`}>
-          <button type="button">more</button>
-        </Link>
+          </Link>
+        </div>
       </div>
     </div>
   );
