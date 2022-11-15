@@ -26,7 +26,7 @@ const Classes = ({ products, bannerData, trainers }) => {
   return (
     <div className="flex flex-col items-center py-4">
       <input
-        className=" button w-[90%] text-left pl-4"
+        className="pl-4 text-left searchBar"
         type="text"
         placeholder="search"
         onChange={(event) => setSearchTerm(event.target.value)}

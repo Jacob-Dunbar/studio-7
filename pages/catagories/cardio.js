@@ -18,13 +18,13 @@ export const getServerSideProps = async () => {
 const cardio = ({ products, trainers }) => {
   const [searchTerm, setSearchTerm] = useState("");
   return (
-    <div className="py-4 ">
+    <div className="flex flex-col items-center py-4">
       <input
+        className="pl-4 text-left searchBar"
         type="text"
         placeholder="search"
         onChange={(event) => setSearchTerm(event.target.value)}
       />
-      <div className="button"> search </div>
       {!searchTerm ? (
         <div>
           <h1>Mind</h1>
