@@ -65,7 +65,8 @@ Date.prototype.addDays = function (days) {
 const date = new Date();
 
 const ProductDetails = ({ product, sessions, trainers }) => {
-  const { image, name, details, price, catagories, length } = product;
+  const { image, name, details, price, catagories, length, intensity } =
+    product;
   const { onAdd } = useStateContext();
 
   // const sessionByDate = sessions.sort((a, b) => {
@@ -97,7 +98,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             <div className="flex gap-3 -my-1 text-sm font-bold text-gray-500">
               <p>{length} hour</p>
               <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
-              <p>Low intensity</p>
+              <p>{intensity}</p>
               <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
               <p>£{price}</p>
             </div>
@@ -146,7 +147,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
           <p className=" w-[90%] indent-5"> {classTrainer.desc}</p>
           <Link href={`/trainer/${classTrainer.slug.current}`}>
             <button className="button w-[90%] mb-5" type="button">
-              Learn More
+              More about {classTrainer.firstName}
             </button>
           </Link>
         </div>

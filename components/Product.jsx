@@ -4,10 +4,9 @@ import { urlFor } from "../lib/client";
 
 import { useRouter } from "next/router";
 
-const Product = (
-  { product: { image, name, slug, price, catagories, details, length } },
-  page
-) => {
+const Product = ({
+  product: { image, name, slug, price, catagories, details, length, intensity },
+}) => {
   const router = useRouter();
 
   function chooseCurrentPage() {
@@ -42,7 +41,7 @@ const Product = (
             <div className="flex gap-3 -my-1 text-sm font-bold text-gray-500">
               <p>{length} hour</p>
               <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
-              <p>Low intensity</p>
+              <p>{intensity}</p>
               <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
               <p>£{price}</p>
             </div>
