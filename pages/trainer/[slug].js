@@ -71,8 +71,8 @@ const trainer = ({ trainer, products }) => {
       </div>
       <p className=" w-[90%] my-5 indent-5">{trainer[0].desc}</p>
 
-      <div className="flex flex-col items-center w-full text-xl">
-        <h3 className="mb-5 w-[90%]">{`Classes taught by ${trainer[0].name} :`}</h3>
+      <div className="flex flex-col items-center w-full ">
+        <h3 className="mb-5 text-xl w-[90%]">{`Classes taught by ${trainer[0].firstName} :`}</h3>
         {products
           .filter((product) => product.trainer === trainer[0].name)
           .map((product) => (

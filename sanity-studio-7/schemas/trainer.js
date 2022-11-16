@@ -22,6 +22,11 @@ export default {
       title: "Name",
       type: "string",
     },
+    {
+      name: "firstName",
+      title: "First Name",
+      type: "string",
+    },
 
     {
       name: "quote",
