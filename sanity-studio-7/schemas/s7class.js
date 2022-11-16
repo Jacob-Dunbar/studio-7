@@ -32,8 +32,13 @@ export default {
       type: "number",
     },
     {
+      name: "intensity",
+      title: "Intensity",
+      type: "string",
+    },
+    {
       name: "catagories",
-      title: "Catagories",
+      title: "catagories",
       type: "array",
       of: [{ type: "string" }],
     },
