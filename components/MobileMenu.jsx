@@ -20,12 +20,10 @@ const MobileMenu = (props) => {
 
       <div className="flex flex-col items-center justify-center flex-grow w-full gap-6 ">
         {user && (
-          <div className="pl-1 ">
-            <img
-              className="pl-1 mb-5 rounded-full"
-              src={user.picture}
-              alt="user profile picture"
-            />
+          <div className="flex flex-col items-center w-full gap-5 pl-1">
+            <div className="flex items-center justify-center bg-gray-400 bg-opacity-50 rounded-full w-fit aspect-square ">
+              <h1 className="p-5 text-4xl ">{user.given_name.charAt(0)}</h1>
+            </div>
             <div className="flex gap-1 text-lg mb-9">
               <p>Hello, </p>
               <span className="font-bold ">{user.given_name}</span>

@@ -23,7 +23,7 @@ const combat = ({ products, trainers }) => {
     <div className="flex flex-col items-center py-4">
       <div className="w-full px-5 ">
         <input
-          className="pl-4 text-left searchBar"
+          className="pl-4 text-left outline-none searchBar"
           type="text"
           placeholder="search"
           onChange={(event) => setSearchTerm(event.target.value)}

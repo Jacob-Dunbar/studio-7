@@ -78,12 +78,11 @@ const ProductDetails = ({ product, sessions, trainers }) => {
     (trainer) => trainer.name === product.trainer
   );
 
- 
   return (
     <div>
       <div>
         <div className="flex flex-col justify-center ">
-          <div className="flex w-full h-64 my-3 overflow-scroll bg-red-50">
+          <div className="flex w-full h-64 my-3 overflow-scroll ">
             {image.map((image) => (
               <img
                 className="object-cover"
