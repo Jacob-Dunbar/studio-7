@@ -150,7 +150,7 @@ const Cart = () => {
   return (
     // Container
     <div
-      className="fixed top-0 right-0 z-10 flex flex-col w-full h-full bg-gray-100"
+      className="fixed top-0 right-0 z-10 flex flex-col w-screen h-screen overflow-scroll bg-gray-100 min-h-none"
       ref={cartRef}
     >
       {/* Header */}
@@ -173,71 +173,84 @@ const Cart = () => {
         />
       </div>
       {/* Main cart */}
-      <div className="flex flex-col justify-start flex-grow w-full py-4">
+      <div className="flex flex-col justify-start flex-grow w-full h-full py-4 overflow-scroll">
         {/* Hello user and basket intro */}
+
         <div>
-          {user && <h1>Hello {user.given_name}</h1>}
-          <h2 className="px-4 text-xl">Your Basket :</h2>
+          <h2 className="px-4 text-2xl">
+            {user ? user.given_name + "'s" : "Your"} Basket :
+          </h2>
         </div>
-        <div className="flex flex-col items-center gap-4 my-4">
+        <div className="flex flex-col items-center h-full gap-4 my-4 ">
           {/* Card contents - empty */}
           {cartItems.length < 1 && (
             // Container
-            <div className="flex flex-col items-center gap-4 ">
-              {/* Icon and tagline */}
-              <AiOutlineShopping className="w-12 h-12 " />
-              <h3 className="text-lg ">Your basket is empty</h3>
-              {/* Continue shopping button  */}
-              <button className="button" onClick={() => setShowCart(false)}>
+            <div className="flex flex-col items-center justify-between w-full h-full ">
+              <div className="flex flex-col items-center w-full gap-4 py-5 justify-self-end ">
+                {/* Icon and tagline */}
+                <AiOutlineShopping className="w-16 h-16 " />
+                <h3 className="text-lg ">Your basket is empty</h3>
+                {/* Continue shopping button  */}
+              </div>{" "}
+              <button
+                className="button justify-self-end w-[90%]"
+                onClick={() => setShowCart(false)}
+              >
                 <Link href="/"> Continue shopping</Link>
               </button>
             </div>
           )}
           {/* Card contents - full */}
-          <div className="flex flex-col w-full gap-5 ">
+          <div className="flex flex-col w-screen gap-5 ">
             {cartItems.length >= 1 &&
               // Group
-              groupArr.map((group) => (
-                <div className="flex w-full gap-4 px-4 py-4 bg-gray-50">
-                  <Link href={`/product/${group[0].class}`}>
-                    <img
-                      className="object-cover w-20 h-20 rounded-full"
-                      onClick={() => setShowCart(false)}
-                      src={urlFor(group[0].image && group[0].image)}
-                      alt="class thumbnail"
-                    />
-                  </Link>
-                  <div>
-                    <Link href={`/product/${group[0].class}`}>
-                      <h1
-                        className="mb-2 text-3xl font-semibold"
-                        onClick={() => setShowCart(false)}
-                      >
-                        {group[0].name}
-                      </h1>
-                    </Link>
-                    {/* sessions */}
-                    <div className="flex flex-col gap-2 ">
-                      {group.map((session) => (
-                        <div className="flex items-center justify-between gap-3 ">
-                          <p className="text-lg ">
-                            {date
-                              .addDays(session.number)
-                              .toLocaleDateString("en-GB", options)}
-                          </p>
-                          <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+              groupArr.map((group, i) => (
+                <div className="flex flex-col justify-center">
+                  {i > 0 && (
+                    <div className="self-center w-[6px] h-[6px] bg-gray-700 mb-5 rounded-full "></div>
+                  )}
 
-                          <p>{session.time}</p>
-                          <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
-                          <p>£{session.price}</p>
-                          <button
-                            onClick={() => onRemove(session)}
-                            type="button"
-                          >
-                            <TiDeleteOutline className="w-7 h-7 " />
-                          </button>
-                        </div>
-                      ))}
+                  <div className="flex w-screen gap-4 px-4 py-4 bg-gray-50">
+                    <Link href={`/product/${group[0].class}`}>
+                      <img
+                        className="object-cover w-20 h-20 rounded-full aspect-square"
+                        onClick={() => setShowCart(false)}
+                        src={urlFor(group[0].image && group[0].image)}
+                        alt="class thumbnail"
+                      />
+                    </Link>
+                    <div className="flex-grow ">
+                      <Link href={`/product/${group[0].class}`}>
+                        <h1
+                          className="mb-2 text-2xl font-semibold"
+                          onClick={() => setShowCart(false)}
+                        >
+                          {group[0].name}
+                        </h1>
+                      </Link>
+                      {/* sessions */}
+                      <div className="flex flex-col w-full gap-2 ">
+                        {group.map((session) => (
+                          <div className="flex items-center justify-between w-full ">
+                            <p className="text-md ">
+                              {date
+                                .addDays(session.number)
+                                .toLocaleDateString("en-GB", options)}
+                            </p>
+                            <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+
+                            <p className="text-md">{session.time}</p>
+                            <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+                            <p className="text-md">£{session.price}</p>
+                            <button
+                              onClick={() => onRemove(session)}
+                              type="button"
+                            >
+                              <TiDeleteOutline className="w-7 h-7 " />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
