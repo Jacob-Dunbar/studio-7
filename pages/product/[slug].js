@@ -78,7 +78,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
     (trainer) => trainer.name === product.trainer
   );
 
-  console.log(product);
+ 
   return (
     <div>
       <div>
@@ -113,8 +113,8 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             <h1 className="mb-4 text-xl">Upcoming classes :</h1>
             <div className="flex flex-col gap-3">
               {sessions.map((session) => (
-                <div className="flex justify-end gap-5 ">
-                  <p className="flex-grow text-lg">
+                <div className="flex justify-between gap-5 ">
+                  <p className="text-lg ">
                     {date
                       .addDays(session.number)
                       .toLocaleDateString("en-GB", options)}
@@ -139,11 +139,11 @@ const ProductDetails = ({ product, sessions, trainers }) => {
 
         <div className="flex flex-col items-center w-full gap-4 mt-5">
           <img
-            className="w-2/3 rounded-full "
+            className="w-1/2 rounded-full "
             src={urlFor(classTrainer.image && classTrainer.image)}
             alt="trainer profile picture"
           />
-          <h1 className="text-xl ">{classTrainer.name}</h1>
+          <h1 className="text-2xl font-semibold">{classTrainer.name}</h1>
           <p className=" w-[90%] indent-5"> {classTrainer.desc}</p>
           <Link href={`/trainer/${classTrainer.slug.current}`}>
             <button className="button w-[90%] mb-5" type="button">

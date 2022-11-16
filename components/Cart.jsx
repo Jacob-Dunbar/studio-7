@@ -148,17 +148,19 @@ const Cart = () => {
   };
 
   return (
+    // Container
     <div
-      className="fixed top-0 right-0 z-10 flex flex-col w-full h-full bg-red-500 "
+      className="fixed top-0 right-0 z-10 flex flex-col w-full h-full bg-gray-100"
       ref={cartRef}
     >
-      <div className="flex items-center justify-between px-4 py-4 bg-red-400">
+      {/* Header */}
+      <div className="flex items-center justify-between px-4 py-4 ">
         {/* Logo */}
         <p>
           <Link href="/">
             <h1
               onClick={() => setShowCart(false)}
-              className="text-3xl font-medium"
+              className="pt-1 text-4xl font-semibold"
             >
               STUDIO 7
             </h1>
@@ -170,8 +172,9 @@ const Cart = () => {
           onClick={() => setShowCart(false)}
         />
       </div>
-
-      <div className="flex flex-col justify-start flex-grow py-4 bg-yellow-100">
+      {/* Main cart */}
+      <div className="flex flex-col justify-start flex-grow w-full py-4">
+        {/* Hello user and basket intro */}
         <div>
           {user && <h1>Hello {user.given_name}</h1>}
           <h2 className="px-4 text-xl">Your Basket :</h2>
@@ -191,54 +194,79 @@ const Cart = () => {
             </div>
           )}
           {/* Card contents - full */}
-          {cartItems.length >= 1 &&
-            groupArr.map((group) => (
-              <div>
-                <Link href={`/product/${group[0].class}`}>
-                  <h1 onClick={() => setShowCart(false)}>{group[0].name}</h1>
-                </Link>
-                <Link href={`/product/${group[0].class}`}>
-                  <img
-                    onClick={() => setShowCart(false)}
-                    src={urlFor(group[0].image && group[0].image)}
-                    alt="class thumbnail"
-                  />
-                </Link>
-
-                {group.map((session) => (
+          <div className="flex flex-col w-full gap-5 ">
+            {cartItems.length >= 1 &&
+              // Group
+              groupArr.map((group) => (
+                <div className="flex w-full gap-4 px-4 py-4 bg-gray-50">
+                  <Link href={`/product/${group[0].class}`}>
+                    <img
+                      className="object-cover w-20 h-20 rounded-full"
+                      onClick={() => setShowCart(false)}
+                      src={urlFor(group[0].image && group[0].image)}
+                      alt="class thumbnail"
+                    />
+                  </Link>
                   <div>
-                    <p>
-                      {date
-                        .addDays(session.number)
-                        .toLocaleDateString("en-GB", options)}
-                    </p>
-                    <p>{session.time}</p>
-                    <p>£{session.price}</p>
-                    <button onClick={() => onRemove(session)} type="button">
-                      <TiDeleteOutline />
-                    </button>
+                    <Link href={`/product/${group[0].class}`}>
+                      <h1
+                        className="mb-2 text-3xl font-semibold"
+                        onClick={() => setShowCart(false)}
+                      >
+                        {group[0].name}
+                      </h1>
+                    </Link>
+                    {/* sessions */}
+                    <div className="flex flex-col gap-2 ">
+                      {group.map((session) => (
+                        <div className="flex items-center justify-between gap-3 ">
+                          <p className="text-lg ">
+                            {date
+                              .addDays(session.number)
+                              .toLocaleDateString("en-GB", options)}
+                          </p>
+                          <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+
+                          <p>{session.time}</p>
+                          <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+                          <p>£{session.price}</p>
+                          <button
+                            onClick={() => onRemove(session)}
+                            type="button"
+                          >
+                            <TiDeleteOutline className="w-7 h-7 " />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                ))}
-              </div>
-            ))}
-        </div>
-        {cartItems.length >= 1 && (
-          <div className="flex flex-col justify-end flex-grow gap-4 px-4 bg-blue-300">
-            <h3 className="text-2xl ">Total : £{totalPrice}</h3>
-            {!user && <h4>Please login to checkout with Stripe</h4>}
-            {user ? (
-              <button className="button" type="button" onClick={handleCheckout}>
-                Pay with Stripe
-              </button>
-            ) : (
-              <Link href="/api/auth/login">
-                <button className="button" type="button">
-                  Login
-                </button>
-              </Link>
-            )}
+                </div>
+              ))}
           </div>
-        )}
+        </div>
+        <div className="flex flex-col items-center justify-end flex-grow gap-3 ">
+          {cartItems.length >= 1 && (
+            <div className="flex flex-col w-full gap-4 px-4 ">
+              <h3 className="text-2xl ">Total : £{totalPrice}</h3>
+
+              {user ? (
+                <button
+                  className="button w-[95%] self-center"
+                  type="button"
+                  onClick={handleCheckout}
+                >
+                  Pay with Stripe
+                </button>
+              ) : (
+                <Link href="/api/auth/login">
+                  <button className="button w-[95%] self-center" type="button">
+                    Login to checkout
+                  </button>
+                </Link>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

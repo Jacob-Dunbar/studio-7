@@ -38,7 +38,7 @@ const Product = (
             alt=""
           />
           <div className=" flex flex-col gap-3  self-center w-[90%]">
-            <p className="text-3xl font-semibold">{name}</p>
+            <h1 className="text-3xl font-semibold">{name}</h1>
             <div className="flex gap-3 -my-1 text-sm font-bold text-gray-500">
               <p>{length} hour</p>
               <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>

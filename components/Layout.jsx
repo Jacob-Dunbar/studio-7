@@ -6,8 +6,10 @@ import { useStateContext } from "../context/StateContext";
 
 const Layout = ({ children }) => {
   const { showCart, showMenu } = useStateContext();
+
+  console.log(showMenu);
   return (
-    <div className={`flex flex-col ${showMenu && "   touch-none"}`}>
+    <div className={`flex flex-col ${showMenu ? "touch-none" : "touch-auto"} `}>
       <Head>
         <title>Studio 7</title>
       </Head>
@@ -15,7 +17,7 @@ const Layout = ({ children }) => {
         <header className="z-30">
           <Navbar />
         </header>
-        <main className="flex-grow h-5/6 ">{children}</main>
+        <main className="flex-grow overflow-scroll h-5/6 ">{children}</main>
       </div>
       <footer>
         <Footer />
