@@ -13,13 +13,13 @@ const Layout = ({ children }) => {
       <Head>
         <title>Studio 7</title>
       </Head>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col ">
         <header className="z-30">
           <Navbar />
         </header>
-        <main className="flex-grow overflow-scroll h-5/6 ">{children}</main>
+        <main className="flex-grow ">{children}</main>
       </div>
-      <footer>
+      <footer className="z-50 ">
         <Footer />
       </footer>
     </div>
