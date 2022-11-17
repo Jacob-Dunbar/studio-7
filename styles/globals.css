@@ -4,8 +4,20 @@
 
 @layer components {
   .button {
-    border: 2px solid black;
+    border: 2px solid #5a6856;
+    background: #5a6856;
+    color: #ffff;
 
+    text-align: center;
+    border-radius: 40px;
+    padding-block: 0.35rem;
+    font-weight: 400;
+  }
+  .button-sec {
+    border: 2px solid #5a6856;
+
+    color: #5a6856;
+    padding-block: 5px;
     text-align: center;
     border-radius: 40px;
     padding-block: 0.25rem;
@@ -21,17 +33,27 @@
   }
 
   .searchBar {
-    border: 2px solid black;
+    border: 2px solid #bababa;
+    background-color: #e9e9e9;
     width: 100%;
     text-align: center;
     border-radius: 40px;
     padding-block: 0.25rem;
     font-weight: 600;
   }
+  .searchBar:focus {
+    border: 2px solid #5a6856;
+    width: 100%;
+    text-align: left;
+    border-radius: 40px;
+    padding-block: 0.25rem;
+    font-weight: 600;
+  }
 
   .chip {
-    border: 2px solid grey;
-    color: grey;
+    border: 2px solid #bababa;
+    color: #999999;
+    background-color: #e9e9e9;
 
     padding: 3px 8px;
     font-size: 0.8rem;
@@ -42,8 +64,8 @@
   }
 
   .chip-active {
-    background-color: grey;
-    border: 2px solid grey;
+    background-color: #bcb8b5;
+    border: 2px solid #bcb8b5;
     color: white;
 
     padding: 3px 8px;
