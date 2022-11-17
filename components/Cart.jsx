@@ -19,6 +19,8 @@ const Cart = () => {
   const { user, error, isLoading } = useUser();
 
   // Sort cart into groups
+
+  // Create empty group arrays
   const groupSessions = (cartItems) => {
     let bodybuilding = [];
     let ashtanga = [];
@@ -38,6 +40,7 @@ const Cart = () => {
     let burn = [];
     let bodyweight = [];
 
+    // Push each cart item into correct array
     cartItems.map((item) => {
       if (item.class === "bodybuilding-foundations") {
         bodybuilding.push(item);
@@ -76,6 +79,7 @@ const Cart = () => {
       }
     });
 
+    // Create array of group arrays
     const groupedSessionsArr = [
       bodybuilding,
       ashtanga,
@@ -98,8 +102,17 @@ const Cart = () => {
 
     const truthyGroupSessionsArr = [];
 
+    // Push only the groups with cart items into a new array
     groupedSessionsArr.map(
       (group) => group.length > 0 && truthyGroupSessionsArr.push(group)
+    );
+
+    // Make sure sessions are in correct order
+
+    truthyGroupSessionsArr.map((group) =>
+      group.sort((a, b) => {
+        return a.number - b.number;
+      })
     );
 
     return truthyGroupSessionsArr;
@@ -160,7 +173,7 @@ const Cart = () => {
           <Link href="/">
             <h1
               onClick={() => setShowCart(false)}
-              className="pt-1 text-4xl font-semibold"
+              className="pt-2 text-4xl font-semibold tracking-wider font-PlayfairDisplay"
             >
               STUDIO 7
             </h1>
@@ -177,7 +190,7 @@ const Cart = () => {
         {/* Hello user and basket intro */}
 
         <div>
-          <h2 className="px-4 text-2xl">
+          <h2 className="px-4 text-xl">
             {user ? user.given_name + "'s" : "Your"} Basket :
           </h2>
         </div>
@@ -222,7 +235,7 @@ const Cart = () => {
                     <div className="flex-grow ">
                       <Link href={`/product/${group[0].class}`}>
                         <h1
-                          className="mb-2 text-2xl font-semibold"
+                          className="mb-4 text-2xl font-semibold font-PlayfairDisplay"
                           onClick={() => setShowCart(false)}
                         >
                           {group[0].name}
