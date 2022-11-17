@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 const Product = ({
   product: { image, name, slug, price, catagories, details, length, intensity },
 }) => {
+  // Get current page
+
   const router = useRouter();
 
   function chooseCurrentPage() {
@@ -26,6 +28,17 @@ const Product = ({
   }
 
   const currentPage = chooseCurrentPage();
+
+  // Put searched for category at the first position in array
+
+  // Find index of current cat
+  const indexOfCurrentCat = catagories.findIndex((cat) => cat === currentPage);
+
+  // Remove that cat from array
+  catagories.splice(indexOfCurrentCat, 1);
+
+  // Add item back at beginning of array
+  catagories.unshift(currentPage);
 
   return (
     <div>
