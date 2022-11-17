@@ -26,7 +26,7 @@ const cardio = ({ products, trainers }) => {
         <input
           className="pl-4 text-left searchBar"
           type="text"
-          placeholder="search"
+          placeholder="Search our classes"
           onChange={(event) => setSearchTerm(event.target.value)}
         />
       </div>

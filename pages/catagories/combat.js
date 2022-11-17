@@ -25,7 +25,7 @@ const combat = ({ products, trainers }) => {
         <input
           className="pl-4 text-left outline-none searchBar"
           type="text"
-          placeholder="search"
+          placeholder="Search our classes"
           onChange={(event) => setSearchTerm(event.target.value)}
         />
       </div>

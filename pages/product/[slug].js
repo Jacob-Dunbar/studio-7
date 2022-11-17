@@ -160,7 +160,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
           </h1>
           <p className=" w-[90%] mb-4 indent-5"> {classTrainer.desc}</p>
           <Link href={`/trainer/${classTrainer.slug.current}`}>
-            <button className="button w-[90%] mb-8" type="button">
+            <button className="button-sec w-[90%] mb-8" type="button">
               More about {classTrainer.firstName}
             </button>
           </Link>
