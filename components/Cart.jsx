@@ -169,16 +169,16 @@ const Cart = () => {
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-4 ">
         {/* Logo */}
-        <p>
-          <Link href="/">
-            <h1
-              onClick={() => setShowCart(false)}
-              className="pt-2 text-4xl font-semibold tracking-wider font-PlayfairDisplay"
-            >
-              STUDIO 7
-            </h1>
-          </Link>
-        </p>
+
+        <Link href="/">
+          <h1
+            onClick={() => setShowCart(false)}
+            className="pt-2 text-4xl font-semibold tracking-wider font-PlayfairDisplay"
+          >
+            STUDIO 7
+          </h1>
+        </Link>
+
         {/* Close */}
         <AiOutlineClose
           className="w-8 h-8"
@@ -204,7 +204,7 @@ const Cart = () => {
                 <AiOutlineShopping className="w-16 h-16 " />
                 <h3 className="text-lg ">Your basket is empty</h3>
                 {/* Continue shopping button  */}
-              </div>{" "}
+              </div>
               <button
                 className="button justify-self-end w-[90%]"
                 onClick={() => setShowCart(false)}
@@ -218,9 +218,10 @@ const Cart = () => {
             {cartItems.length >= 1 &&
               // Group
               groupArr.map((group, i) => (
-                <div className="flex flex-col justify-center">
+                // Divider dot
+                <div key={i} className="flex flex-col justify-center">
                   {i > 0 && (
-                    <div className="self-center w-[6px] h-[6px] bg-gray-700 mb-5 rounded-full "></div>
+                    <div className="self-center w-[8px] h-[8px] bg-gray-800 mb-5 rounded-full "></div>
                   )}
 
                   <div className="flex w-screen gap-4 px-4 py-4 bg-gray-50">
@@ -243,8 +244,11 @@ const Cart = () => {
                       </Link>
                       {/* sessions */}
                       <div className="flex flex-col w-full gap-2 ">
-                        {group.map((session) => (
-                          <div className="flex items-center justify-between w-full ">
+                        {group.map((session, i) => (
+                          <div
+                            key={i}
+                            className="flex items-center justify-between w-full "
+                          >
                             <p className="text-md ">
                               {date
                                 .addDays(session.number)

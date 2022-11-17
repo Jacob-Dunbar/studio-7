@@ -29,16 +29,19 @@ const Product = ({
 
   const currentPage = chooseCurrentPage();
 
+  console.log(currentPage);
   // Put searched for category at the first position in array
 
   // Find index of current cat
   const indexOfCurrentCat = catagories.findIndex((cat) => cat === currentPage);
 
-  // Remove that cat from array
-  catagories.splice(indexOfCurrentCat, 1);
+  // Remove that cat from array (if not on trainer page)
+  if (currentPage) {
+    catagories.splice(indexOfCurrentCat, 1);
 
-  // Add item back at beginning of array
-  catagories.unshift(currentPage);
+    // Add item back at beginning of array
+    catagories.unshift(currentPage);
+  }
 
   return (
     <div>
@@ -61,9 +64,10 @@ const Product = ({
               <p>£{price}</p>
             </div>
             <div className="flex gap-2 ">
-              {catagories.map((catagory) => (
+              {catagories.map((catagory, i) => (
                 <p
                   className={currentPage === catagory ? "chip-active" : "chip"}
+                  key={i}
                 >
                   {catagory}
                 </p>

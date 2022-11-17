@@ -43,10 +43,10 @@ export const CatCarousel = () => {
 
   return (
     <div className="flex w-screen gap-2 px-5 my-4 overflow-scroll ">
-      {array.map((catagory) => {
+      {array.map((catagory, i) => {
         if (catagory === currentPage) {
           return (
-            <Link href={`/catagories/all`}>
+            <Link key={i} href={`/catagories/all`}>
               <div className="flex items-center gap-1 chip-active">
                 <p className="">{catagory}</p>
                 <AiOutlineClose />
@@ -55,7 +55,7 @@ export const CatCarousel = () => {
           );
         } else {
           return (
-            <Link href={`/catagories/${catagory.toLowerCase()}`}>
+            <Link key={i} href={`/catagories/${catagory.toLowerCase()}`}>
               <div>
                 <p className="chip">{catagory}</p>
               </div>

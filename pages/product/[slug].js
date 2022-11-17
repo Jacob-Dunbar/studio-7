@@ -92,7 +92,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
         <link rel="icon" href="/s7icon.svg" />
       </Head>
       <div>
-        <div className="flex flex-col justify-center ">
+        <div className="flex flex-col justify-center mt-20 ">
           <div className="flex w-full h-64 my-3 overflow-scroll ">
             {image.map((image) => (
               <img
@@ -115,8 +115,10 @@ const ProductDetails = ({ product, sessions, trainers }) => {
               <p>£{price}</p>
             </div>
             <div className="flex gap-2 ">
-              {catagories.map((catagory) => (
-                <p className="chip-active">{catagory}</p>
+              {catagories.map((catagory, i) => (
+                <p key={i} className="chip-active">
+                  {catagory}
+                </p>
               ))}
             </div>
             <p className="mb-5 text-sm leading-5 indent-5">{details}</p>
@@ -124,8 +126,8 @@ const ProductDetails = ({ product, sessions, trainers }) => {
           <section className="flex flex-col justify-center bg-gray-100 px-7 py-7 ">
             <h1 className="mb-4 text-xl">Upcoming classes :</h1>
             <div className="flex flex-col gap-3">
-              {sessions.map((session) => (
-                <div className="flex justify-between gap-5 ">
+              {sessions.map((session, i) => (
+                <div key={i} className="flex justify-between gap-5 ">
                   <p className="text-lg ">
                     {date
                       .addDays(session.number)
