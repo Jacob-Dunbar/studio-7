@@ -21,7 +21,7 @@ const MobileMenu = (props) => {
       <div className="flex flex-col items-center justify-center flex-grow w-full gap-6 ">
         {user && (
           <div className="flex flex-col items-center w-full gap-5 pl-1">
-            <div className="flex items-center justify-center bg-gray-400 bg-opacity-50 rounded-full w-fit aspect-square ">
+            <div className="flex items-center justify-center bg-[#5a6856] text-white rounded-full w-fit aspect-square ">
               <h1 className="p-5 text-4xl ">{user.given_name.charAt(0)}</h1>
             </div>
             <div className="flex gap-1 text-lg mb-9">
@@ -71,7 +71,7 @@ const MobileMenu = (props) => {
         ) : (
           <Link href="/api/auth/logout">
             <h1
-              className="w-1/3 mt-6 button"
+              className="w-1/3 mt-6 button-sec"
               onClick={() => props.close(false)}
             >
               Log out
