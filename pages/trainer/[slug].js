@@ -10,6 +10,7 @@ import Product from "../../components/Product";
 import { useStateContext } from "../../context/StateContext";
 import Link from "next/link";
 import { BsColumnsGap } from "react-icons/bs";
+import Head from "next/head";
 
 // Fetch class details and avaible sessions
 export const getStaticProps = async ({ params: { slug } }) => {
@@ -50,6 +51,14 @@ export const getStaticPaths = async () => {
 const trainer = ({ trainer, products }) => {
   return (
     <div className="flex flex-col items-center w-full gap-4 ">
+      <Head>
+        <title>Studio 7 | {trainer[0].name}</title>
+        <meta
+          name="Studio 7"
+          content="pay as you go London fitness club with classes"
+        />
+        <link rel="icon" href="/s7icon.svg" />
+      </Head>
       <div className="flex justify-center ">
         <img
           className="w-2/3 mt-5 rounded-full"

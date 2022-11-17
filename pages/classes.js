@@ -2,6 +2,7 @@ import Product from "../components/Product";
 import { client } from "../lib/client";
 import Link from "next/link";
 import { useState } from "react";
+import Head from "next/head";
 
 export const getServerSideProps = async () => {
   const query = '*[_type == "class"]';
@@ -35,6 +36,14 @@ const Classes = ({ products, bannerData, trainers }) => {
 
       {!searchTerm ? (
         <div className="flex flex-col items-center w-full gap-3 mt-6 text-2xl">
+          <Head>
+            <title>Studio 7 | Classes</title>
+            <meta
+              name="Studio 7"
+              content="pay as you go London fitness club with classes"
+            />
+            <link rel="icon" href="/s7icon.svg" />
+          </Head>
           <Link className="bg-mind" href="/catagories/mindfulness">
             <div className="relative w-full">
               <h2 className="w-full py-20 text-3xl font-medium tracking-wider text-center text-white bg-black bg-opacity-50 font-PlayfairDisplay">

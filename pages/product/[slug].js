@@ -9,6 +9,7 @@ import {
 import Product from "../../components/Product";
 import { useStateContext } from "../../context/StateContext";
 import Link from "next/link";
+import Head from "next/head";
 
 // Fetch class details and avaible sessions
 export const getStaticProps = async ({ params: { slug } }) => {
@@ -82,6 +83,14 @@ const ProductDetails = ({ product, sessions, trainers }) => {
 
   return (
     <div>
+      <Head>
+        <title>Studio 7 | {name}</title>
+        <meta
+          name="Studio 7"
+          content="pay as you go London fitness club with classes"
+        />
+        <link rel="icon" href="/s7icon.svg" />
+      </Head>
       <div>
         <div className="flex flex-col justify-center ">
           <div className="flex w-full h-64 my-3 overflow-scroll ">

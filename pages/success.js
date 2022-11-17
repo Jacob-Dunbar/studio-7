@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { BsBagCheckFill } from "react-icons/bs";
+import Head from "next/head";
 
 import { useStateContext } from "../context/StateContext";
 import { AiOutlineOrderedList } from "react-icons/ai";
@@ -16,6 +17,14 @@ const Success = () => {
 
   return (
     <div>
+      <Head>
+        <title>Studio 7 | Success</title>
+        <meta
+          name="Studio 7"
+          content="pay as you go London fitness club with classes"
+        />
+        <link rel="icon" href="/s7icon.svg" />
+      </Head>
       <p>
         <BsBagCheckFill />
       </p>
