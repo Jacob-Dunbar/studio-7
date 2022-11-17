@@ -173,7 +173,7 @@ const Cart = () => {
         <Link href="/">
           <h1
             onClick={() => setShowCart(false)}
-            className="pt-2 text-4xl font-semibold tracking-wider font-PlayfairDisplay"
+            className="pt-1 text-4xl font-semibold tracking-wider font-PlayfairDisplay"
           >
             STUDIO 7
           </h1>
