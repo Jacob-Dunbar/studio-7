@@ -39,7 +39,7 @@ const MobileMenu = (props) => {
           </h1>
         </Link>
         <div className="w-2 h-2 bg-black rounded-full "></div>
-        <Link href={"#about"}>
+        <Link href={"/#about"}>
           <h1
             onClick={() => props.close(false)}
             className="text-4xl font-medium tracking-wider font-PlayfairDisplay "
