@@ -29,7 +29,7 @@ const Navbar = () => {
       <Link href="/">
         <h1
           // onClick={showCart && setShowCart(false)}
-          className="pt-2 text-4xl font-semibold"
+          className="pt-2 text-4xl font-semibold font-PlayfairDisplay"
         >
           STUDIO 7
         </h1>

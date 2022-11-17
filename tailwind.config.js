@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -14,6 +16,10 @@ module.exports = {
         mobility: "url('/images/mobility-bg.jpg')",
         cardio: "url('/images/cardio-bg.jpg')",
         combat: "url('/images/combat-bg.jpg')",
+      },
+      fontFamily: {
+        PlayfairDisplay: ["Playfair Display"],
+        Montserrat: ["Montserrat", ...defaultTheme.fontFamily.sans],
       },
     },
   },
