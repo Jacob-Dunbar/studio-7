@@ -50,7 +50,7 @@ export const getStaticPaths = async () => {
 
 const trainer = ({ trainer, products }) => {
   return (
-    <div className="flex flex-col items-center w-full gap-4 ">
+    <div className="flex flex-col items-center w-full gap-4 mt-20 ">
       <Head>
         <title>Studio 7 | {trainer[0].name}</title>
         <meta

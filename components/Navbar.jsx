@@ -23,7 +23,7 @@ const Navbar = () => {
   // }
 
   return (
-    <div className="z-30 flex items-center justify-between px-4 py-3">
+    <div className="absolute z-30 flex items-center justify-between w-screen px-4 py-3">
       {/* logo */}
 
       <Link href="/">
@@ -43,7 +43,7 @@ const Navbar = () => {
       >
         <AiOutlineShopping className="w-10 h-12" />
         <span className="absolute w-4 h-4 text-xs font-bold text-black rounded-lg top-5 left-3 ">
-          {cartItems.length > 0 ? cartItems.length : 0}
+          {cartItems && cartItems.length > 0 ? cartItems.length : 0}
         </span>
       </button>
       {/* cart ui */}
@@ -52,9 +52,9 @@ const Navbar = () => {
       {!showMenu && (
         <div
           onClick={() => setShowMenu(true)}
-          className="fixed flex items-center justify-center w-16 h-16 bg-white rounded-full bg-opacity-60 bottom-10 right-10"
+          className="fixed flex items-center justify-center w-16 h-16 bg-white rounded-full shadow-2xl bottom-8 right-8"
         >
-          <AiOutlineMenu className="w-6 h-6 " />
+          <AiOutlineMenu className="text-black w-7 h-7" />
         </div>
       )}
       {/* Mobile menu */}

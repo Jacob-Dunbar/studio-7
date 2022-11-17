@@ -21,7 +21,7 @@ const cardio = ({ products, trainers }) => {
   const [page, setPage] = useState("cardio");
 
   return (
-    <div className="flex flex-col items-center py-4">
+    <div className="flex flex-col items-center py-4 mt-20">
       <div className="w-full px-5 ">
         <input
           className="pl-4 text-left searchBar"

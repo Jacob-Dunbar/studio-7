@@ -16,7 +16,7 @@ const Success = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex justify-center h-screen mt-20 ">
       <Head>
         <title>Studio 7 | Success</title>
         <meta
@@ -25,16 +25,20 @@ const Success = () => {
         />
         <link rel="icon" href="/s7icon.svg" />
       </Head>
-      <p>
-        <BsBagCheckFill />
-      </p>
-      <h2>We will see you then!</h2>
-      <p>check your email inbox for you receipt.</p>
-      <p>If you have any questions please email</p>
-      <a href="mailto:order@example.com">order@example.com</a>
-      <Link href="/">
-        <button type="button">Continue Shopping</button>
-      </Link>
+      <div className="flex flex-col items-center justify-start gap-5 mt-10 ">
+        <p>
+          <BsBagCheckFill className="w-20 h-20 mb-5" />
+        </p>
+        <h2 className="text-xl">We will see you then!</h2>
+
+        <p>Check your email inbox for you receipt.</p>
+
+        <Link href="/">
+          <button className="button mt-10  w-[90%]" type="button">
+            Home
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
