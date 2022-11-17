@@ -37,7 +37,7 @@ const Classes = ({ products, bannerData, trainers }) => {
         <div className="flex flex-col items-center w-full gap-3 mt-6 text-2xl">
           <Link className="bg-mind" href="/catagories/mindfulness">
             <div className="relative w-full">
-              <h2 className="w-full py-20 font-semibold text-center text-white bg-black bg-opacity-50">
+              <h2 className="w-full py-20 text-3xl font-medium tracking-wider text-center text-white bg-black bg-opacity-50 font-PlayfairDisplay">
                 Mindfulness
               </h2>
               <img
@@ -49,7 +49,7 @@ const Classes = ({ products, bannerData, trainers }) => {
           </Link>
           <Link href="/catagories/strength">
             <div className="relative w-full">
-              <h2 className="w-full py-20 font-semibold text-center text-white bg-black bg-opacity-50">
+              <h2 className="w-full py-20 text-3xl font-medium tracking-wider text-center text-white bg-black bg-opacity-50 font-PlayfairDisplay">
                 Strength
               </h2>
               <img
@@ -61,7 +61,7 @@ const Classes = ({ products, bannerData, trainers }) => {
           </Link>
           <Link href="/catagories/mobility">
             <div className="relative w-full">
-              <h2 className="w-full py-20 font-semibold text-center text-white bg-black bg-opacity-50">
+              <h2 className="w-full py-20 text-3xl font-medium tracking-wider text-center text-white bg-black bg-opacity-50 font-PlayfairDisplay">
                 Mobility
               </h2>
               <img
@@ -73,7 +73,7 @@ const Classes = ({ products, bannerData, trainers }) => {
           </Link>
           <Link href="/catagories/cardio">
             <div className="relative w-full">
-              <h2 className="w-full py-20 font-semibold text-center text-white bg-black bg-opacity-50">
+              <h2 className="w-full py-20 text-3xl font-medium tracking-wider text-center text-white bg-black bg-opacity-50 font-PlayfairDisplay">
                 Cardio
               </h2>
               <img
@@ -85,7 +85,7 @@ const Classes = ({ products, bannerData, trainers }) => {
           </Link>
           <Link href="/catagories/combat">
             <div className="relative w-full">
-              <h2 className="w-full py-20 font-semibold text-center text-white bg-black bg-opacity-50">
+              <h2 className="w-full py-20 text-3xl font-medium tracking-wider text-center text-white bg-black bg-opacity-50 font-PlayfairDisplay">
                 Combat
               </h2>
               <img
@@ -97,7 +97,7 @@ const Classes = ({ products, bannerData, trainers }) => {
           </Link>
           <Link href="/catagories/all">
             <div className="relative w-full">
-              <h2 className="w-full py-20 font-semibold text-center text-white bg-black bg-opacity-50">
+              <h2 className="w-full py-20 text-3xl font-medium tracking-wider text-center text-white bg-black bg-opacity-50 font-PlayfairDisplay">
                 All
               </h2>
               <img

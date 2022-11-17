@@ -31,23 +31,32 @@ const MobileMenu = (props) => {
           </div>
         )}
         <Link href="/">
-          <h1 onClick={() => props.close(false)} className="text-4xl ">
+          <h1
+            onClick={() => props.close(false)}
+            className="text-4xl font-medium tracking-wider font-PlayfairDisplay"
+          >
             Home
           </h1>
         </Link>
         <div className="w-2 h-2 bg-black rounded-full "></div>
         <Link href={"#about"}>
-          <h1 onClick={() => props.close(false)} className="text-4xl ">
+          <h1
+            onClick={() => props.close(false)}
+            className="text-4xl font-medium tracking-wider font-PlayfairDisplay "
+          >
             About Us
           </h1>
         </Link>
         <div className="w-2 h-2 bg-black rounded-full "></div>
         <Link href="/classes">
-          <h1 onClick={() => props.close(false)} className="text-4xl ">
+          <h1
+            onClick={() => props.close(false)}
+            className="mb-8 text-4xl font-medium tracking-wider font-PlayfairDisplay "
+          >
             Classes
           </h1>
         </Link>
-        <div className="w-2 h-2 bg-black rounded-full "></div>
+        {/* <div className="w-2 h-2 bg-black rounded-full "></div> */}
 
         {/* login / out */}
         {!user ? (

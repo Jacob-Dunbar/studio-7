@@ -69,9 +69,10 @@ const ProductDetails = ({ product, sessions, trainers }) => {
     product;
   const { onAdd } = useStateContext();
 
-  // const sessionByDate = sessions.sort((a, b) => {
-  //   return a.number - b.number;
-  // });
+  // Make sure sessions are in correct order
+  sessions.sort((a, b) => {
+    return a.number - b.number;
+  });
 
   // Selection right trainer for this class from trainers array
 
@@ -94,8 +95,10 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             ))}
           </div>
           <div className=" flex flex-col gap-3  self-center w-[90%]">
-            <p className="text-3xl font-semibold">{name}</p>
-            <div className="flex gap-3 -my-1 text-sm font-bold text-gray-500">
+            <p className="text-3xl font-semibold tracking-wider font-PlayfairDisplay">
+              {name}
+            </p>
+            <div className="flex gap-3 text-sm font-bold text-gray-500">
               <p>{length} hour</p>
               <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
               <p>{intensity}</p>
@@ -136,17 +139,19 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             </div>
           </section>
         </div>
-
+        {/* Trainer section */}
         <div className="flex flex-col items-center w-full gap-4 mt-5">
           <img
             className="w-1/2 rounded-full "
             src={urlFor(classTrainer.image && classTrainer.image)}
             alt="trainer profile picture"
           />
-          <h1 className="text-2xl font-semibold">{classTrainer.name}</h1>
-          <p className=" w-[90%] indent-5"> {classTrainer.desc}</p>
+          <h1 className="text-2xl font-semibold font-PlayfairDisplay ">
+            {classTrainer.name}
+          </h1>
+          <p className=" w-[90%] mb-4 indent-5"> {classTrainer.desc}</p>
           <Link href={`/trainer/${classTrainer.slug.current}`}>
-            <button className="button w-[90%] mb-5" type="button">
+            <button className="button w-[90%] mb-8" type="button">
               More about {classTrainer.firstName}
             </button>
           </Link>

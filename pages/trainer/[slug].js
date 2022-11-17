@@ -57,7 +57,9 @@ const trainer = ({ trainer, products }) => {
           alt="trainer profile picture"
         />
       </div>
-      <h1 className="text-3xl text-center">{trainer[0].name}</h1>
+      <h1 className="text-3xl font-semibold text-center font-PlayfairDisplay">
+        {trainer[0].name}
+      </h1>
       <div className="flex items-center justify-center px-8 py-4 bg-gray-100 ">
         <img className="self-start " src="/quote-marks.svg" alt="quote marks" />
         <p className="w-4/5 p-3 italic font-bold text-center ">
@@ -72,7 +74,7 @@ const trainer = ({ trainer, products }) => {
       <p className=" w-[90%] my-5 indent-5">{trainer[0].desc}</p>
 
       <div className="flex flex-col items-center w-full ">
-        <h3 className="mb-5 text-xl w-[90%]">{`Classes taught by ${trainer[0].firstName} :`}</h3>
+        <h3 className="mb-6 mt-2 text-2xl w-[90%]">{`Classes taught by ${trainer[0].firstName} :`}</h3>
         {products
           .filter((product) => product.trainer === trainer[0].name)
           .map((product) => (
