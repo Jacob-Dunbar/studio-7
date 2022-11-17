@@ -50,9 +50,9 @@ export const getStaticPaths = async () => {
 
 // Options object for toLocaleDateString method to format date
 const options = {
-  month: "numeric",
+  weekday: "short",
+  month: "short",
   day: "numeric",
-  year: "numeric",
 };
 
 // add days to date
@@ -62,7 +62,7 @@ Date.prototype.addDays = function (days) {
   return date;
 };
 
-// current date
+// Current date
 const date = new Date();
 
 const ProductDetails = ({ product, sessions, trainers }) => {
@@ -93,7 +93,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
       </Head>
       <div>
         <div className="flex flex-col justify-center mt-20 ">
-          <div className="flex w-full h-64 my-3 overflow-scroll ">
+          <div className="flex w-full h-64 mb-3 overflow-scroll ">
             {image.map((image) => (
               <img
                 className="object-cover"
@@ -128,7 +128,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             <div className="flex flex-col gap-3">
               {sessions.map((session, i) => (
                 <div key={i} className="flex justify-between gap-5 ">
-                  <p className="text-lg ">
+                  <p className="flex-grow text-lg ">
                     {date
                       .addDays(session.number)
                       .toLocaleDateString("en-GB", options)}
