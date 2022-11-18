@@ -9,7 +9,11 @@ const Layout = ({ children }) => {
 
   console.log(showMenu);
   return (
-    <div className={`flex flex-col ${showMenu ? "touch-none" : "touch-auto"} `}>
+    <div
+      className={`flex flex-col overflow-x-hidden ${
+        showMenu ? "touch-none" : "touch-auto"
+      } `}
+    >
       <Head>
         <title>Studio 7</title>
       </Head>
