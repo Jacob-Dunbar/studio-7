@@ -29,14 +29,13 @@ const Product = ({
 
   const currentPage = chooseCurrentPage();
 
-  
   // Put searched for category at the first position in array
 
   // Find index of current cat
   const indexOfCurrentCat = catagories.findIndex((cat) => cat === currentPage);
-
+  console.log(currentPage, "should happen now");
   // Remove that cat from array (if not on trainer page)
-  if (currentPage && !currentPage === "All") {
+  if (currentPage !== "All") {
     catagories.splice(indexOfCurrentCat, 1);
 
     // Add item back at beginning of array
