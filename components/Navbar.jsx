@@ -29,23 +29,29 @@ const Navbar = () => {
       <Link href="/">
         <h1
           // onClick={showCart && setShowCart(false)}
-          className="pt-2 text-4xl font-semibold tracking-wider font-PlayfairDisplay"
+          className="text-4xl font-semibold tracking-wider font-PlayfairDisplay"
         >
           STUDIO 7
         </h1>
       </Link>
-
-      {/* cart icon */}
-      <button
-        className="relative "
-        type="button"
-        onClick={() => setShowCart(true)}
-      >
-        <AiOutlineShopping className="w-10 h-12" />
-        <span className="absolute w-4 h-4 text-xs font-bold text-black rounded-lg top-5 left-3 ">
-          {cartItems && cartItems.length > 0 ? cartItems.length : 0}
-        </span>
-      </button>
+      <div className="flex items-center gap-2 ">
+        {user && (
+          <div className="flex mt-1 w-8 h-8 items-center justify-center bg-[#E4816B] text-white rounded-full  aspect-square ">
+            <h1 className=" text-md">{user.given_name.charAt(0)}</h1>
+          </div>
+        )}
+        {/* cart icon */}
+        <button
+          className="relative "
+          type="button"
+          onClick={() => setShowCart(true)}
+        >
+          <AiOutlineShopping className="w-10 h-12" />
+          <span className="absolute w-4 h-4 text-xs font-bold text-black rounded-lg top-5 left-3 ">
+            {cartItems && cartItems.length > 0 ? cartItems.length : 0}
+          </span>
+        </button>
+      </div>
       {/* cart ui */}
       {showCart && <Cart />}
       {/* mobile menu button */}
@@ -58,7 +64,12 @@ const Navbar = () => {
         </div>
       )}
       {/* Mobile menu */}
-      {showMenu && <MobileMenu close={setShowMenu} />}
+      <MobileMenu
+        className={
+          showMenu ? " absolute opacity-70  ease-in duration-300" : "hidden"
+        }
+        close={setShowMenu}
+      />
     </div>
   );
 };
