@@ -34,7 +34,7 @@ const Success = () => {
         <p>Check your email inbox for you receipt.</p>
 
         <Link href="/">
-          <button className="button mt-10  w-[90%]" type="button">
+          <button className="button mt-10  w-[50%]" type="button">
             Home
           </button>
         </Link>

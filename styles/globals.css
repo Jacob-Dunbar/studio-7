@@ -4,19 +4,20 @@
 
 @layer components {
   .button {
-    border: 2px solid #5a6856;
-    background: #5a6856;
+    border: 2px solid #e4816b;
+    background: #e4816b;
     color: #ffff;
 
     text-align: center;
+    font-weight: 700;
     border-radius: 40px;
     padding-block: 0.35rem;
     font-weight: 400;
   }
   .button-sec {
-    border: 2px solid #5a6856;
+    border: 3px solid #e4816b;
 
-    color: #5a6856;
+    color: #e4816b;
     padding-block: 5px;
     text-align: center;
     border-radius: 40px;
@@ -43,7 +44,7 @@
     font-weight: 400;
   }
   .searchBar:focus {
-    border: 2px solid #5a6856;
+    border: 2px solid #e4816b;
     width: 100%;
     text-align: left;
     border-radius: 40px;

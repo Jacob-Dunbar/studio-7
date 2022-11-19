@@ -1,7 +1,96 @@
 import Link from "next/link";
 import Head from "next/head";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 const index = () => {
+  const [ref, inView] = useInView();
+  const [ref1, inView1] = useInView();
+  const [ref2, inView2] = useInView();
+  const [ref3, inView3] = useInView();
+  const animationFromLeft = useAnimation();
+  const animationFromRight = useAnimation();
+  const animationFromLeft1 = useAnimation();
+  const animationFromRight1 = useAnimation();
+
+  // Animate in flexible box
+  useEffect(() => {
+    if (inView) {
+      animationFromLeft.start({
+        x: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          duration: 2,
+          bounce: 0.3,
+        },
+      });
+    }
+
+    if (!inView) {
+      animationFromLeft.start({ x: "-10vw", opacity: 0 });
+    }
+  }, [inView]);
+
+  // Animate in friendly box
+  useEffect(() => {
+    if (inView1) {
+      animationFromRight.start({
+        x: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          duration: 2,
+          bounce: 0.3,
+        },
+      });
+    }
+
+    if (!inView1) {
+      animationFromRight.start({ x: "10vw", opacity: 0 });
+    }
+  }, [inView1]);
+
+  // Animate in friendly box
+  useEffect(() => {
+    console.log(inView2);
+    if (inView2) {
+      animationFromLeft1.start({
+        x: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          duration: 2,
+          bounce: 0.3,
+        },
+      });
+    }
+
+    if (!inView2) {
+      animationFromLeft1.start({ x: "-10vw", opacity: 0 });
+    }
+  }, [inView2]);
+
+  // Animate in location box
+  useEffect(() => {
+    if (inView3) {
+      animationFromRight1.start({
+        x: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          duration: 2,
+          bounce: 0.3,
+        },
+      });
+    }
+
+    if (!inView3) {
+      animationFromRight1.start({ x: "10vw", opacity: 0 });
+    }
+  }, [inView3]);
+
   return (
     <section id="home" className="top-0 z-20 flex flex-col justify-center ">
       <Head>
@@ -17,9 +106,9 @@ const index = () => {
         src="/images/home-bg2.jpg"
         alt="background"
       />
-      <div className="absolute flex justify-center w-full bottom-32">
-        <button className="  button w-[80%]" type="button">
-          <Link href="/classes">Checkout our classes</Link>
+      <div className="absolute flex justify-center w-full bottom-[45%]">
+        <button className="button-sec w-[50%]" type="button">
+          <Link href="/classes">Explore Our Classes</Link>
         </button>
       </div>
       {/* <button className=" absolute  bottom-40 button w-[80%]" type="button">
@@ -37,7 +126,13 @@ const index = () => {
           emphasis on mindfulness. Join us in our spacious class space as we
           improve ourselves together.
         </p>
-        <div className="w-full pb-4 bg-slate-100 ">
+
+        {/* Flexible box */}
+        <motion.div
+          ref={ref}
+          animate={animationFromLeft}
+          className="w-full pb-4 bg-slate-100 "
+        >
           <img
             className="object-cover w-full h-48 mb-4"
             src="/images/mobility-bg.jpg"
@@ -51,10 +146,15 @@ const index = () => {
             You are only committed to the classes you have already booked - no
             strings.
           </p>
-        </div>
+        </motion.div>
         <div className="self-center w-[8px] h-[8px] bg-gray-800 mb-3 rounded-full "></div>
 
-        <div className="pb-4 bg-slate-100">
+        {/* Friendly box */}
+        <motion.div
+          ref={ref1}
+          animate={animationFromRight}
+          className="pb-4 bg-slate-100"
+        >
           <img
             className="object-cover object-top w-full h-48 mb-4"
             src="/images/friendly-bg.jpg"
@@ -68,10 +168,15 @@ const index = () => {
             manner makes all our classes feel safe and welcoming, whilst still
             challenging enough to get the best out of you.
           </p>
-        </div>
+        </motion.div>
         <div className="self-center w-[8px] h-[8px] bg-gray-800 mb-3 rounded-full "></div>
 
-        <div className="pb-4 bg-slate-100">
+        {/* Inclusive Box */}
+        <motion.div
+          ref={ref2}
+          animate={animationFromLeft1}
+          className="pb-4 bg-slate-100"
+        >
           <img
             className="object-cover object-top w-full h-48 mb-4"
             src="/images/mindfulness-bg.jpg"
@@ -86,10 +191,15 @@ const index = () => {
             here. We are all at different stages of our journey and we are here
             to help, whatever stage you are at.
           </p>
-        </div>
+        </motion.div>
         <div className="self-center w-[8px] h-[8px] bg-gray-800 mb-3 rounded-full "></div>
 
-        <div className="pb-4  bg-slate-100">
+        {/* Location */}
+        <motion.div
+          ref={ref3}
+          animate={animationFromRight1}
+          className="pb-4 bg-slate-100"
+        >
           <img
             className="object-cover object-top w-full h-48 mb-4"
             src="/images/bermondsey.jpg"
@@ -104,7 +214,7 @@ const index = () => {
             We even have customers that swing by during their lunch breaks! Now
             that commitment!
           </p>
-        </div>
+        </motion.div>
       </section>
     </section>
   );
