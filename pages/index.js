@@ -101,13 +101,24 @@ const index = () => {
         />
         <link rel="icon" href="/s7icon.svg" />
       </Head>
-      <img
+      {/* <img
         className="object-cover object-right h-screen"
         src="/images/home-bg2.jpg"
         alt="background"
+      /> */}
+      <div className="absolute top-0 z-10 w-full h-screen bg-black bg-opacity-40"></div>
+      <video
+        className="object-cover h-screen"
+        src="/studio7Video.mp4"
+        autoPlay
+        loop
+        muted
       />
-      <div className="absolute flex justify-center w-full bottom-[45%]">
-        <button className="button-sec w-[50%]" type="button">
+      <div className="absolute flex justify-center w-full bottom-[40%]">
+        <button
+          className="button-sec text-white font-bold border-white w-[50%]"
+          type="button"
+        >
           <Link href="/classes">Explore Our Classes</Link>
         </button>
       </div>
