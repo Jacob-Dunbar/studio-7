@@ -213,7 +213,7 @@ const Cart = () => {
                 {/* Continue shopping button  */}
               </div>
               <button
-                className="button justify-self-end w-[90%]"
+                className="button justify-self-end w-[50%]"
                 onClick={() => setShowCart(false)}
               >
                 <Link href="/"> Continue shopping</Link>

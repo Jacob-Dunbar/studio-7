@@ -106,9 +106,9 @@ const index = () => {
         src="/images/home-bg2.jpg"
         alt="background"
       />
-      <div className="absolute flex justify-center w-full bottom-32">
-        <button className="button w-[80%]" type="button">
-          <Link href="/classes">Checkout our classes</Link>
+      <div className="absolute flex justify-center w-full bottom-[45%]">
+        <button className="button-sec w-[50%]" type="button">
+          <Link href="/classes">Explore Our Classes</Link>
         </button>
       </div>
       {/* <button className=" absolute  bottom-40 button w-[80%]" type="button">
