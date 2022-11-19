@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
         </header>
         <main className="flex-grow ">{children}</main>
       </div>
-      <footer className="z-50 ">
+      <footer className="z-20 ">
         <Footer />
       </footer>
     </div>
