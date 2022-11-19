@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
   return (
     <div
       className={`flex flex-col overflow-x-hidden ${
-        showMenu ? "touch-none" : "touch-auto"
+        showMenu || showCart ? "touch-none" : "touch-auto"
       } `}
     >
       <Head>
