@@ -15,12 +15,15 @@ import { useUser } from "@auth0/nextjs-auth0";
 
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, cartItems, setShowCart, onRemove } = useStateContext();
+  const { totalPrice, cartItems, setShowCart, onRemove, showCart } =
+    useStateContext();
   const { user, error, isLoading } = useUser();
 
   // Sort cart into groups
 
   // Create empty group arrays
+
+  console.log("this code was run");
   const groupSessions = (cartItems) => {
     let bodybuilding = [];
     let ashtanga = [];
@@ -118,7 +121,7 @@ const Cart = () => {
     return truthyGroupSessionsArr;
   };
 
-  const groupArr = groupSessions(cartItems);
+  const groupArr = cartItems ? groupSessions(cartItems) : undefined;
 
   // Options object for toLocaleDateString method to format date
   const options = {
@@ -163,7 +166,11 @@ const Cart = () => {
   return (
     // Container
     <div
-      className="fixed top-0 right-0 z-10 flex flex-col w-screen h-screen overflow-scroll bg-gray-100 min-h-none"
+      className={
+        showCart
+          ? "fixed ease-in duration-300 top-0 right-0 z-10 flex flex-col w-screen h-full overflow-scroll bg-gray-100 min-h-none"
+          : "fixed ease-in duration-300 top-[-100%] right-0 z-10 flex flex-col w-screen h-full overflow-scroll bg-gray-100 min-h-none"
+      }
       ref={cartRef}
     >
       {/* Header */}
@@ -196,7 +203,7 @@ const Cart = () => {
         </div>
         <div className="flex flex-col items-center h-full gap-4 my-4 ">
           {/* Card contents - empty */}
-          {cartItems.length < 1 && (
+          {!cartItems && (
             // Container
             <div className="flex flex-col items-center justify-between w-full h-full ">
               <div className="flex flex-col items-center w-full gap-4 py-5 justify-self-end ">
@@ -215,7 +222,7 @@ const Cart = () => {
           )}
           {/* Card contents - full */}
           <div className="flex flex-col w-screen gap-5 ">
-            {cartItems.length >= 1 &&
+            {cartItems &&
               // Group
               groupArr.map((group, i) => (
                 // Divider dot
@@ -275,7 +282,7 @@ const Cart = () => {
           </div>
         </div>
         <div className="flex flex-col items-center justify-end flex-grow gap-3 ">
-          {cartItems.length >= 1 && (
+          {cartItems && (
             <div className="flex flex-col w-full gap-4 px-4 ">
               <h3 className="text-2xl ">Total : £{totalPrice}</h3>
 
