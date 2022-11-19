@@ -20,14 +20,8 @@ const Navbar = () => {
     setShowMenu(false);
   }
 
-  // function handleLogoClick() {
-  //   if (showCart === true) {
-
-  //   }
-  // }
-  console.log(showMenu);
   return (
-    <div className="absolute z-30 flex items-center justify-between w-screen px-4 py-3">
+    <div className="absolute z-30 flex items-center justify-between w-screen px-4 pt-2 pb-3 bg-white bg-opacity-50">
       {/* logo */}
       <Link href="/">
         <h1
