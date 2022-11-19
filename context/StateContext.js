@@ -43,9 +43,10 @@ export const StateContext = ({ children }) => {
   // Add to cart function
   // Check if the class is already in the cart
   const onAdd = (product) => {
-    const checkProductInCart = cartItems.find(
-      (item) => item._id === product._id
-    );
+    const checkProductInCart = cartItems
+      ? cartItems.find((item) => item._id === product._id)
+      : "";
+
     // If it is say already in, if not add it, update totalItems and totalPrice and confirm
     if (checkProductInCart) {
       toast.success(`${product.name} is already in your basket.`);
