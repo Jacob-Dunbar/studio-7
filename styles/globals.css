@@ -12,7 +12,7 @@
     font-weight: 700;
     border-radius: 40px;
     padding-block: 0.35rem;
-    font-weight: 400;
+    font-weight: 500;
   }
   .button-sec {
     border: 3px solid #e4816b;
@@ -21,7 +21,7 @@
     padding-block: 5px;
     text-align: center;
     border-radius: 40px;
-    padding-block: 0.25rem;
+    padding-block: 0.3rem;
     font-weight: 600;
   }
 
@@ -36,7 +36,7 @@
   .searchBar {
     border: 2px solid #bababa;
     color: #bababa;
-    background-color: #e9e9e9;
+    background-color: #f0f0f0;
     width: 100%;
     text-align: center;
     border-radius: 40px;
@@ -55,7 +55,7 @@
   .chip {
     border: 2px solid #bababa;
     color: #999999;
-    background-color: #e9e9e9;
+    background-color: #f0f0f0;
 
     padding: 3px 8px;
     font-size: 0.8rem;
