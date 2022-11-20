@@ -20,22 +20,6 @@ const Navbar = () => {
     setShowMenu((prevVal) => !prevVal);
   }
 
-  // Set state for if on mobile or desktop
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Function to change state of isMobile
-  const updateIsMobile = () => {
-    setIsMobile(window.innerWidth < 640);
-    console.log(isMobile);
-  };
-
-  // Add event listener for screen resize and run updateIsMobile, plus cleanup.
-
-  useEffect(() => {
-    window.addEventListener("resize", updateIsMobile);
-    return () => window.removeEventListener("resize", updateIsMobile);
-  });
-
   return (
     <div className="absolute z-30 flex items-center justify-between w-full px-4 pt-2 pb-3 bg-gray-200 bg-opacity-50 sm:px-8 sm:h-16">
       {/* logo */}
@@ -47,193 +31,176 @@ const Navbar = () => {
           STUDIO 7
         </h1>
       </Link>
-
       {/* Desktop Menu */}
-      <div className="flex items-center gap-2 ">
-        {!isMobile && (
-          <div className="flex items-center h-full gap-5 ">
-            <Link href="/">
+      <div className="items-center hidden gap-2 sm:flex">
+        <div className="flex items-center h-full gap-5 ">
+          <Link href="/">
+            <h1
+              onClick={() => setShowMenu(false)}
+              className="font-semibold hover:text-[#bd6450] tracking-wider cursor-pointer text-sm  uppercase"
+            >
+              Home
+            </h1>
+          </Link>
+          <div className="w-1 h-1 bg-black rounded-full "></div>
+          <Link href={"/#about"}>
+            <h1
+              onClick={() => setShowMenu(false)}
+              className="font-semibold hover:text-[#bd6450] tracking-wider cursor-pointer text-sm  uppercase "
+            >
+              About Us
+            </h1>
+          </Link>
+          <div className="w-1 h-1 bg-black rounded-full "></div>
+          <Link href="/classes">
+            <h1
+              onClick={() => setShowMenu(false)}
+              className="font-semibold hover:text-[#bd6450] tracking-wider cursor-pointer text-sm  uppercase"
+            >
+              Classes
+            </h1>
+          </Link>
+        </div>
+      </div>
+      {/* Desktop login and cart button*/}
+      <div className="items-center justify-end hidden w-64 gap-4 sm:flex">
+        {/* Login or logout button */}
+        {!user ? (
+          <Link href="/api/auth/login">
+            <button
+              onClick={() => setShowMenu(false)}
+              className="px-5 py-1 hover:text-[#bd6450] cursor-pointer hover:border-[#bd6450] text-xs text-black border-black  border-[2px] button-sec"
+            >
+              Log in
+            </button>
+          </Link>
+        ) : (
+          <div className="flex items-center gap-5">
+            <div className="flex items-center justify-center bg-[#E4816B] text-white rounded-full w-8 aspect-square ">
+              <h1 className="text-lg ">{user.given_name.charAt(0)}</h1>
+            </div>
+            <Link href="/api/auth/logout">
               <h1
+                className="px-5 py-1 hover:text-[#bd6450] cursor-pointer hover:border-[#bd6450] text-xs text-black border-black  border-[2px] button-sec"
                 onClick={() => setShowMenu(false)}
-                className="font-semibold hover:text-[#bd6450] tracking-wider cursor-pointer text-sm  uppercase"
               >
-                Home
-              </h1>
-            </Link>
-            <div className="w-1 h-1 bg-black rounded-full "></div>
-            <Link href={"/#about"}>
-              <h1
-                onClick={() => setShowMenu(false)}
-                className="font-semibold hover:text-[#bd6450] tracking-wider cursor-pointer text-sm  uppercase "
-              >
-                About Us
-              </h1>
-            </Link>
-            <div className="w-1 h-1 bg-black rounded-full "></div>
-            <Link href="/classes">
-              <h1
-                onClick={() => setShowMenu(false)}
-                className="font-semibold hover:text-[#bd6450] tracking-wider cursor-pointer text-sm  uppercase"
-              >
-                Classes
+                Log out
               </h1>
             </Link>
           </div>
         )}
-      </div>
-
-      {/* Desktop login and cart button*/}
-      {!isMobile && (
-        <div className="flex items-center justify-end w-64 gap-4">
-          {/* Login or logout button */}
-          {!user ? (
-            <Link href="/api/auth/login">
-              <button
-                onClick={() => setShowMenu(false)}
-                className="px-5 py-1 hover:text-[#bd6450] cursor-pointer hover:border-[#bd6450] text-xs text-black border-black  border-[2px] button-sec"
-              >
-                Log in
-              </button>
-            </Link>
-          ) : (
-            <div className="flex items-center gap-5">
-              <div className="flex items-center justify-center bg-[#E4816B] text-white rounded-full w-8 aspect-square ">
-                <h1 className="text-lg ">{user.given_name.charAt(0)}</h1>
-              </div>
-              <Link href="/api/auth/logout">
-                <h1
-                  className="px-5 py-1 hover:text-[#bd6450] cursor-pointer hover:border-[#bd6450] text-xs text-black border-black  border-[2px] button-sec"
-                  onClick={() => setShowMenu(false)}
-                >
-                  Log out
-                </h1>
-              </Link>
-            </div>
-          )}
-          {/* Cart button */}
-          <button
-            className="relative flex items-center "
-            type="button"
-            onClick={() => setShowCart(true)}
-          >
-            <AiOutlineShopping className="w-6 h-8 pb-1 mr-1" />
-            <h3 className="text-xs font-medium text-black ">
-              Cart ({cartItems && cartItems.length > 0 ? cartItems.length : 0})
-            </h3>{" "}
-          </button>
-        </div>
-      )}
-
-      {/*Mobile Cart icon */}
-      {isMobile && (
+        {/* Cart button */}
         <button
-          className="relative "
+          className="relative flex items-center "
           type="button"
           onClick={() => setShowCart(true)}
         >
-          <AiOutlineShopping className="w-10 h-12 sm:w-8 sm:h-10" />
-          <span className="absolute w-4 h-4 text-xs font-bold text-black rounded-lg sm:top-4 sm:left-2 top-5 left-3 ">
-            {cartItems && cartItems.length > 0 ? cartItems.length : 0}
-          </span>
+          <AiOutlineShopping className="w-6 h-8 pb-1 mr-1" />
+          <h3 className="text-xs font-medium text-black ">
+            Cart ({cartItems && cartItems.length > 0 ? cartItems.length : 0})
+          </h3>{" "}
         </button>
-      )}
-
+      </div>
+      {/*Mobile Cart icon */}
+      <button
+        className="relative sm:hidden "
+        type="button"
+        onClick={() => setShowCart(true)}
+      >
+        <AiOutlineShopping className="w-10 h-12 sm:w-8 sm:h-10" />
+        <span className="absolute w-4 h-4 text-xs font-bold text-black rounded-lg sm:top-4 sm:left-2 top-5 left-3 ">
+          {cartItems && cartItems.length > 0 ? cartItems.length : 0}
+        </span>
+      </button>
       {/* Cart ui */}
       <Cart />
-
       {/* Mobile menu button */}
-      {!showMenu && (
-        <div
-          onClick={handleShowMenu}
-          className={`${
-            !isMobile && "hidden"
-          } fixed flex items-center justify-center w-16 h-16 bg-black rounded-full shadow-2xl bottom-6 right-6`}
-        >
-          <AiOutlineMenu className="text-white w-7 h-7" />
-        </div>
-      )}
+      <div
+        onClick={handleShowMenu}
+        className="fixed flex items-center justify-center w-16 h-16 bg-black rounded-full shadow-2xl sm:hidden bottom-6 right-6"
+      >
+        <AiOutlineMenu className="text-white w-7 h-7" />
+      </div>
       {/* Mobile menu */}
-      {isMobile && (
+      <div
+        className={
+          showMenu
+            ? "fixed sm:hidden ease-in duration-300 flex flex-col justify-start items-center bottom-0 left-0 w-full h-[100%] backdrop-blur-3xl   backdrop-brightness-150"
+            : "fixed sm:hidden ease-in duration-300 flex flex-col justify-start items-center bottom-[-100%] left-0 w-full h-[100%] backdrop-blur-3xl   backdrop-brightness-150"
+        }
+      >
+        {/* Close icon */}
         <div
-          className={
-            showMenu
-              ? "fixed ease-in duration-300 flex flex-col justify-start items-center bottom-0 left-0 w-full h-[100%] backdrop-blur-3xl   backdrop-brightness-150"
-              : "fixed ease-in duration-300 flex flex-col justify-start items-center bottom-[-100%] left-0 w-full h-[100%] backdrop-blur-3xl   backdrop-brightness-150"
-          }
+          onClick={() => setShowMenu(false)}
+          className="flex justify-end w-full px-4 py-4 "
         >
-          {/* Close icon */}
-          <div
-            onClick={() => setShowMenu(false)}
-            className="flex justify-end w-full px-4 py-4 "
-          >
-            <AiOutlineClose className="w-8 h-8" />
-          </div>
-
-          {/* Menu */}
-
-          <div className="flex flex-col items-center justify-center flex-grow w-full gap-6 ">
-            {user && (
-              <div className="flex flex-col items-center w-full gap-5 pl-1">
-                <div className="flex items-center justify-center bg-[#E4816B] text-white rounded-full w-fit aspect-square ">
-                  <h1 className="p-5 text-4xl ">{user.given_name.charAt(0)}</h1>
-                </div>
-                <div className="flex gap-1 text-lg mb-9">
-                  <p>Hello, </p>
-                  <span className="font-bold ">{user.given_name}</span>
-                </div>
-              </div>
-            )}
-            <Link href="/">
-              <h1
-                onClick={() => setShowMenu(false)}
-                className="text-4xl font-medium tracking-wider font-PlayfairDisplay"
-              >
-                Home
-              </h1>
-            </Link>
-            <div className="w-2 h-2 bg-black rounded-full "></div>
-            <Link href={"/#about"}>
-              <h1
-                onClick={() => setShowMenu(false)}
-                className="text-4xl font-medium tracking-wider font-PlayfairDisplay "
-              >
-                About Us
-              </h1>
-            </Link>
-            <div className="w-2 h-2 bg-black rounded-full "></div>
-            <Link href="/classes">
-              <h1
-                onClick={() => setShowMenu(false)}
-                className="mb-8 text-4xl font-medium tracking-wider font-PlayfairDisplay "
-              >
-                Classes
-              </h1>
-            </Link>
-            {/* <div className="w-2 h-2 bg-black rounded-full "></div> */}
-
-            {/* login / out */}
-            {!user ? (
-              <Link href="/api/auth/login">
-                <h1
-                  onClick={() => setShowMenu(false)}
-                  className="w-1/3 mt-6 button"
-                >
-                  Log in
-                </h1>
-              </Link>
-            ) : (
-              <Link href="/api/auth/logout">
-                <h1
-                  className="w-1/3 mt-6 button-sec"
-                  onClick={() => setShowMenu(false)}
-                >
-                  Log out
-                </h1>
-              </Link>
-            )}
-          </div>
+          <AiOutlineClose className="w-8 h-8" />
         </div>
-      )}
+
+        {/* Menu */}
+
+        <div className="flex flex-col items-center justify-center flex-grow w-full gap-6 ">
+          {user && (
+            <div className="flex flex-col items-center w-full gap-5 pl-1">
+              <div className="flex items-center justify-center bg-[#E4816B] text-white rounded-full w-fit aspect-square ">
+                <h1 className="p-5 text-4xl ">{user.given_name.charAt(0)}</h1>
+              </div>
+              <div className="flex gap-1 text-lg mb-9">
+                <p>Hello, </p>
+                <span className="font-bold ">{user.given_name}</span>
+              </div>
+            </div>
+          )}
+          <Link href="/">
+            <h1
+              onClick={() => setShowMenu(false)}
+              className="text-4xl font-medium tracking-wider font-PlayfairDisplay"
+            >
+              Home
+            </h1>
+          </Link>
+          <div className="w-2 h-2 bg-black rounded-full "></div>
+          <Link href={"/#about"}>
+            <h1
+              onClick={() => setShowMenu(false)}
+              className="text-4xl font-medium tracking-wider font-PlayfairDisplay "
+            >
+              About Us
+            </h1>
+          </Link>
+          <div className="w-2 h-2 bg-black rounded-full "></div>
+          <Link href="/classes">
+            <h1
+              onClick={() => setShowMenu(false)}
+              className="mb-8 text-4xl font-medium tracking-wider font-PlayfairDisplay "
+            >
+              Classes
+            </h1>
+          </Link>
+          {/* <div className="w-2 h-2 bg-black rounded-full "></div> */}
+
+          {/* login / out */}
+          {!user ? (
+            <Link href="/api/auth/login">
+              <h1
+                onClick={() => setShowMenu(false)}
+                className="w-1/3 mt-6 button"
+              >
+                Log in
+              </h1>
+            </Link>
+          ) : (
+            <Link href="/api/auth/logout">
+              <h1
+                className="w-1/3 mt-6 button-sec"
+                onClick={() => setShowMenu(false)}
+              >
+                Log out
+              </h1>
+            </Link>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
