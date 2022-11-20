@@ -191,7 +191,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             <p className="mb-4 text-center sm:text-left sm:text-sm indent-5">
               {classTrainer.desc}
             </p>
-            <Link href={`/trainer/${classTrainer.slug.current}`}>
+            {/* <Link href={`/trainer/${classTrainer.slug.current}`}>
               <button
                 className="button-sec sm:-mt-3 justify-center  flex items-center gap-3 sm:hover:bg-[#e4816b]  sm:border-2 border-[#e4816b] sm:hover:text-white sm:w-fit z-10 sm:px-6 font-bold sm:font-semibold tracking-wide w-[90%]"
                 type="button"
@@ -199,7 +199,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
                 More about {classTrainer.firstName}
                 <AiOutlineArrowRight className="w-5 h-5 -mr-1" />
               </button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

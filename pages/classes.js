@@ -44,9 +44,9 @@ const Classes = ({ products, bannerData, trainers }) => {
         />
       </div>
       {!searchTerm ? (
-        <div className="flex flex-col items-center w-full gap-3 mt-6 text-2xl">
+        <div className="flex flex-col items-center w-screen gap-3 mt-6 text-2xl">
           <Link href="/catagories/mindfulness">
-            <div className="relative w-full cursor-pointer">
+            <div className="relative w-screen cursor-pointer">
               <h2 className="w-full py-20 text-3xl font-medium tracking-wider text-center text-white duration-200 ease-in bg-black bg-opacity-50 sm:hover:bg-opacity-40 sm:py-36 font-PlayfairDisplay">
                 Mindfulness
               </h2>
@@ -58,7 +58,7 @@ const Classes = ({ products, bannerData, trainers }) => {
             </div>
           </Link>
           <Link href="/catagories/strength">
-            <div className="relative w-full cursor-pointer">
+            <div className="relative w-screen cursor-pointer">
               <h2 className="w-full py-20 text-3xl font-medium tracking-wider text-center text-white duration-200 ease-in bg-black bg-opacity-50 sm:hover:bg-opacity-40 sm:py-36 font-PlayfairDisplay">
                 Strength
               </h2>
@@ -70,7 +70,7 @@ const Classes = ({ products, bannerData, trainers }) => {
             </div>
           </Link>
           <Link href="/catagories/mobility">
-            <div className="relative w-full cursor-pointer">
+            <div className="relative w-screen cursor-pointer">
               <h2 className="w-full py-20 text-3xl font-medium tracking-wider text-center text-white duration-200 ease-in bg-black bg-opacity-50 sm:hover:bg-opacity-40 sm:py-36 font-PlayfairDisplay">
                 Mobility
               </h2>
@@ -82,7 +82,7 @@ const Classes = ({ products, bannerData, trainers }) => {
             </div>
           </Link>
           <Link href="/catagories/cardio">
-            <div className="relative w-full cursor-pointer">
+            <div className="relative w-screen cursor-pointer">
               <h2 className="w-full py-20 text-3xl font-medium tracking-wider text-center text-white duration-200 ease-in bg-black bg-opacity-50 sm:hover:bg-opacity-40 sm:py-36 font-PlayfairDisplay">
                 Cardio
               </h2>
@@ -94,7 +94,7 @@ const Classes = ({ products, bannerData, trainers }) => {
             </div>
           </Link>
           <Link href="/catagories/combat">
-            <div className="relative w-full cursor-pointer">
+            <div className="relative w-screen cursor-pointer">
               <h2 className="w-full py-20 text-3xl font-medium tracking-wider text-center text-white duration-200 ease-in bg-black bg-opacity-50 sm:hover:bg-opacity-40 sm:py-36 font-PlayfairDisplay">
                 Combat
               </h2>
@@ -106,7 +106,7 @@ const Classes = ({ products, bannerData, trainers }) => {
             </div>
           </Link>
           <Link href="/catagories/all">
-            <div className="relative w-full cursor-pointer">
+            <div className="relative w-screen cursor-pointer">
               <h2 className="w-full py-20 text-3xl font-medium tracking-wider text-center text-white duration-200 ease-in bg-black bg-opacity-50 sm:hover:bg-opacity-40 sm:py-36 font-PlayfairDisplay">
                 All
               </h2>
