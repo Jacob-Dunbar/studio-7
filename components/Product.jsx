@@ -22,7 +22,10 @@ const Product = ({
       return "Mobility";
     } else if (router.pathname === "/catagories/strength") {
       return "Strength";
-    } else if (router.pathname === "/catagories/all") {
+    } else if (
+      router.pathname === "/catagories/all" ||
+      router.pathname === "/classes"
+    ) {
       return "All";
     }
   }
@@ -33,9 +36,15 @@ const Product = ({
 
   // Find index of current cat
   const indexOfCurrentCat = catagories.findIndex((cat) => cat === currentPage);
-  console.log(currentPage, "should happen now");
+
   // Remove that cat from array (if not on trainer page)
-  if (currentPage !== "All") {
+  if (
+    currentPage === "Cardio" ||
+    currentPage === "Combat" ||
+    currentPage === "Mindfulness" ||
+    currentPage === "Mobility" ||
+    currentPage === "Strength"
+  ) {
     catagories.splice(indexOfCurrentCat, 1);
 
     // Add item back at beginning of array
@@ -44,15 +53,17 @@ const Product = ({
 
   return (
     <div>
-      <div className="flex justify-center mb-5 cursor-pointer bg-slate-100">
-        <div className="flex flex-col w-full ">
-          <img
-            className="object-cover w-screen mb-3 h-52"
-            src={urlFor(image && image[0])}
-            alt=""
-          />
-          <div className=" flex flex-col gap-3  self-center w-[90%]">
-            <h1 className="text-3xl font-semibold tracking-wider font-PlayfairDisplay">
+      <div className="flex justify-center mb-5 sm:bg-transparent bg-slate-100">
+        <div className="flex flex-col w-full rounded-md shadow-lg overflow-clip sm:flex-row sm:pr-5 sm:gap-5 sm:w-2/3 sm:bg-slate-100 ">
+          <div className=" sm:w-1/2">
+            <img
+              className="object-cover w-screen mb-3 sm:object-cover sm:w-full sm:h-72 sm:mb-0 h-52"
+              src={urlFor(image && image[0])}
+              alt=""
+            />
+          </div>
+          <div className=" flex flex-col gap-3 sm:h-full sm:justify-between  self-center w-[90%]">
+            <h1 className="text-3xl font-semibold tracking-wider sm:text-2xl sm:mt-5 font-PlayfairDisplay">
               {name}
             </h1>
             <div className="flex gap-3 text-sm font-bold text-gray-500">
@@ -72,10 +83,15 @@ const Product = ({
                 </p>
               ))}
             </div>
-            <p className="text-sm leading-5 line-clamp-3 indent-5">{details}</p>
+            <p className="text-sm leading-5 line-clamp-3 sm:line-clamp-4 indent-5">
+              {details}
+            </p>
             {/* <p className="">£{price}</p> */}
             <Link href={`/product/${slug.current}`}>
-              <button className="w-full mb-5 button" type="button">
+              <button
+                className="w-full mb-5 transition-all duration-75 ease-in button sm:opacity-80 sm:hover:opacity-100"
+                type="button"
+              >
                 More Details
               </button>
             </Link>
