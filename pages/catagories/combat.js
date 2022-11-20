@@ -2,6 +2,7 @@ import { useState } from "react";
 import Product from "../../components/Product";
 import { client } from "../../lib/client";
 import { CatCarousel } from "../../components/CatCarousel";
+import { AiOutlineSearch } from "react-icons/ai";
 
 export const getServerSideProps = async () => {
   const query = '*[_type == "class" && "Combat" in catagories]';
@@ -21,15 +22,16 @@ const combat = ({ products, trainers }) => {
 
   return (
     <div className="flex flex-col items-center py-4 mt-20">
-      <div className="w-full px-5 ">
+      <div className="flex items-center justify-start w-full gap-2 px-5 pl-4 mt-2 text-left sm:w-2/3 searchBar">
+        <AiOutlineSearch className="w-6 text-[#a0a0a0] h-6" />
         <input
-          className="pl-4 text-left outline-none searchBar"
+          className="w-full bg-transparent outline-none"
           type="text"
           placeholder="Search our classes"
           onChange={(event) => setSearchTerm(event.target.value)}
         />
       </div>
-      <CatCarousel />
+      <CatCarousel className="sm:w-1/3" />
       {!searchTerm ? (
         <div>
           <div className="">
