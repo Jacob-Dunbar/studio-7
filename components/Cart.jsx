@@ -303,7 +303,7 @@ const Cart = () => {
               ) : (
                 <Link href="/api/auth/login">
                   <button
-                    className="button w-[95%] sm:text-sm sm:w-[60%] sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
+                    className="button w-[95%] sm:text-sm sm:w-[95%] sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
                     type="button"
                   >
                     Login to checkout

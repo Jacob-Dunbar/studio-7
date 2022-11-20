@@ -7,7 +7,7 @@ import {
 } from "react-icons/ai";
 import Cart from "./Cart.jsx";
 import { useStateContext } from "../context/StateContext";
-import MobileMenu from "../components/MobileMenu";
+
 import { useUser } from "@auth0/nextjs-auth0";
 
 const Navbar = () => {
@@ -184,7 +184,7 @@ const Navbar = () => {
             <Link href="/api/auth/login">
               <h1
                 onClick={() => setShowMenu(false)}
-                className="w-1/3 mt-6 button"
+                className="px-12 mt-6 button"
               >
                 Log in
               </h1>
@@ -192,7 +192,7 @@ const Navbar = () => {
           ) : (
             <Link href="/api/auth/logout">
               <h1
-                className="w-1/3 mt-6 button-sec"
+                className="px-12 mt-6 button-sec"
                 onClick={() => setShowMenu(false)}
               >
                 Log out
