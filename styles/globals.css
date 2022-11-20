@@ -35,26 +35,30 @@
 
   .searchBar {
     border: 2px solid #bababa;
-    color: #bababa;
+    color: black;
     background-color: #f0f0f0;
-    width: 100%;
+
     text-align: center;
     border-radius: 40px;
     padding-block: 0.25rem;
     font-weight: 400;
   }
+
+  .searchBar::placeholder {
+    color: #bababa;
+  }
   .searchBar:focus {
-    border: 2px solid #e4816b;
-    width: 100%;
+    border: 2px solid rgb(128, 128, 128);
+
     text-align: left;
     border-radius: 40px;
     padding-block: 0.25rem;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .chip {
-    border: 2px solid #bababa;
-    color: #999999;
+    border: 2px solid #e4e4e4;
+    color: #a9a9a9;
     background-color: #f0f0f0;
 
     padding: 3px 8px;
