@@ -52,7 +52,7 @@ const Navbar = () => {
             </h1>
           </Link>
           <div className="w-1 h-1 bg-black rounded-full "></div>
-          <Link href="/classes">
+          <Link href="/catagories/all">
             <h1
               onClick={() => setShowMenu(false)}
               className="font-semibold hover:text-[#bd6450] tracking-wider cursor-pointer text-sm  uppercase"
@@ -169,7 +169,7 @@ const Navbar = () => {
             </h1>
           </Link>
           <div className="w-2 h-2 bg-black rounded-full "></div>
-          <Link href="/classes">
+          <Link href="/catagories/all">
             <h1
               onClick={() => setShowMenu(false)}
               className="mb-8 text-4xl font-medium tracking-wider font-PlayfairDisplay "

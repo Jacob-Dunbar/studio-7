@@ -127,7 +127,7 @@ const index = () => {
           className="button-sec flex justify-center items-center gap-3 text-white sm:border-2 sm:hover:border-[#e4816b] sm:hover:text-[#e4816b] sm:w-fit px-6 font-bold sm:font-semibold tracking-wide  border-white w-[70%]"
           type="button"
         >
-          <Link href="/classes">Explore Our Classes</Link>
+          <Link href="/catagories/all">Explore Our Classes</Link>
           <AiOutlineArrowRight className="w-5 h-5 -mr-1" />
         </button>
         <div className="flex items-center gap-5 mt-48 text-gray-300">
