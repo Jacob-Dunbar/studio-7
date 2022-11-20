@@ -42,12 +42,12 @@ export const CatCarousel = () => {
   const array = chooseArray();
 
   return (
-    <div className="flex w-screen gap-2 px-5 my-4 overflow-scroll ">
+    <div className="flex w-screen gap-2 px-5 my-4 overflow-scroll sm:px-0 sm:mb-10 sm:w-2/3 sm:overflow-hidden ">
       {array.map((catagory, i) => {
         if (catagory === currentPage) {
           return (
             <Link key={i} href={`/catagories/all`}>
-              <div className="flex items-center gap-1 chip-active">
+              <div className="flex items-center gap-1 cursor-pointer chip-active">
                 <p className="">{catagory}</p>
                 <AiOutlineClose />
               </div>
@@ -57,7 +57,7 @@ export const CatCarousel = () => {
           return (
             <Link key={i} href={`/catagories/${catagory.toLowerCase()}`}>
               <div>
-                <p className="chip">{catagory}</p>
+                <p className="cursor-pointer chip">{catagory}</p>
               </div>
             </Link>
           );
