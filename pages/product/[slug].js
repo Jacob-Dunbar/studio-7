@@ -96,7 +96,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
       {/* Page container */}
       <div className="flex flex-col items-center sm:min-h-screen ">
         {/* Class details */}
-        <section className="flex flex-col sm:min-w-[900px] sm:mt-28 sm:gap-5 sm:mb-5 items-center justify-center sm:items-start mt-20  sm:h-[380px] sm:w-2/3 sm:flex-row ">
+        <section className="flex flex-col   sm:min-w-[900px] sm:mt-28 sm:gap-5 sm:mb-5 items-center justify-center sm:items-start mt-20  sm:h-[380px] sm:w-2/3 sm:flex-row ">
           {/* Image */}
           {/* Mobile image carousel */}
           <div className="flex w-full h-64 mb-3 overflow-x-scroll sm:hidden ">
@@ -110,7 +110,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             ))}
           </div>
           {/* Desktop image */}
-          <div className="w-full h-full aspect-square ">
+          <div className="hidden w-full h-full sm:block aspect-square">
             <img
               className="object-cover w-full h-full"
               src={urlFor(image[index])}
@@ -119,7 +119,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
           {/* Copy */}
           <div className=" sm:h-full sm:flex sm:flex-col sm:justify-between">
             {/* Details container */}
-            <div className=" flex flex-col gap-3 sm:w-full   self-center w-[90%]">
+            <div className="flex flex-col self-center w-full gap-3 px-5 sm:px-0">
               {/* Heading */}
               <h1 className="text-3xl font-semibold tracking-wider font-PlayfairDisplay">
                 {name}
@@ -177,24 +177,23 @@ const ProductDetails = ({ product, sessions, trainers }) => {
         </section>
 
         {/* Trainer section */}
-        <div className="flex flex-col sm:min-w-[900px] items-center w-full mt-5 bg-gray-100 sm:gap-5 sm:overflow-clip sm:rounded-xl sm:mb-6 sm:py-5 sm:px-5 sm:w-2/3 sm:flex-row ">
+        <div className="flex flex-col py-5 mb-12  px-5 sm:min-w-[900px] items-center w-full mt-5 bg-gray-100 sm:gap-5 sm:overflow-clip sm:rounded-xl sm:mb-6 sm:py-5 sm:px-5 sm:w-2/3 sm:flex-row ">
           <img
             className="w-1/2 rounded-full aspect-square sm:w-44 "
             src={urlFor(classTrainer.image && classTrainer.image)}
             alt="trainer profile picture"
           />
-          <div className="sm:flex sm:flex-col sm:gap-3">
-            <h2 className="-mb-3 ">Trainer :</h2>
-            <h1 className="text-2xl font-semibold font-PlayfairDisplay ">
+          <div className="flex flex-col items-center mt-3 sm:items-start sm:mt-0 sm:gap-3">
+            <h2 className="text-center sm:-mb-3 sm:text-left ">Trainer :</h2>
+            <h1 className="mb-4 text-2xl font-semibold text-center sm:text-left sm:mb-0 font-PlayfairDisplay ">
               {classTrainer.name}
             </h1>
-            <p className=" w-[90%] sm:text-sm mb-4 indent-5">
-              {" "}
+            <p className="mb-4 text-center sm:text-left sm:text-sm indent-5">
               {classTrainer.desc}
             </p>
             <Link href={`/trainer/${classTrainer.slug.current}`}>
               <button
-                className="button-sec sm:-mt-3 flex items-center gap-3 sm:hover:bg-[#e4816b]  sm:border-2 border-[#e4816b] sm:hover:text-white sm:w-fit z-10 sm:px-6 font-bold sm:font-semibold tracking-wide w-[50%]"
+                className="button-sec sm:-mt-3 justify-center  flex items-center gap-3 sm:hover:bg-[#e4816b]  sm:border-2 border-[#e4816b] sm:hover:text-white sm:w-fit z-10 sm:px-6 font-bold sm:font-semibold tracking-wide w-[90%]"
                 type="button"
               >
                 More about {classTrainer.firstName}

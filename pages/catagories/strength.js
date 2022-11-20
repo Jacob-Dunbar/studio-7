@@ -22,7 +22,7 @@ const strength = ({ products, trainers }) => {
 
   return (
     <div className="flex flex-col items-center py-4 mt-20">
-      <div className="flex items-center justify-start w-full gap-2 px-5 pl-4 mt-2 text-left sm:w-2/3 searchBar">
+      <div className="flex items-center justify-start w-[90%] gap-2 px-5 pl-4 mt-2 text-left sm:w-2/3 searchBar">
         <AiOutlineSearch className="w-6 text-[#a0a0a0] h-6" />
         <input
           className="w-full bg-transparent outline-none"

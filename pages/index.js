@@ -119,12 +119,12 @@ const index = () => {
         loop
         muted
       />
-      <div className="absolute flex flex-col items-center justify-center w-full z-10  bottom-[40%] sm:bottom-[10%]">
-        <h1 className="font-medium text-gray-300 text-7xl sm:mb-20 font-PlayfairDisplay">
+      <div className="absolute flex flex-col items-center justify-center w-full z-10  bottom-[10%]">
+        <h1 className="mb-20 text-3xl font-medium text-gray-300 sm:text-7xl font-PlayfairDisplay">
           Training : Your Way
         </h1>
         <button
-          className="button-sec flex items-center gap-3 text-white sm:border-2 sm:hover:border-[#e4816b] sm:hover:text-[#e4816b] sm:w-fit  sm:px-6 font-bold sm:font-semibold tracking-wide  border-white w-[50%]"
+          className="button-sec flex justify-center items-center gap-3 text-white sm:border-2 sm:hover:border-[#e4816b] sm:hover:text-[#e4816b] sm:w-fit px-6 font-bold sm:font-semibold tracking-wide  border-white w-[70%]"
           type="button"
         >
           <Link href="/classes">Explore Our Classes</Link>

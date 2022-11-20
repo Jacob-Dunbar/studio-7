@@ -34,7 +34,7 @@ const Classes = ({ products, bannerData, trainers }) => {
         />
         <link rel="icon" href="/s7icon.svg" />
       </Head>
-      <div className="flex items-center justify-start w-full gap-2 px-5 pl-4 mt-2 mb-4 text-left sm:w-2/3 searchBar">
+      <div className="flex items-center justify-start w-[90%] gap-2 px-5 pl-4 mt-2 mb-4 text-left sm:w-2/3 searchBar">
         <AiOutlineSearch className="w-6 text-[#a0a0a0] h-6" />
         <input
           className="w-full bg-transparent outline-none"

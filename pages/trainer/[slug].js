@@ -71,7 +71,7 @@ const trainer = ({ trainer, products }) => {
           {trainer[0].name}
         </h1>
         {/* Quote */}
-        <div className="flex items-center justify-center px-8 py-4 bg-gray-100 sm:w-2/3 sm:rounded-xl sm:px-5 ">
+        <div className="flex items-center justify-center px-8 py-4 bg-gray-100 sm:w-2/4 sm:rounded-xl sm:px-5 ">
           <img
             className="self-start "
             src="/quote-marks.svg"
