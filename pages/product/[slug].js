@@ -1,10 +1,11 @@
-import React from "react";
+import { useState } from "react";
 import { client, urlFor } from "../../lib/client";
 import {
   AiOutlineMinus,
   AiOutlinePlus,
   AiFillStar,
   AiOutlineStar,
+  AiOutlineArrowRight,
 } from "react-icons/ai";
 import Product from "../../components/Product";
 import { useStateContext } from "../../context/StateContext";
@@ -69,6 +70,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
   const { image, name, details, price, catagories, length, intensity } =
     product;
   const { onAdd } = useStateContext();
+  const [index, setIndex] = useState(0);
 
   // Make sure sessions are in correct order
   sessions.sort((a, b) => {
@@ -91,81 +93,115 @@ const ProductDetails = ({ product, sessions, trainers }) => {
         />
         <link rel="icon" href="/s7icon.svg" />
       </Head>
-      <div>
-        <div className="flex flex-col justify-center mt-20 ">
-          <div className="flex w-full h-64 mb-3 overflow-scroll ">
+      {/* Page container */}
+      <div className="flex flex-col items-center sm:min-h-screen ">
+        {/* Class details */}
+        <section className="flex flex-col sm:min-w-[900px] sm:mt-28 sm:gap-5 sm:mb-5 items-center justify-center sm:items-start mt-20  sm:h-[380px] sm:w-2/3 sm:flex-row ">
+          {/* Image */}
+          {/* Mobile image carousel */}
+          <div className="flex w-full h-64 mb-3 overflow-x-scroll sm:hidden ">
             {image.map((image) => (
               <img
-                className="object-cover"
+                className="object-cover sm:aspect-square "
                 src={urlFor(image)}
                 key={image._key}
                 alt="class image"
               />
             ))}
           </div>
-          <div className=" flex flex-col gap-3  self-center w-[90%]">
-            <p className="text-3xl font-semibold tracking-wider font-PlayfairDisplay">
-              {name}
-            </p>
-            <div className="flex gap-3 text-sm font-bold text-gray-500">
-              <p>{length} hour</p>
-              <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
-              <p>{intensity}</p>
-              <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
-              <p>£{price}</p>
-            </div>
-            <div className="flex gap-2 ">
-              {catagories.map((catagory, i) => (
-                <p key={i} className="chip-active">
-                  {catagory}
-                </p>
-              ))}
-            </div>
-            <p className="mb-5 text-sm leading-5 indent-5">{details}</p>
+          {/* Desktop image */}
+          <div className="w-full h-full aspect-square ">
+            <img
+              className="object-cover w-full h-full"
+              src={urlFor(image[index])}
+            />
           </div>
-          <section className="flex flex-col justify-center bg-gray-100 px-7 py-7 ">
-            <h1 className="mb-4 text-xl">Upcoming classes :</h1>
-            <div className="flex flex-col gap-3">
-              {sessions.map((session, i) => (
-                <div key={i} className="flex justify-between gap-5 ">
-                  <p className="flex-grow text-lg ">
-                    {date
-                      .addDays(session.number)
-                      .toLocaleDateString("en-GB", options)}
+          {/* Copy */}
+          <div className=" sm:h-full sm:flex sm:flex-col sm:justify-between">
+            {/* Details container */}
+            <div className=" flex flex-col gap-3 sm:w-full   self-center w-[90%]">
+              {/* Heading */}
+              <h1 className="text-3xl font-semibold tracking-wider font-PlayfairDisplay">
+                {name}
+              </h1>
+              {/* time - intensity - price */}
+              <div className="flex gap-3 text-sm font-bold text-gray-500">
+                <p>{length} hour</p>
+                <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+                <p>{intensity}</p>
+                <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+                <p>£{price}</p>
+              </div>
+              {/*  Categories */}
+              <div className="flex gap-2 ">
+                {catagories.map((catagory, i) => (
+                  <p key={i} className="chip-active">
+                    {catagory}
                   </p>
-                  <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
-
-                  <p>{session.time}</p>
-                  <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
-
-                  <button
-                    className="px-2 text-xs button"
-                    type="button"
-                    onClick={() => onAdd(session)}
-                  >
-                    Add To Cart
-                  </button>
-                </div>
-              ))}
+                ))}
+              </div>
+              {/* Desciption */}
+              <p className="mb-5 text-sm leading-5 indent-5">{details}</p>
             </div>
-          </section>
-        </div>
+
+            {/* Sessions */}
+            <section className="flex flex-col justify-center bg-gray-100 sm:w-fit sm:rounded-xl sm:py-4 px-7 py-7 ">
+              <h1 className="mb-4 text-xl sm:mb-3 sm:text-base">
+                Upcoming classes :
+              </h1>
+              <div className="flex flex-col gap-3 sm:gap-1 sm:w-full">
+                {sessions.map((session, i) => (
+                  <div key={i} className="flex justify-between gap-5 ">
+                    <p className="flex-grow text-lg sm:text-base sm:w-28 sm:flex-grow-0 ">
+                      {date
+                        .addDays(session.number)
+                        .toLocaleDateString("en-GB", options)}
+                    </p>
+                    <div className="self-center w-[6px]  h-[6px] bg-gray-500 rounded-full "></div>
+
+                    <p>{session.time}</p>
+                    <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+
+                    <button
+                      className="px-2 text-xs sm:px-3 sm:py-0 button sm:scale-95 sm:hover:scale-100"
+                      type="button"
+                      onClick={() => onAdd(session)}
+                    >
+                      Add To Cart
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        </section>
+
         {/* Trainer section */}
-        <div className="flex flex-col items-center w-full gap-4 mt-5">
+        <div className="flex flex-col sm:min-w-[900px] items-center w-full mt-5 bg-gray-100 sm:gap-5 sm:overflow-clip sm:rounded-xl sm:mb-6 sm:py-5 sm:px-5 sm:w-2/3 sm:flex-row ">
           <img
-            className="w-1/2 rounded-full "
+            className="w-1/2 rounded-full aspect-square sm:w-44 "
             src={urlFor(classTrainer.image && classTrainer.image)}
             alt="trainer profile picture"
           />
-          <h1 className="text-2xl font-semibold font-PlayfairDisplay ">
-            {classTrainer.name}
-          </h1>
-          <p className=" w-[90%] mb-4 indent-5"> {classTrainer.desc}</p>
-          <Link href={`/trainer/${classTrainer.slug.current}`}>
-            <button className="button-sec w-[50%] mb-8" type="button">
-              More about {classTrainer.firstName}
-            </button>
-          </Link>
+          <div className="sm:flex sm:flex-col sm:gap-3">
+            <h2 className="-mb-3 ">Trainer :</h2>
+            <h1 className="text-2xl font-semibold font-PlayfairDisplay ">
+              {classTrainer.name}
+            </h1>
+            <p className=" w-[90%] sm:text-sm mb-4 indent-5">
+              {" "}
+              {classTrainer.desc}
+            </p>
+            <Link href={`/trainer/${classTrainer.slug.current}`}>
+              <button
+                className="button-sec sm:-mt-3 flex items-center gap-3 sm:hover:bg-[#e4816b]  sm:border-2 border-[#e4816b] sm:hover:text-white sm:w-fit z-10 sm:px-6 font-bold sm:font-semibold tracking-wide w-[50%]"
+                type="button"
+              >
+                More about {classTrainer.firstName}
+                <AiOutlineArrowRight className="w-5 h-5 -mr-1" />
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
