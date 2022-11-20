@@ -163,24 +163,25 @@ const Cart = () => {
     stripe.redirectToCheckout({ sessionId: data.id });
   };
 
+  console.log(cartItems);
   return (
     // Container
     <div
       className={
         showCart
-          ? "fixed ease-in duration-300 top-0 right-0 z-10 flex flex-col w-screen h-full overflow-scroll bg-gray-100 min-h-none"
-          : "fixed ease-in duration-300 top-[-100%] right-0 z-10 flex flex-col w-screen h-full overflow-scroll bg-gray-100 min-h-none"
+          ? "fixed ease-in  duration-300 sm:w-1/4 top-0 right-0 z-10 flex flex-col w-screen h-full sm:overflow-hidden overflow-scroll bg-gray-100 min-h-none"
+          : "fixed ease-in  duration-300 sm:w-1/4 top-[-100%] right-0 z-10 flex flex-col w-screen sm:overflow-hidden h-full overflow-scroll bg-gray-100 min-h-none"
       }
       ref={cartRef}
     >
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-4 ">
+      <div className="flex items-center justify-between px-4 py-4 sm:justify-end ">
         {/* Logo */}
 
         <Link href="/">
           <h1
             onClick={() => setShowCart(false)}
-            className="pt-1 text-4xl font-semibold tracking-wider font-PlayfairDisplay"
+            className="pt-1 text-4xl font-semibold tracking-wider sm:hidden font-PlayfairDisplay"
           >
             STUDIO 7
           </h1>
@@ -188,53 +189,56 @@ const Cart = () => {
 
         {/* Close */}
         <AiOutlineClose
-          className="w-8 h-8"
+          className="w-8 h-8 cursor-pointer sm:w-6 sm:h-6"
           onClick={() => setShowCart(false)}
         />
       </div>
       {/* Main cart */}
-      <div className="flex flex-col justify-start flex-grow w-full h-full py-4 overflow-scroll">
+      <div className="flex flex-col justify-start flex-grow w-full h-full py-4 overflow-scroll sm:pb-4 sm:pt-0 sm:overflow-hidden">
         {/* Hello user and basket intro */}
 
         <div>
-          <h2 className="px-4 text-xl">
+          <h2 className="px-4 text-xl sm:text-lg">
             {user ? user.given_name + "'s" : "Your"} Basket :
           </h2>
         </div>
         <div className="flex flex-col items-center h-full gap-4 my-4 ">
           {/* Card contents - empty */}
-          {!cartItems && (
-            // Container
-            <div className="flex flex-col items-center justify-between w-full h-full ">
-              <div className="flex flex-col items-center w-full gap-4 py-5 justify-self-end ">
-                {/* Icon and tagline */}
-                <AiOutlineShopping className="w-16 h-16 " />
-                <h3 className="text-lg ">Your basket is empty</h3>
-                {/* Continue shopping button  */}
+          {!cartItems ||
+            (cartItems.length < 1 && (
+              // Container
+              <div className="flex flex-col items-center justify-between w-full h-full ">
+                <div className="flex flex-col items-center w-full gap-4 py-5 justify-self-end ">
+                  {/* Icon and tagline */}
+                  <AiOutlineShopping className="w-16 h-16 sm:w-12 sm:h-12" />
+                  <h3 className="text-lg sm:text-base ">
+                    Your basket is empty
+                  </h3>
+                  {/* Continue shopping button  */}
+                </div>
+                <button
+                  className="button w-[95%] sm:w-[60%] sm:text-sm sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
+                  onClick={() => setShowCart(false)}
+                >
+                  <Link href="/"> Continue shopping</Link>
+                </button>
               </div>
-              <button
-                className="button justify-self-end w-[50%]"
-                onClick={() => setShowCart(false)}
-              >
-                <Link href="/"> Continue shopping</Link>
-              </button>
-            </div>
-          )}
+            ))}
           {/* Card contents - full */}
-          <div className="flex flex-col w-screen gap-5 ">
+          <div className="flex flex-col w-screen gap-5 sm:gap-3 sm:w-full ">
             {cartItems &&
               // Group
               groupArr.map((group, i) => (
                 // Divider dot
                 <div key={i} className="flex flex-col justify-center">
                   {i > 0 && (
-                    <div className="self-center w-[8px] h-[8px] bg-gray-800 mb-5 rounded-full "></div>
+                    <div className="self-center w-[8px] h-[8px] sm:w-[6px] sm:h-[6px] bg-gray-800 mb-5 sm:mb-3 rounded-full "></div>
                   )}
 
-                  <div className="flex w-screen gap-4 px-4 py-4 bg-gray-50">
+                  <div className="flex w-screen gap-4 px-4 py-4 sm:w-full bg-gray-50">
                     <Link href={`/product/${group[0].class}`}>
                       <img
-                        className="object-cover w-20 h-20 rounded-full aspect-square"
+                        className="object-cover w-20 h-20 rounded-full cursor-pointer aspect-square"
                         onClick={() => setShowCart(false)}
                         src={urlFor(group[0].image && group[0].image)}
                         alt="class thumbnail"
@@ -243,7 +247,7 @@ const Cart = () => {
                     <div className="flex-grow ">
                       <Link href={`/product/${group[0].class}`}>
                         <h1
-                          className="mb-4 text-2xl font-semibold font-PlayfairDisplay"
+                          className="mb-4 text-2xl font-semibold cursor-pointer sm:mb-2 sm:text-lg font-PlayfairDisplay"
                           onClick={() => setShowCart(false)}
                         >
                           {group[0].name}
@@ -256,21 +260,23 @@ const Cart = () => {
                             key={i}
                             className="flex items-center justify-between w-full "
                           >
-                            <p className="text-md ">
+                            <p className="text-md sm:text-sm ">
                               {date
                                 .addDays(session.number)
                                 .toLocaleDateString("en-GB", options)}
                             </p>
-                            <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+                            <div className="self-center w-[6px] h-[6px] sm:w-[4px] sm:h-[4px] bg-gray-500 rounded-full "></div>
 
-                            <p className="text-md">{session.time}</p>
-                            <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
-                            <p className="text-md">£{session.price}</p>
+                            <p className="text-md sm:text-sm">{session.time}</p>
+                            <div className="self-center w-[6px] h-[6px] sm:w-[4px] sm:h-[4px] bg-gray-500 rounded-full "></div>
+                            <p className="text-md sm:text-sm">
+                              £{session.price}
+                            </p>
                             <button
                               onClick={() => onRemove(session)}
                               type="button"
                             >
-                              <TiDeleteOutline className="w-7 h-7 " />
+                              <TiDeleteOutline className="w-7 h-7 sm:w-5 sm:h-5" />
                             </button>
                           </div>
                         ))}
@@ -282,13 +288,13 @@ const Cart = () => {
           </div>
         </div>
         <div className="flex flex-col items-center justify-end flex-grow gap-3 ">
-          {cartItems && (
+          {cartItems.length > 0 && (
             <div className="flex flex-col w-full gap-4 px-4 ">
-              <h3 className="text-2xl ">Total : £{totalPrice}</h3>
+              <h3 className="text-2xl sm:text-lg ">Total : £{totalPrice}</h3>
 
               {user ? (
                 <button
-                  className="button w-[95%] self-center"
+                  className="button w-[95%] sm:text-sm sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
                   type="button"
                   onClick={handleCheckout}
                 >
@@ -296,7 +302,10 @@ const Cart = () => {
                 </button>
               ) : (
                 <Link href="/api/auth/login">
-                  <button className="button w-[95%] self-center" type="button">
+                  <button
+                    className="button w-[95%] sm:text-sm sm:w-[60%] sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
+                    type="button"
+                  >
                     Login to checkout
                   </button>
                 </Link>
