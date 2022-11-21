@@ -123,7 +123,6 @@ const index = () => {
         autoPlay
         loop
         muted
-        poster
       />
       <div className="absolute flex flex-col items-center justify-center w-full z-10  bottom-[10%]">
         <h1 className="mb-20 text-3xl font-medium text-gray-300 sm:text-7xl font-PlayfairDisplay">
