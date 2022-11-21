@@ -42,7 +42,7 @@ export const CatCarousel = () => {
   const array = chooseArray();
 
   return (
-    <div className="flex w-screen gap-2 px-5 my-4 overflow-scroll sm:px-0 sm:mb-10 sm:w-2/3 sm:overflow-hidden ">
+    <div className="flex w-screen gap-2 px-5 my-4 overflow-scroll scrollbar-hide sm:px-0 sm:mb-10 sm:w-2/3 sm:overflow-hidden ">
       {array.map((catagory, i) => {
         if (catagory === currentPage) {
           return (
