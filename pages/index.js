@@ -117,13 +117,16 @@ const index = () => {
         alt="background"
       /> */}
       <div className="absolute top-0 z-10 w-full h-screen bg-black bg-opacity-50"></div>
+
       <video
         className="object-cover h-screen sm:mb-5"
-        src="/studio7Video.mp4"
         autoPlay
         loop
         muted
+        playsinline
+        src="/studio7Video.mp4"
       />
+
       <div className="absolute flex flex-col items-center justify-center w-full z-10  bottom-[10%]">
         <h1 className="mb-20 text-3xl font-medium text-gray-300 sm:text-7xl font-PlayfairDisplay">
           Training : Your Way
