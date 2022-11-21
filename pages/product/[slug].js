@@ -102,7 +102,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
           <div className="flex w-full h-64 mb-3 overflow-x-scroll sm:hidden ">
             {image.map((image) => (
               <img
-                className="object-cover sm:aspect-square "
+                className="object-cover w-full sm:aspect-square "
                 src={urlFor(image)}
                 key={image._key}
                 alt="class image"
@@ -145,7 +145,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             </div>
 
             {/* Sessions */}
-            <section className="flex flex-col justify-center bg-gray-100 sm:w-fit sm:rounded-xl sm:py-4 px-7 py-7 ">
+            <section className="flex flex-col justify-center bg-gray-100 sm:shadow-lg sm:w-fit sm:rounded-xl sm:py-4 px-7 py-7 ">
               <h1 className="mb-4 text-xl sm:mb-3 sm:text-base">
                 Upcoming classes :
               </h1>
@@ -177,7 +177,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
         </section>
 
         {/* Trainer section */}
-        <div className="flex flex-col py-5 mb-12  px-5 sm:min-w-[900px] items-center w-full mt-5 bg-gray-100 sm:gap-5 sm:overflow-clip sm:rounded-xl sm:mb-6 sm:py-5 sm:px-5 sm:w-2/3 sm:flex-row ">
+        <div className="flex flex-col py-5 mb-12 sm:shadow-lg  px-5 sm:min-w-[900px] items-center w-full mt-5 bg-gray-100 sm:gap-5 sm:overflow-clip sm:rounded-xl sm:mb-6 sm:py-5 sm:px-5 sm:w-2/3 sm:flex-row ">
           <img
             className="w-1/2 rounded-full aspect-square sm:w-44 "
             src={urlFor(classTrainer.image && classTrainer.image)}
