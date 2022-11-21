@@ -5,6 +5,11 @@ import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
+import Image from "next/image";
+import flexible from "../public/images/flexible.jpg";
+import friendly from "../public/images/friendly.jpg";
+import inclusive from "../public/images/inclusive.jpg";
+import location from "../public/images/location.jpg";
 
 const index = () => {
   const [ref, inView] = useInView();
@@ -163,9 +168,12 @@ const index = () => {
             animate={animationFromLeft}
             className="flex flex-col items-center w-full pb-5 bg-slate-100 "
           >
-            <img
+            <Image
+              height="600"
+              width="600"
+              placeholder="blur"
               className="object-cover w-full h-48 mb-4 sm:h-80"
-              src="/images/mobility-bg.jpg"
+              src={flexible}
               alt="flexible"
             />
             <h2 className="px-8 mb-3 text-2xl text-center font-PlayfairDisplay">
@@ -185,9 +193,12 @@ const index = () => {
             animate={animationFromRight}
             className="flex flex-col items-center w-full pb-5 bg-slate-100"
           >
-            <img
+            <Image
+              height="600"
+              width="600"
+              placeholder="blur"
               className="object-cover object-top w-full h-48 mb-4 sm:h-80"
-              src="/images/friendly-bg.jpg"
+              src={friendly}
               alt="flexible"
             />
             <h2 className="px-8 mb-3 text-2xl text-center font-PlayfairDisplay">
@@ -207,9 +218,12 @@ const index = () => {
             animate={animationFromLeft1}
             className="flex flex-col items-center w-full pb-5 bg-slate-100"
           >
-            <img
+            <Image
+              height="600"
+              width="600"
+              placeholder="blur"
               className="object-cover object-top w-full h-48 mb-4 sm:h-80"
-              src="/images/mindfulness-bg.jpg"
+              src={inclusive}
               alt="flexible"
             />
             <h2 className="px-8 mb-3 text-2xl text-center font-PlayfairDisplay">
@@ -230,9 +244,12 @@ const index = () => {
             animate={animationFromRight1}
             className="flex flex-col items-center w-full pb-5 bg-slate-100"
           >
-            <img
+            <Image
+              height="600"
+              width="600"
+              placeholder="blur"
               className="object-cover object-top w-full h-48 mb-4 sm:h-80"
-              src="/images/bermondsey.jpg"
+              src={location}
               alt="flexible"
             />
             <h2 className="px-8 mb-3 text-2xl text-center font-PlayfairDisplay">
