@@ -1,12 +1,13 @@
 import { useState } from "react";
-import Product from "../../components/Product";
-import { client } from "../../lib/client";
-import { CatCarousel } from "../../components/CatCarousel";
+import Product from "../components/Product";
+import { client } from "../lib/client";
+import { CatCarousel } from "../components/CatCarousel";
 import { AiOutlineSearch } from "react-icons/ai";
+
+// Fetch classes and trainers
 
 export const getServerSideProps = async () => {
   const query = '*[_type == "class"]';
-  //   const query = '*[[details, name, catagories] match ["fighting"]]';
   const products = await client.fetch(query);
 
   const trainerQuery = '*[_type == "trainer"]';
@@ -17,7 +18,7 @@ export const getServerSideProps = async () => {
   };
 };
 
-const cardio = ({ products, trainers }) => {
+const Classes = ({ products, trainers }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeFilters, setActiveFilters] = useState(["All"]);
   const [inactiveFilters, setInactiveFilters] = useState([
@@ -83,10 +84,6 @@ const cardio = ({ products, trainers }) => {
     }
   }
 
-  const checker = (arr, arr2) => arr2.every((v) => arr.includes(v));
-
-  console.log(checker(activeFilters, products[1].catagories));
-
   // Filter products by category
   const filteredProducts = products.filter((product) => {
     if (activeFilters.every((filter) => product.catagories.includes(filter))) {
@@ -95,8 +92,6 @@ const cardio = ({ products, trainers }) => {
       return product;
     }
   });
-
-  // If not categories seclected, select "All
 
   return (
     <div className="flex flex-col items-center py-4 mt-20">
@@ -133,13 +128,7 @@ const cardio = ({ products, trainers }) => {
       ) : (
         filteredProducts
           .filter((product) => {
-            if (
-              product.details.toLowerCase().includes(searchTerm.toLowerCase())
-            ) {
-              return product;
-            } else if (
-              product.name.toLowerCase().includes(searchTerm.toLowerCase())
-            ) {
+            if (product.name.toLowerCase().includes(searchTerm.toLowerCase())) {
               return product;
             } else if (
               product.catagories[0]
@@ -163,4 +152,4 @@ const cardio = ({ products, trainers }) => {
   );
 };
 
-export default cardio;
+export default Classes;
