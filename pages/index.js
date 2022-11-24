@@ -118,8 +118,13 @@ const index = () => {
       /> */}
       <div className="absolute top-0 z-10 w-full h-screen bg-black bg-opacity-50"></div>
 
+      <img
+        src="/images/homeImage.jpg"
+        alt="Background image"
+        className="object-cover object-right h-screen sm:hidden"
+      />
       <video
-        className="object-cover h-screen sm:mb-5"
+        className="hidden object-cover h-screen sm:block sm:mb-5"
         autoPlay
         loop
         muted
@@ -138,7 +143,7 @@ const index = () => {
           <Link href="/catagories/all">Explore Our Classes</Link>
           <AiOutlineArrowRight className="w-5 h-5 -mr-1" />
         </button>
-        <div className="flex items-center gap-5 mt-48 text-gray-300">
+        <div className="flex items-center gap-5 text-gray-300 sm:mt-48 mt-60">
           <HiOutlineChevronDoubleDown className="w-6 h-6" />
           <h1 className="text-xl ">Learn More</h1>
           <HiOutlineChevronDoubleDown className="w-6 h-6" />
