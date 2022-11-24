@@ -2,55 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { urlFor } from "../lib/client";
 
-import { useRouter } from "next/router";
-
-const Product = ({
-  product: { image, name, slug, price, catagories, details, length, intensity },
-}) => {
-  // Get current page
-
-  const router = useRouter();
-
-  function chooseCurrentPage() {
-    if (router.pathname === "/catagories/cardio") {
-      return "Cardio";
-    } else if (router.pathname === "/catagories/combat") {
-      return "Combat";
-    } else if (router.pathname === "/catagories/mindfulness") {
-      return "Mindfulness";
-    } else if (router.pathname === "/catagories/mobility") {
-      return "Mobility";
-    } else if (router.pathname === "/catagories/strength") {
-      return "Strength";
-    } else if (
-      router.pathname === "/catagories/all" ||
-      router.pathname === "/classes"
-    ) {
-      return "All";
-    }
-  }
-
-  const currentPage = chooseCurrentPage();
-
-  // Put searched for category at the first position in array
-
-  // Find index of current cat
-  const indexOfCurrentCat = catagories.findIndex((cat) => cat === currentPage);
-
-  // Remove that cat from array (if not on trainer page)
-  if (
-    currentPage === "Cardio" ||
-    currentPage === "Combat" ||
-    currentPage === "Mindfulness" ||
-    currentPage === "Mobility" ||
-    currentPage === "Strength"
-  ) {
-    catagories.splice(indexOfCurrentCat, 1);
-
-    // Add item back at beginning of array
-    catagories.unshift(currentPage);
-  }
-
+const Product = (props) => {
   return (
     <div>
       <div className="flex justify-center mb-5 sm:bg-transparent bg-slate-100">
@@ -58,36 +10,46 @@ const Product = ({
           <div className=" sm:w-1/2">
             <img
               className="object-cover w-screen mb-3 sm:object-cover sm:w-full sm:h-72 sm:mb-0 h-52"
-              src={urlFor(image && image[0])}
+              src={urlFor(props.product.image && props.product.image[0])}
               alt=""
             />
           </div>
           <div className=" flex flex-col gap-3 sm:h-full sm:justify-between  self-center w-[90%]">
             <h1 className="text-3xl font-semibold tracking-wider sm:text-2xl sm:mt-5 font-PlayfairDisplay">
-              {name}
+              {props.product.name}
             </h1>
             <div className="flex gap-3 text-sm font-bold text-gray-500">
-              <p>{length} hour</p>
+              <p>{props.product.length} hour</p>
               <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
-              <p>{intensity}</p>
+              <p>{props.product.intensity}</p>
               <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
-              <p>£{price}</p>
+              <p>£{props.product.price}</p>
             </div>
             <div className="flex gap-2 ">
-              {catagories.map((catagory, i) => (
-                <p
-                  className={currentPage === catagory ? "chip-active" : "chip"}
-                  key={i}
-                >
-                  {catagory}
-                </p>
-              ))}
+              {props.activeFilters.map((filter) =>
+                props.product.catagories.map((cat) => {
+                  if (cat === filter) {
+                    return <p className="chip-active">{filter}</p>;
+                  } else {
+                    return;
+                  }
+                })
+              )}
+              {props.inactiveFilters?.map((filter) =>
+                props.product.catagories.map((cat) => {
+                  if (cat === filter) {
+                    return <p className="chip">{filter}</p>;
+                  } else {
+                    return;
+                  }
+                })
+              )}
             </div>
             <p className="text-sm leading-5 line-clamp-3 sm:line-clamp-4 indent-5">
-              {details}
+              {props.product.details}
             </p>
             {/* <p className="">£{price}</p> */}
-            <Link href={`/product/${slug.current}`}>
+            <Link href={`/product/${props.product.slug.current}`}>
               <button
                 className="w-full mb-5 transition-all duration-75 ease-in button sm:opacity-80 sm:hover:opacity-100"
                 type="button"
