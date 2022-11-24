@@ -23,7 +23,6 @@ const Cart = () => {
 
   // Create empty group arrays
 
-  console.log("this code was run");
   const groupSessions = (cartItems) => {
     let bodybuilding = [];
     let ashtanga = [];
@@ -163,7 +162,6 @@ const Cart = () => {
     stripe.redirectToCheckout({ sessionId: data.id });
   };
 
-  console.log(cartItems);
   return (
     // Container
     <div

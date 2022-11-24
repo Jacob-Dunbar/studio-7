@@ -61,7 +61,6 @@ const index = () => {
 
   // Animate in friendly box
   useEffect(() => {
-    console.log(inView2);
     if (inView2) {
       animationFromLeft1.start({
         x: 0,

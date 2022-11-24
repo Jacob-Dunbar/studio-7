@@ -7,7 +7,6 @@ import { useStateContext } from "../context/StateContext";
 const Layout = ({ children }) => {
   const { showCart, showMenu } = useStateContext();
 
-  console.log(showMenu);
   return (
     <div
       className={`flex flex-col overflow-x-hidden ${
