@@ -96,7 +96,7 @@ const Classes = ({ products, trainers }) => {
   console.log(filteredProducts.length);
   return (
     <div className="flex flex-col items-center py-4 mt-24">
-      <div className="relative sm:w-2/3 bg-yellow-50">
+      <div className="relative w-[90%] sm:w-2/3 bg-yellow-50">
         <AiOutlineSearch className="w-6 absolute top-[17%] left-4 text-[#a0a0a0] h-6" />
         <input
           className="flex items-center justify-start w-full gap-2 px-5 pl-12 text-left searchBar"

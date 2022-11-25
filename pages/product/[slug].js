@@ -117,7 +117,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             />
           </div>
           {/* Copy */}
-          <div className=" sm:h-full sm:flex sm:flex-col sm:justify-between">
+          <div className="flex flex-col  sm:h-full sm:justify-between">
             {/* Details container */}
             <div className="flex flex-col self-center w-full gap-3 px-5 sm:px-0">
               {/* Heading */}
@@ -145,7 +145,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             </div>
 
             {/* Sessions */}
-            <section className="flex flex-col justify-center bg-gray-100 sm:shadow-lg sm:w-fit sm:rounded-xl sm:py-4 px-7 py-7 ">
+            <section className="flex flex-col self-center justify-center bg-gray-100 sm:shadow-lg w-fit sm:rounded-xl sm:py-4 px-7 py-7 ">
               <div className="flex flex-col gap-3 sm:gap-1 sm:w-full">
                 {sessions.map((session, i) => (
                   <div className="flex flex-col">

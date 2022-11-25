@@ -15,7 +15,7 @@ export const CatCarousel = (props) => {
               className="flex items-center gap-1 cursor-pointer chip-active"
             >
               <p className="">{catagory}</p>
-              <AiOutlineClose />
+              {catagory !== "All" && <AiOutlineClose />}
             </div>
           );
         })}
