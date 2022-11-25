@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
       <Head>
         <title>Studio 7</title>
       </Head>
-      <div className="flex flex-col ">
+      <div className="flex flex-col min-h-screen ">
         <header className="z-30">
           <Navbar />
         </header>
