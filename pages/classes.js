@@ -93,17 +93,19 @@ const Classes = ({ products, trainers }) => {
     }
   });
 
+  console.log(filteredProducts.length);
   return (
-    <div className="flex flex-col items-center py-4 mt-20">
-      <div className="flex items-center justify-start w-[90%] gap-2 px-5 pl-4 mt-2 text-left sm:w-2/3 searchBar">
-        <AiOutlineSearch className="w-6 text-[#a0a0a0] h-6" />
+    <div className="flex flex-col items-center py-4 mt-24">
+      <div className="relative sm:w-2/3 bg-yellow-50">
+        <AiOutlineSearch className="w-6 absolute top-[17%] left-4 text-[#a0a0a0] h-6" />
         <input
-          className="w-full bg-transparent outline-none"
+          className="flex items-center justify-start w-full gap-2 px-5 pl-12 text-left searchBar"
           type="text"
           placeholder="Search our classes"
           onChange={(event) => setSearchTerm(event.target.value)}
         />
       </div>
+
       <CatCarousel
         activeFilters={activeFilters}
         inactiveFilters={inactiveFilters}
@@ -111,6 +113,19 @@ const Classes = ({ products, trainers }) => {
         addFilter={handleAddFilter}
         className="sm:w-1/3"
       />
+      {filteredProducts.filter((product) => {
+        if (product.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+          return product;
+        } else if (
+          product.catagories[0].toLowerCase().includes(searchTerm.toLowerCase())
+        ) {
+          return product;
+        }
+      }).length < 1 && (
+        <div>
+          <h1>No classes found</h1>
+        </div>
+      )}
       {!searchTerm ? (
         <div>
           <div className="">
