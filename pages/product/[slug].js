@@ -96,7 +96,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
       {/* Page container */}
       <div className="flex flex-col items-center sm:min-h-screen ">
         {/* Class details */}
-        <section className="flex flex-col   sm:min-w-[900px] sm:mt-28 sm:gap-5 sm:mb-5 items-center justify-center sm:items-start mt-20  sm:h-[380px] sm:w-2/3 sm:flex-row ">
+        <section className="flex flex-col   sm:min-w-[900px] sm:mt-32 mt sm:gap-5 sm:mb-5 items-center justify-center sm:items-start mt-20  sm:h-[380px] sm:w-2/3 sm:flex-row ">
           {/* Image */}
           {/* Mobile image carousel */}
           <div className="flex w-full h-64 mb-3 overflow-x-scroll sm:hidden ">
@@ -112,7 +112,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
           {/* Desktop image */}
           <div className="hidden w-full h-full sm:block aspect-square">
             <img
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full rounded-md"
               src={urlFor(image[index])}
             />
           </div>
@@ -146,29 +146,31 @@ const ProductDetails = ({ product, sessions, trainers }) => {
 
             {/* Sessions */}
             <section className="flex flex-col justify-center bg-gray-100 sm:shadow-lg sm:w-fit sm:rounded-xl sm:py-4 px-7 py-7 ">
-              <h1 className="mb-4 text-xl sm:mb-3 sm:text-base">
-                Upcoming classes :
-              </h1>
               <div className="flex flex-col gap-3 sm:gap-1 sm:w-full">
                 {sessions.map((session, i) => (
-                  <div key={i} className="flex justify-between gap-5 ">
-                    <p className="flex-grow text-lg sm:text-base sm:w-28 sm:flex-grow-0 ">
-                      {date
-                        .addDays(session.number)
-                        .toLocaleDateString("en-GB", options)}
-                    </p>
-                    <div className="self-center w-[6px]  h-[6px] bg-gray-500 rounded-full "></div>
+                  <div className="flex flex-col">
+                    {i !== 0 && (
+                      <div className="w-full h-[2px] mb-2 mt-1 bg-gray-300 "></div>
+                    )}
+                    <div key={i} className="flex justify-between gap-5 ">
+                      <p className="flex-grow text-lg sm:text-base sm:w-24 sm:flex-grow-0 ">
+                        {date
+                          .addDays(session.number)
+                          .toLocaleDateString("en-GB", options)}
+                      </p>
+                      {/* <div className="self-center w-[6px]  h-[6px] bg-gray-500 rounded-full "></div> */}
+                      <p> - </p>
+                      <p>{session.time}</p>
+                      {/* <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div> */}
 
-                    <p>{session.time}</p>
-                    <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
-
-                    <button
-                      className="px-2 text-xs sm:px-3 sm:py-0 button sm:scale-95 sm:hover:scale-100"
-                      type="button"
-                      onClick={() => onAdd(session)}
-                    >
-                      Add To Cart
-                    </button>
+                      <button
+                        className="px-2 text-xs sm:px-3 sm:py-0 button sm:scale-95 sm:hover:scale-100"
+                        type="button"
+                        onClick={() => onAdd(session)}
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>
