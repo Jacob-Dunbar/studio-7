@@ -132,9 +132,13 @@ const index = () => {
       />
 
       <div className="absolute flex flex-col items-center justify-center w-full z-10  bottom-[10%]">
-        <h1 className="mb-20 text-3xl font-medium text-gray-300 sm:text-7xl font-PlayfairDisplay">
+        <h1 className="mb-16 text-3xl font-medium text-gray-300 sm:text-7xl font-PlayfairDisplay">
           Training : Your Way
         </h1>
+        <p className="mb-10 text-white">
+          Pay as you go classes taught by world class trainers in their fields.
+          Let's do this.
+        </p>
         <button
           className="button-sec flex justify-center items-center gap-3 text-white sm:border-2 sm:hover:border-[#e4816b] sm:hover:text-[#e4816b] sm:w-fit px-6 font-bold sm:font-semibold tracking-wide  border-white w-[70%]"
           type="button"
@@ -142,7 +146,7 @@ const index = () => {
           <Link href="/classes">Explore Our Classes</Link>
           <AiOutlineArrowRight className="w-5 h-5 -mr-1" />
         </button>
-        <div className="flex items-center gap-5 text-gray-300 sm:mt-48 mt-60">
+        <div className="flex items-center gap-5 text-gray-300 sm:mt-32 mt-60">
           <HiOutlineChevronDoubleDown className="w-6 h-6" />
           <h1 className="text-xl ">Learn More</h1>
           <HiOutlineChevronDoubleDown className="w-6 h-6" />
