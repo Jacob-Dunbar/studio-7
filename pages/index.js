@@ -166,11 +166,11 @@ const index = () => {
         id="about"
         className="flex flex-col items-center w-full gap-5 pt-10 mb-10 "
       >
-        <div className="flex flex-col gap-5 sm:w-2/3">
-          <h1 className="px-5 mb-3 text-4xl sm:text-center font-PlayfairDisplay">
+        <div className="flex flex-col gap-5 sm:w-full sm:px-24">
+          <h1 className="px-5 mb-3 text-4xl sm:mt-14 sm:text-center font-PlayfairDisplay">
             About Studio 7
           </h1>
-          <p className="px-5 mb-10 sm:text-center indent-5 ">
+          <p className="px-5 mb-10 sm:px-44 sm:mb-16 sm:text-center indent-5 ">
             Studio 5 is a multi-purpose fitness studio situated in Bermondsey,
             London, specialising in holistic fitness and overall well-being. Our
             pay-as-you-go classes range in focus from cardiovascular health,
@@ -183,7 +183,7 @@ const index = () => {
           <motion.div
             ref={ref}
             animate={animationFromLeft}
-            className="flex flex-col items-center sm:min-w-[370px] shadow-lg rounded-lg overflow-clip w-full pb-5 sm:mr-2 sm:w-[50%] bg-slate-100 "
+            className="flex flex-col items-center  shadow-lg rounded-lg overflow-clip w-full pb-5 sm:mr-2 sm:w-[50%] bg-slate-100 "
           >
             <Image
               height="600"
@@ -196,7 +196,7 @@ const index = () => {
             <h2 className="px-8 mb-3 text-2xl text-center font-PlayfairDisplay">
               Flexible
             </h2>
-            <p className="px-8 sm:w-[70%] text-center">
+            <p className="px-8 text-center">
               No subscription, just pay for as many or as few classes as you
               like. You are only committed to the classes you have already
               booked - no strings.
@@ -220,7 +220,7 @@ const index = () => {
             <h2 className="px-8 mb-3 text-2xl text-center font-PlayfairDisplay">
               Friendly
             </h2>
-            <p className="px-8 sm:w-[70%] text-center ">
+            <p className="px-8 text-center ">
               Our trainers are some of the nicest around. Their approachable
               manner makes all our classes feel safe and welcoming, whilst still
               challenging enough to get the best out of you.
@@ -231,7 +231,7 @@ const index = () => {
           <motion.div
             ref={ref2}
             animate={animationFromLeft1}
-            className="flex flex-col rounded-lg sm:min-w-[370px] shadow-lg overflow-clip   sm:-mt-52   sm:w-[50%] items-center w-full pb-5 bg-slate-100"
+            className="flex flex-col rounded-lg sm:min-w-[370px] shadow-lg overflow-clip  sm:-mt-36     sm:w-[50%] items-center w-full pb-5 bg-slate-100"
           >
             <Image
               height="600"
@@ -244,7 +244,7 @@ const index = () => {
             <h2 className="px-8 mb-3 text-2xl text-center font-PlayfairDisplay">
               Inclusive
             </h2>
-            <p className="px-8 sm:w-[70%] text-center ">
+            <p className="px-8 text-center ">
               We believe Fitness isn’t about 6-pack abs and big muscles, it’s
               about a healthy mind and body, and that is the ideal we work
               towards here. We are all at different stages of our journey and we
@@ -256,7 +256,7 @@ const index = () => {
           <motion.div
             ref={ref3}
             animate={animationFromRight1}
-            className="flex rounded-lg overflow-clip sm:min-w-[370px] shadow-lg flex-col sm:mt-[-365px] sm:w-[50%] sm:self-end items-center w-full pb-5 bg-slate-100"
+            className="flex rounded-lg overflow-clip sm:min-w-[370px] shadow-lg flex-col sm:mt-[-345px] sm:w-[50%] sm:self-end items-center w-full pb-5 bg-slate-100"
           >
             <Image
               height="600"
@@ -269,7 +269,7 @@ const index = () => {
             <h2 className="px-8 mb-3 text-2xl text-center font-PlayfairDisplay">
               Location
             </h2>
-            <p className="px-8 sm:w-[70%] text-center">
+            <p className="px-8 text-center">
               Located just around the corner from Bermondsey station, you should
               have no trouble popping in before or after work for a quick
               session. We even have customers that swing by during their lunch
