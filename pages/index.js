@@ -4,6 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { AiOutlineArrowDown } from "react-icons/ai";
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import Image from "next/image";
 import flexible from "../public/images/flexible.jpg";
@@ -97,10 +98,14 @@ const index = () => {
     }
   }, [inView3]);
 
+  // const showBanner = () => {
+  //   setTimeout;
+  // };
+
   return (
     <section
       id="home"
-      className="top-0 z-20 flex flex-col justify-center w-full "
+      className="top-0 z-20 flex flex-col justify-center w-full h-5/6 "
     >
       <Head>
         <title>Studio 7 | Home</title>
@@ -110,46 +115,48 @@ const index = () => {
         />
         <link rel="icon" href="/s7icon.svg" />
       </Head>
-      {/* <img
+      <div className="w-full relative sm:h-[93vh] ">
+        {/* <img
         className="object-cover object-right h-screen"
         src="/images/home-bg2.jpg"
         alt="background"
       /> */}
-      <div className="absolute top-0 z-10 w-full h-screen bg-black bg-opacity-50"></div>
+        <div className="absolute top-0 z-10 w-full bg-black bg-opacity-50 sm:h-full"></div>
 
-      <img
-        src="/images/homeImage.jpg"
-        alt="Background image"
-        className="object-cover object-right h-screen sm:hidden"
-      />
-      <video
-        className="hidden object-cover h-screen sm:block sm:mb-5"
-        autoPlay
-        loop
-        muted
-        playsinline
-        src="/studio7Video.mp4"
-      />
+        <img
+          src="/images/homeImage.jpg"
+          alt="Background image"
+          className="object-cover object-right h-screen sm:hidden"
+        />
+        <video
+          className="hidden object-cover w-full h-screen sm:h-full sm:block sm:mb-5"
+          autoPlay
+          loop
+          muted
+          playsinline
+          src="/studio7Video.mp4"
+        />
 
-      <div className="absolute flex flex-col items-center justify-center w-full z-10  bottom-[10%]">
-        <h1 className="mb-16 text-3xl font-medium text-gray-300 sm:text-7xl font-PlayfairDisplay">
-          Training : Your Way
-        </h1>
-        <p className="hidden mb-10 text-white sm:block">
+        <div className="absolute top-0 flex flex-col sm:h-full items-center justify-center w-full z-10  bottom-[10%]">
+          <h1 className="mb-16 text-3xl font-medium text-center text-gray-300 sm:pt-8 sm:mt-auto sm:text-8xl font-PlayfairDisplay">
+            Training : Mind & Body
+          </h1>
+          {/* <p className="hidden mb-10 text-white sm:block">
           Pay as you go classes taught by world class trainers in their fields.
           Let's do this.
-        </p>
-        <button
+        </p> */}
+          {/* <button
           className="button-sec flex justify-center items-center gap-3 text-white sm:border-2 sm:hover:border-[#e4816b] sm:hover:text-[#e4816b] sm:w-fit px-6 font-bold sm:font-semibold tracking-wide  border-white w-[70%]"
           type="button"
         >
           <Link href="/classes">Explore Our Classes</Link>
           <AiOutlineArrowRight className="w-5 h-5 -mr-1" />
-        </button>
-        <div className="flex items-center gap-5 text-gray-300 sm:mt-32 mt-60">
-          <HiOutlineChevronDoubleDown className="w-6 h-6" />
-          <h1 className="text-xl ">Learn More</h1>
-          <HiOutlineChevronDoubleDown className="w-6 h-6" />
+        </button> */}
+          <div className="flex flex-col items-center gap-1 text-gray-300 sm:pb-3 sm:mt-auto mt-60">
+            {/* <HiOutlineChevronDoubleDown className="w-6 h-6" /> */}
+            <h1 className="text-xl ">Learn More</h1>
+            <AiOutlineArrowDown className="w-6 h-6" />
+          </div>
         </div>
       </div>
       {/* <button className=" absolute  bottom-40 button w-[80%]" type="button">

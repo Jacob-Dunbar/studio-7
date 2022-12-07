@@ -14,16 +14,22 @@ import { useUser } from "@auth0/nextjs-auth0";
 const Navbar = () => {
   const { cartItems, showCart, setShowCart, showMenu, setShowMenu } =
     useStateContext();
-  const [showBanner, setShowBanner] = useState(true);
+  const [showBanner, setShowBanner] = useState(false);
   const { user } = useUser();
 
   function handleShowMenu() {
     setShowMenu((prevVal) => !prevVal);
   }
 
+  useEffect(() => {
+    setTimeout(() => {
+      setShowBanner(true);
+    }, 1000);
+  }, []);
+
   return (
-    <div className="absolute w-full">
-      <div className="z-30 flex items-center justify-between w-full px-4 pt-2 pb-3 bg-gray-200 bg-opacity-50 sm:px-8 sm:h-16">
+    <div className="w-full ">
+      <div className="z-30 flex items-center justify-between w-full px-4 pt-2 pb-2 bg-gray-200 bg-opacity-50 sm:px-8 sm:h-[7vh]">
         {/* logo */}
         <Link href="/">
           <h1
@@ -39,7 +45,7 @@ const Navbar = () => {
             <Link href="/">
               <h1
                 onClick={() => setShowMenu(false)}
-                className="font-semibold hover:text-[#bd6450] tracking-wider cursor-pointer text-sm  uppercase"
+                className="font-semibold hover:text-[#bd6450] tracking-wider cursor-pointer text-xs  uppercase"
               >
                 Home
               </h1>
@@ -48,7 +54,7 @@ const Navbar = () => {
             <Link href={"/#about"}>
               <h1
                 onClick={() => setShowMenu(false)}
-                className="font-semibold hover:text-[#bd6450] tracking-wider cursor-pointer text-sm  uppercase "
+                className="font-semibold text-center hover:text-[#bd6450] tracking-wider cursor-pointer text-xs  uppercase "
               >
                 About Us
               </h1>
@@ -57,7 +63,7 @@ const Navbar = () => {
             <Link href="/classes">
               <h1
                 onClick={() => setShowMenu(false)}
-                className="font-semibold hover:text-[#bd6450] tracking-wider cursor-pointer text-sm  uppercase"
+                className="font-semibold hover:text-[#bd6450] tracking-wider cursor-pointer text-xs  uppercase"
               >
                 Classes
               </h1>
@@ -65,13 +71,13 @@ const Navbar = () => {
           </div>
         </div>
         {/* Desktop login and cart button*/}
-        <div className="items-center justify-end hidden w-64 gap-4 sm:flex">
+        <div className="items-center justify-end hidden w-64 gap-5 sm:flex">
           {/* Login or logout button */}
           {!user ? (
             <Link href="/api/auth/login">
               <button
                 onClick={() => setShowMenu(false)}
-                className="px-5 py-1 hover:text-[#bd6450] cursor-pointer hover:border-[#bd6450] text-xs text-black border-black  border-[2px] button-sec"
+                className="px-5 py-1 hover:text-[#bd6450] cursor-pointer hover:border-[#bd6450] text-xs text-black border-black  border-[1px] button-sec"
               >
                 Log in
               </button>
@@ -97,7 +103,7 @@ const Navbar = () => {
             type="button"
             onClick={() => setShowCart(true)}
           >
-            <AiOutlineShopping className="w-6 h-8 pb-1 mr-1" />
+            <AiOutlineShopping className="w-5 h-6 pb-1 mr-1" />
             <h3 className="text-xs font-medium text-black ">
               Cart ({cartItems && cartItems.length > 0 ? cartItems.length : 0})
             </h3>{" "}
@@ -203,8 +209,8 @@ const Navbar = () => {
             )}
           </div>
         </div>
-      </div>{" "}
-      {showBanner && <Banner hideBanner={setShowBanner} />}
+      </div>
+      <Banner showBanner={showBanner} hideBanner={setShowBanner} />
     </div>
   );
 };
