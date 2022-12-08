@@ -1,23 +1,19 @@
 import { useRef } from "react";
 import Link from "next/link";
-import {
-  AiOutlineLeft,
-  AiOutlineShopping,
-  AiOutlineClose,
-} from "react-icons/ai";
+import { AiOutlineShopping, AiOutlineClose } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import toast from "react-hot-toast";
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
 import getStripe from "../lib/getStripe";
-import Button from "../components/Button";
+
 import { useUser } from "@auth0/nextjs-auth0";
 
 const Cart = () => {
   const cartRef = useRef();
   const { totalPrice, cartItems, setShowCart, onRemove, showCart } =
     useStateContext();
-  const { user, error, isLoading } = useUser();
+  const { user } = useUser();
 
   // Sort cart into groups
 
@@ -167,8 +163,8 @@ const Cart = () => {
     <div
       className={
         showCart
-          ? "fixed ease-in  duration-300 sm:w-1/4 top-0 right-0 z-10 flex flex-col w-screen h-full sm:overflow-hidden overflow-scroll bg-gray-100 min-h-none"
-          : "fixed ease-in  duration-300 sm:w-1/4 top-[-100%] right-0 z-10 flex flex-col w-screen sm:overflow-hidden h-full overflow-scroll bg-gray-100 min-h-none"
+          ? "fixed  ease-in-out rounded-l-3xl   duration-500 sm:w-1/4 top-0 right-0 z-10 flex flex-col w-screen h-full sm:overflow-hidden overflow-scroll bg-gray-100 min-h-none"
+          : "fixed ease-in-out rounded-l-3xl  duration-500 sm:w-1/4 -right-96 right top-0 z-10 flex flex-col w-screen sm:overflow-hidden h-full overflow-scroll bg-gray-100 min-h-none"
       }
       ref={cartRef}
     >

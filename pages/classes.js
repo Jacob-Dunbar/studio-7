@@ -196,7 +196,7 @@ const Classes = ({ products, trainers, sessions }) => {
       </div>
       <div className=" w-1/3 px-12 py-6    sticky top-0 left-0  h-[93vh]">
         <div
-          className={`relative flex flex-col transition-all gap-6 p-6 shadow-lg sm:bg-gray-100 sm:bg-opacity-50 rounded-xl  ${
+          className={`relative flex flex-col transition-all duration-300 gap-6 p-6 shadow-lg sm:bg-gray-100 sm:bg-opacity-50 rounded-xl  ${
             !showFeature
               ? "opacity-0  sm:right-0  pointer-events-none"
               : "opacity-100"
