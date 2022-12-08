@@ -163,8 +163,8 @@ const Cart = () => {
     <div
       className={
         showCart
-          ? "fixed  ease-in-out rounded-l-3xl   duration-500 sm:w-1/4 top-0 right-0 z-10 flex flex-col w-screen h-full sm:overflow-hidden overflow-scroll bg-gray-100 min-h-none"
-          : "fixed ease-in-out rounded-l-3xl  duration-500 sm:w-1/4 -right-96 right top-0 z-10 flex flex-col w-screen sm:overflow-hidden h-full overflow-scroll bg-gray-100 min-h-none"
+          ? "fixed  ease-in-out rounded-l-3xl sm:min-w-[350px]  duration-500 sm:w-1/4 top-0 right-0 z-10 flex flex-col w-screen h-full sm:overflow-hidden overflow-scroll bg-gray-100 min-h-none"
+          : "fixed ease-in-out rounded-l-3xl sm:min-w-[350px] duration-500 sm:w-1/4 -right-96 right top-0 z-10 flex flex-col w-screen sm:overflow-hidden h-full overflow-scroll bg-gray-100 min-h-none"
       }
       ref={cartRef}
     >
@@ -288,7 +288,7 @@ const Cart = () => {
 
               {user ? (
                 <button
-                  className="button w-[95%] sm:text-sm sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
+                  className="button w-[95%] ml-3 sm:text-sm sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
                   type="button"
                   onClick={handleCheckout}
                 >
@@ -297,7 +297,7 @@ const Cart = () => {
               ) : (
                 <Link href="/api/auth/login">
                   <button
-                    className="button w-[95%] sm:text-sm sm:w-[95%] sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
+                    className="button w-[95%]  ml-3 sm:text-sm sm:w-[95%] sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  "
                     type="button"
                   >
                     Login to checkout

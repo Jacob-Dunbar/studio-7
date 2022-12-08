@@ -96,7 +96,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
       {/* Page container */}
       <div className="flex flex-col items-center sm:min-h-screen ">
         {/* Class details */}
-        <section className="flex flex-col   sm:min-w-[900px] sm:mt-32 mt sm:gap-5 sm:mb-5 items-center justify-center sm:items-start mt-20  sm:h-[380px] sm:w-2/3 sm:flex-row ">
+        <section className="flex flex-col   sm:min-w-[900px] sm:mt-12 mt sm:gap-5 sm:mb-5 items-center justify-center sm:items-start mt-20  sm:h-[380px] sm:w-2/3 sm:flex-row ">
           {/* Image */}
           {/* Mobile image carousel */}
           <div className="flex w-full h-64 mb-3 overflow-x-scroll sm:hidden ">
@@ -145,12 +145,12 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             </div>
 
             {/* Sessions */}
-            <section className="flex flex-col self-center justify-center bg-gray-100 sm:self-start sm:justify-start sm:shadow-lg w-fit sm:rounded-xl sm:py-4 px-7 py-7 ">
+            <section className="flex flex-col self-center justify-center w-full bg-gray-100 sm:self-start sm:justify-start sm:shadow-lg sm:rounded-xl sm:py-4 px-7 py-7 ">
               <div className="flex flex-col gap-3 sm:gap-1 sm:w-full">
                 {sessions.map((session, i) => (
                   <div className="flex flex-col">
                     {i !== 0 && (
-                      <div className="w-full h-[2px] mb-2 mt-1 bg-gray-300 "></div>
+                      <div className="w-full h-[1px] mb-2 mt-1 bg-gray-300 "></div>
                     )}
                     <div key={i} className="flex justify-between gap-5 ">
                       <p className="flex-grow text-lg sm:text-base sm:w-24 sm:flex-grow-0 ">
@@ -164,11 +164,12 @@ const ProductDetails = ({ product, sessions, trainers }) => {
                       {/* <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div> */}
 
                       <button
-                        className="px-2 text-xs sm:px-3 sm:py-0 button sm:scale-95 sm:hover:scale-100"
+                        className="flex items-center gap-2 px-2 text-xs sm:px-3 sm:py-0 sm:scale-95 sm:hover:scale-100"
                         type="button"
                         onClick={() => onAdd(session)}
                       >
                         Add To Cart
+                        <AiOutlinePlus className="w-4 h-4 " />
                       </button>
                     </div>
                   </div>

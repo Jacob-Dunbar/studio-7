@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Product from "../components/Product";
 import { client, urlFor } from "../lib/client";
 import { CatCarousel } from "../components/CatCarousel";
-import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineStar, AiOutlineClose } from "react-icons/ai";
 import ProductPanel from "../components/productPannel";
 // Fetch classes and trainers
 
@@ -194,17 +194,20 @@ const Classes = ({ products, trainers, sessions }) => {
             ))
         )}
       </div>
-      <div className=" w-1/3 px-12 py-6    sticky top-0 left-0  h-[93vh]">
+      <div className=" w-1/3 px-12 py-6    sticky top-5 left-0  h-[93vh]">
         <div
           className={`relative flex flex-col transition-all duration-300 gap-6 p-6 shadow-lg sm:bg-gray-100 sm:bg-opacity-50 rounded-xl  ${
             !showFeature
-              ? "opacity-0  sm:right-0  pointer-events-none"
-              : "opacity-100"
+              ? "opacity-0 sm:-right-5    pointer-events-none"
+              : "opacity-100 sm:right-0"
           }`}
         >
-          <h1 className="w-full pb-4 text-3xl font-semibold tracking-wider border-b border-gray-300 sm:text-2xl font-PlayfairDisplay">
-            Featured Trainer
-          </h1>
+          <div className="flex items-center gap-3 border-b border-gray-300">
+            <AiOutlineStar className="w-6 h-6 mb-3" />
+            <h1 className="w-full pb-4 text-3xl font-semibold tracking-wider sm:text-2xl font-PlayfairDisplay">
+              Featured Trainer
+            </h1>
+          </div>
           <AiOutlineClose
             onClick={() => setShowFeature(false)}
             className="absolute w-5 h-5 cursor-pointer right-4 top-4 "
