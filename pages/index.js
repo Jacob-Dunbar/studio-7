@@ -105,7 +105,7 @@ const index = () => {
   return (
     <section
       id="home"
-      className="top-0 z-20 flex flex-col justify-center w-full h-5/6 "
+      className="top-0 z-20 flex flex-col justify-center w-full "
     >
       <Head>
         <title>Studio 7 | Home</title>
@@ -115,7 +115,7 @@ const index = () => {
         />
         <link rel="icon" href="/s7icon.svg" />
       </Head>
-      <div className="w-full relative sm:h-[93vh] ">
+      <div className="w-full relative sm:-mt-[1vh] sm:h-[91vh] ">
         {/* <img
         className="object-cover object-right h-screen"
         src="/images/home-bg2.jpg"
@@ -164,7 +164,7 @@ const index = () => {
       </button> */}
       <section
         id="about"
-        className="flex flex-col items-center w-full gap-5 pt-10 mb-10 "
+        className="flex flex-col items-center w-full gap-5 pt-10 mb-10 overflow-x-hidden "
       >
         <div className="flex flex-col gap-5 sm:w-full sm:px-24">
           <h1 className="px-5 mb-3 text-4xl sm:mt-14 sm:text-center font-PlayfairDisplay">

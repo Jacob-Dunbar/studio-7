@@ -34,9 +34,8 @@
   }
 
   .searchBar {
-    border: 2px solid #bababa;
+    border: 1px solid #bababa;
     color: black;
-    background-color: #f0f0f0;
 
     text-align: center;
     border-radius: 40px;
@@ -46,7 +45,7 @@
   }
 
   .searchBar:focus {
-    border: 2px solid #9c9c9c;
+    border: 1px solid #868686;
     background-color: #fffefe;
   }
 
@@ -55,24 +54,24 @@
   }
 
   .chip {
-    border: 2px solid #e4e4e4;
+    border: 1px solid #a9a9a9;
     color: #a9a9a9;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
 
-    padding: 3px 8px;
+    padding: 4px 12px;
     font-size: 0.8rem;
     text-align: center;
     border-radius: 40px;
 
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .chip-active {
-    background-color: #bcb8b5;
-    border: 2px solid #bcb8b5;
+    background-color: #464646;
+    border: 1px solid #464646;
     color: white;
 
-    padding: 3px 8px;
+    padding: 4px 12px;
     font-size: 0.8rem;
     text-align: center;
     border-radius: 40px;

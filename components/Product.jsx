@@ -1,28 +1,28 @@
 import { useState } from "react";
 import Link from "next/link";
 import { urlFor } from "../lib/client";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 const Product = (props) => {
   return (
     <div>
-      <div className="flex justify-center mb-5 sm:bg-transparent bg-slate-100">
-        <div className="flex flex-col w-full rounded-md shadow-lg overflow-clip sm:flex-row sm:pr-5 sm:gap-5 sm:w-2/3 sm:bg-slate-100 ">
-          <div className=" sm:w-1/2">
-            <img
-              className="object-cover w-screen mb-3 sm:object-cover sm:w-full sm:h-72 sm:mb-0 h-52"
-              src={urlFor(props.product.image && props.product.image[0])}
-              alt=""
-            />
-          </div>
-          <div className=" flex flex-col gap-3 sm:h-full sm:justify-between  self-center w-[90%]">
+      <div className="flex justify-center mb-8 sm:w-full sm:bg-transparent ">
+        <div className="flex flex-col shadow-md rounded-xl overflow-clip sm:flex-row sm:pr-5 sm:gap-5 sm:bg-gray-100 sm:bg-opacity-50">
+          <img
+            className="object-cover w-screen h-full mb-3 sm:aspect-square sm:object-cover sm:w-1/4 sm:mb-0"
+            src={urlFor(props.product.image && props.product.image[0])}
+            alt=""
+          />
+
+          <div className="flex flex-col self-center gap-2 sm:h-full sm:justify-between sm:flex-grow">
             <h1 className="text-3xl font-semibold tracking-wider sm:text-2xl sm:mt-5 font-PlayfairDisplay">
               {props.product.name}
             </h1>
-            <div className="flex gap-3 text-sm font-bold text-gray-500">
+            <div className="flex gap-3 text-xs font-bold text-gray-500">
               <p>{props.product.length} hour</p>
-              <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+              <div className="self-center w-[4px] h-[4px] bg-gray-500 rounded-full "></div>
               <p>{props.product.intensity}</p>
-              <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
+              <div className="self-center w-[4px] h-[4px] bg-gray-500 rounded-full "></div>
               <p>£{props.product.price}</p>
             </div>
             <div className="flex gap-2 ">
@@ -45,24 +45,34 @@ const Product = (props) => {
                 })
               )}
             </div>
-            <p className="text-sm leading-5 line-clamp-3 sm:line-clamp-4 indent-5">
+            <p className="text-xs leading-4 line-clamp-3 sm:line-clamp-3 indent-5">
               {props.product.details}
             </p>
             {/* <p className="">£{price}</p> */}
             <Link href={`/product/${props.product.slug.current}`}>
               <button
-                className="w-full mb-5 transition-all duration-75 ease-in button sm:opacity-80 sm:hover:opacity-100"
+                className="relative w-full mb-5 transition-all duration-75 ease-in sm:text-sm button sm:opacity-80 sm:hover:opacity-100"
                 type="button"
               >
                 More Details
+                <AiOutlineArrowRight className="absolute w-5 h-5 top-2 right-4" />
               </button>
             </Link>
+            {/* 
+            <button
+              onClick={() => props.setActiveClassName(props.product.name)}
+              className="relative hidden w-full mt-6 mb-5 transition-all duration-75 ease-in sm:block sm:text-sm button sm:opacity-80 sm:hover:opacity-100"
+              type="button"
+            >
+              More Details
+              <AiOutlineArrowRight className="absolute w-5 h-5 top-2 right-4" />
+            </button> */}
           </div>
         </div>
       </div>
-      <div className="flex justify-center w-full mb-5">
-        <div className="self-center w-2 h-2 bg-black rounded-full "></div>
-      </div>
+      {/* <div className="flex justify-center w-full mb-5">
+        <div className="self-center w-1 h-1 bg-black rounded-full "></div>
+      </div> */}
     </div>
   );
 };

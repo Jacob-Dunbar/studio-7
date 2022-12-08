@@ -14,7 +14,7 @@ const Banner = (props) => {
 
   return (
     <div
-      className={`flex px-6 shadow-xl sm:mt-2 sm:w-fit   sm:bg-opacity-75  transition-all ease-in-out absolute sm:py-6 sm:gap-4  sm:right-4 sm:top-16 sm:rounded-xl bg-[#e4816b]  sm:text-sm text-xs    text-white justify-start sm:justify-center items-center w-full  
+      className={`flex px-6 shadow-xl sm:mt-4 sm:w-fit    transition-all ease-in-out absolute sm:py-6 sm:gap-4  sm:right-3 sm:top-16 sm:rounded-xl bg-[#e4816b]  sm:text-sm text-xs    text-white justify-start sm:justify-center items-center w-full  
         ${
           !props.showBanner
             ? "opacity-0  sm:right-0  pointer-events-none"
