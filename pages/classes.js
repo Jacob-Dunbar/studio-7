@@ -149,51 +149,56 @@ const Classes = ({ products, trainers, sessions }) => {
             return product;
           }
         }).length < 1 && (
-          <div>
+          <div className="flex justify-center w-full mt-5">
             <h1>No classes found</h1>
           </div>
         )}
-        {!searchTerm ? (
-          <div className="flex flex-col items-center">
-            <div className=" sm:w-[100%] w-[90%]">
-              {filteredProducts.map((product) => (
-                <Product
-                  setActiveClassName={setActiveClassName}
-                  key={product._id}
-                  activeFilters={activeFilters}
-                  inactiveFilters={inactiveFilters}
-                  trainers={trainers}
-                  product={product}
-                />
-              ))}
-            </div>
+
+        <div className="flex flex-col items-center">
+          <div className=" sm:w-[100%] w-[90%]">
+            {!searchTerm ? (
+              <div>
+                {filteredProducts.map((product) => (
+                  <Product
+                    setActiveClassName={setActiveClassName}
+                    key={product._id}
+                    activeFilters={activeFilters}
+                    inactiveFilters={inactiveFilters}
+                    trainers={trainers}
+                    product={product}
+                  />
+                ))}
+              </div>
+            ) : (
+              filteredProducts
+                .filter((product) => {
+                  if (
+                    product.name
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase())
+                  ) {
+                    return product;
+                  } else if (
+                    product.catagories[0]
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase())
+                  ) {
+                    return product;
+                  }
+                })
+                .map((product) => (
+                  <Product
+                    setActiveClassName={setActiveClassName}
+                    key={product._id}
+                    activeFilters={activeFilters}
+                    inactiveFilters={inactiveFilters}
+                    trainers={trainers}
+                    product={product}
+                  />
+                ))
+            )}
           </div>
-        ) : (
-          filteredProducts
-            .filter((product) => {
-              if (
-                product.name.toLowerCase().includes(searchTerm.toLowerCase())
-              ) {
-                return product;
-              } else if (
-                product.catagories[0]
-                  .toLowerCase()
-                  .includes(searchTerm.toLowerCase())
-              ) {
-                return product;
-              }
-            })
-            .map((product) => (
-              <Product
-                setActiveClassName={setActiveClassName}
-                key={product._id}
-                activeFilters={activeFilters}
-                inactiveFilters={inactiveFilters}
-                trainers={trainers}
-                product={product}
-              />
-            ))
-        )}
+        </div>
       </div>
       {/* sticky feature */}
       <div className="w-1/3 hidden px-12 py-6 sm:block sticky top-5 left-0 h-[93vh]">
