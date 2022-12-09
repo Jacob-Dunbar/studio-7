@@ -164,7 +164,7 @@ const Cart = () => {
       className={
         showCart
           ? "fixed  ease-in-out rounded-l-3xl sm:min-w-[350px]  duration-500 sm:w-1/4 top-0 right-0 z-10 flex flex-col w-screen h-full sm:overflow-hidden overflow-scroll bg-gray-100 min-h-none"
-          : "fixed ease-in-out rounded-l-3xl sm:min-w-[350px] duration-500 sm:w-1/4 -right-96 right top-0 z-10 flex flex-col w-screen sm:overflow-hidden h-full overflow-scroll bg-gray-100 min-h-none"
+          : "fixed ease-in-out rounded-l-3xl sm:min-w-[350px] duration-500 sm:w-1/4 sm:-right-[420px] -right-[100vw] right top-0 z-10 flex flex-col w-screen sm:overflow-hidden h-full overflow-scroll bg-gray-100 min-h-none"
       }
       ref={cartRef}
     >
