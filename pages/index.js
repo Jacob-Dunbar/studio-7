@@ -170,7 +170,7 @@ const index = () => {
           <h1 className="px-5 mb-3 text-4xl text-center sm:mt-14 font-PlayfairDisplay">
             About Studio 7
           </h1>
-          <p className="px-5 mb-10 text-center sm:px-44 sm:mb-16 indent-5 ">
+          <p className="px-5 mb-10 self-center sm:max-w-[700px] text-center sm:mb-16 indent-5 ">
             Studio 5 is a multi-purpose fitness studio situated in Bermondsey,
             London, specialising in holistic fitness and overall well-being. Our
             pay-as-you-go classes range in focus from cardiovascular health,
@@ -183,7 +183,7 @@ const index = () => {
           <motion.div
             ref={ref}
             animate={animationFromLeft}
-            className="flex ml-5 sm:ml-0 flex-col items-center  shadow-lg rounded-lg overflow-clip w-[95%] pb-5 sm:mr-2 sm:w-[50%] bg-slate-100 "
+            className="flex ml-5 sm:ml-0  flex-col items-center  shadow-lg rounded-lg overflow-clip w-[95%] pb-5 sm:mr-2 sm:w-[50%] bg-slate-100 "
           >
             <Image
               height="600"
@@ -207,7 +207,7 @@ const index = () => {
           <motion.div
             ref={ref1}
             animate={animationFromRight}
-            className="flex  flex-col sm:w-[50%] sm:min-w-[370px] w-[95%] shadow-lg rounded-lg overflow-clip sm:-mt-80 sm:self-end  items-center  pb-5 bg-slate-100"
+            className="flex  flex-col sm:w-[50%]  w-[95%] shadow-lg rounded-lg overflow-clip  sm:-mt-80 sm:self-end  items-center  pb-5 bg-slate-100"
           >
             <Image
               height="600"
@@ -231,7 +231,7 @@ const index = () => {
           <motion.div
             ref={ref2}
             animate={animationFromLeft1}
-            className="flex flex-col ml-5 sm:ml-0 rounded-lg sm:min-w-[370px] shadow-lg overflow-clip  sm:-mt-36     sm:w-[50%] items-center w-[95%] pb-5 bg-slate-100"
+            className="flex flex-col ml-5 sm:ml-0 rounded-lg shadow-lg overflow-clip  sm:-mt-36     sm:w-[50%] items-center w-[95%] pb-5 bg-slate-100"
           >
             <Image
               height="600"
@@ -256,7 +256,7 @@ const index = () => {
           <motion.div
             ref={ref3}
             animate={animationFromRight1}
-            className="flex rounded-lg  overflow-clip sm:min-w-[370px] shadow-lg flex-col sm:mt-[-345px] sm:w-[50%] sm:self-end items-center w-[95%] pb-5 bg-slate-100"
+            className="flex rounded-lg  overflow-clip  shadow-lg flex-col sm:mt-[-345px] sm:w-[50%] sm:self-end items-center w-[95%] pb-5 bg-slate-100"
           >
             <Image
               height="600"
