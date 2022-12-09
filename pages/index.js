@@ -126,7 +126,7 @@ const index = () => {
         <img
           src="/images/homeImage.jpg"
           alt="Background image"
-          className="object-cover object-right h-full sm:hidden"
+          className="object-cover object-right w-full h-full sm:hidden"
         />
         <video
           className="hidden object-cover w-full sm:h-full sm:block sm:mb-5"
@@ -138,7 +138,7 @@ const index = () => {
         />
 
         <div className="absolute top-0 flex flex-col h-[93vh] sm:h-full items-center justify-center w-full z-10  bottom-[10%]">
-          <h1 className="mb-16 font-medium text-center text-gray-300 text-7xl sm:pt-8 sm:mt-auto sm:text-8xl font-PlayfairDisplay">
+          <h1 className="mb-16 font-medium text-center text-white sm:text-gray-300 text-7xl sm:pt-8 sm:text-8xl font-PlayfairDisplay">
             Training : Mind & Body
           </h1>
           {/* <p className="hidden mb-10 text-white sm:block">
@@ -152,7 +152,7 @@ const index = () => {
           <Link href="/classes">Explore Our Classes</Link>
           <AiOutlineArrowRight className="w-5 h-5 -mr-1" />
         </button> */}
-          <div className="absolute flex flex-col items-center gap-1 text-gray-300 sm:block bottom-6 sm:pb-3 sm:mt-auto mt-60">
+          <div className="absolute flex flex-col items-center gap-1 sm:text-gray-300 text-gray-50 bottom-6 sm:pb-3 sm:mt-auto mt-60">
             {/* <HiOutlineChevronDoubleDown className="w-6 h-6" /> */}
             <h1 className="text-xl ">Learn More</h1>
             <AiOutlineArrowDown className="w-6 h-6" />
