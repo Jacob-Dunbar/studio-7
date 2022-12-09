@@ -96,13 +96,13 @@ const ProductDetails = ({ product, sessions, trainers }) => {
       {/* Page container */}
       <div className="flex flex-col items-center sm:min-h-screen ">
         {/* Class details */}
-        <section className="flex flex-col   sm:min-w-[900px] sm:mt-12 mt sm:gap-5 sm:mb-5 items-center justify-center sm:items-start   sm:h-[380px] sm:w-2/3 sm:flex-row ">
+        <section className="flex flex-col   sm:max-w-[90vw] sm:mt-12 mt sm:gap-5 sm:mb-5 items-center justify-center sm:items-start   sm:h-[380px] sm:w-[900px] sm:flex-row ">
           {/* Image */}
           {/* Mobile image carousel */}
-          <div className="flex w-full h-64 mb-3 overflow-x-scroll sm:hidden ">
+          <div className="flex h-64 mb-3 sm:hidden ">
             {image.map((image) => (
               <img
-                className="object-cover w-full sm:aspect-square "
+                className="object-cover w-screen sm:aspect-square "
                 src={urlFor(image)}
                 key={image._key}
                 alt="class image"
@@ -110,7 +110,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             ))}
           </div>
           {/* Desktop image */}
-          <div className="hidden w-full h-full sm:block aspect-square">
+          <div className="hidden h-full max-w-[30vw] sm:block aspect-square">
             <img
               className="object-cover w-full h-full rounded-md"
               src={urlFor(image[index])}
@@ -180,7 +180,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
         </section>
 
         {/* Trainer section */}
-        <div className="flex flex-col py-5 mb-12 sm:shadow-lg  px-5 sm:min-w-[900px] items-center w-full mt-5 bg-gray-100 sm:gap-5 sm:overflow-clip sm:rounded-xl sm:mb-6 sm:py-5 sm:px-5 sm:w-2/3 sm:flex-row ">
+        <div className="flex flex-col py-5 sm:w-[900px]  mb-12 sm:shadow-lg  px-5  items-center w-full mt-5 bg-gray-100 sm:gap-5 sm:overflow-clip sm:rounded-xl sm:mb-6 sm:py-5 sm:px-5 sm:max-w-[90vw] sm:flex-row ">
           <img
             className="w-1/2 rounded-full aspect-square sm:w-44 "
             src={urlFor(classTrainer.image && classTrainer.image)}
