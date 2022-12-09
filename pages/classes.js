@@ -121,7 +121,7 @@ const Classes = ({ products, trainers, sessions }) => {
       {/* main section */}
       <div className=" sm:w-2/3 sm:pl-12 sm:h-full">
         <div className="z-10 bg-white sm:py-6 ">
-          <div className="relative sm:ml-0 ml-[5%] sm:w-full  w-[90%]  sm:min-w-[500px] ">
+          <div className="relative sm:ml-0 ml-[5%] sm:w-full  w-[90%]   ">
             <AiOutlineSearch className="w-5 absolute top-1 sm:top-2 left-3 text-[#a0a0a0] h-6" />
             <input
               className="flex items-center justify-start w-full gap-2 px-5 pl-10 text-sm text-left sm:py-2 searchBar"
