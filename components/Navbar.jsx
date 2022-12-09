@@ -28,14 +28,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="w-full ">
+    <div className="w-full overflow-x-clipped ">
       <div
-        className={`fixed w-screen h-screen duration-500 z-10 transition-all overflow-hidden bg-black ${
+        className={`fixed w-screen h-screen  duration-500 z-10 transition-all overflow-hidden bg-black ${
           showCart ? "bg-opacity-70" : " pointer-events-none bg-opacity-0"
         } `}
       ></div>
 
-      <div className="z-30 flex items-center justify-between duration-700 w-full px-4 pt-2 pb-2 shadow-md bg-gray-100 bg-opacity-50 sm:px-8 sm:mb-[1vh] sm:h-[9vh]">
+      <div className="z-30  flex items-center justify-between duration-700 w-full px-4 pt-2 pb-2 shadow-md bg-gray-100 bg-opacity-50 sm:px-8 sm:mb-[1vh] sm:h-[9vh]">
         {/* logo */}
         <Link href="/">
           <h1

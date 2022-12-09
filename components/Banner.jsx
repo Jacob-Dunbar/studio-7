@@ -14,11 +14,11 @@ const Banner = (props) => {
 
   return (
     <div
-      className={`flex px-6 shadow-xl sm:mt-4 sm:w-fit  duration-300  transition-all ease-in-out absolute sm:py-6 sm:gap-4  sm:right-3 sm:top-16 sm:rounded-xl bg-[#e4816b]  sm:text-sm text-xs    text-white justify-start sm:justify-center items-center w-full  
+      className={`flex px-6 shadow-xl overflow-hidden sm:mt-4 sm:w-fit top-5 duration-300 absolute transition-all ease-in-out   sm:py-6 sm:gap-4 sm:right-4 sm:top-[4.5rem]  sm:rounded-xl bg-[#e4816b]  sm:text-sm text-xs  text-white justify-start sm:justify-center items-center w-full  
         ${
           !props.showBanner
-            ? "opacity-0  sm:-right-5  pointer-events-none"
-            : "opacity-100 sm:right-0"
+            ? "opacity-0 sm:right-0 pointer-events-none"
+            : "opacity-100 sm:right-5"
         }`}
     >
       <TbBottle className="rotate-45 w-14 h-14" />

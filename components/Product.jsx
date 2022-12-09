@@ -6,10 +6,10 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 const Product = (props) => {
   return (
     <div>
-      <div className="flex justify-center mb-8 sm:w-full sm:bg-transparent ">
+      <div className="flex justify-center mb-8 sm:w-full sm:bg-transparent">
         <div className="flex flex-col shadow-md rounded-xl overflow-clip sm:flex-row sm:pr-5 sm:gap-5 sm:bg-gray-100 sm:bg-opacity-50">
           <img
-            className="object-cover w-screen h-full mb-3 sm:aspect-square sm:object-cover sm:w-1/4 sm:mb-0"
+            className="object-cover w-screen h-full  mb-3 sm:aspect-square sm:object-cover  sm:w-[250px] sm:mb-0"
             src={urlFor(props.product.image && props.product.image[0])}
             alt=""
           />
