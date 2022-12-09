@@ -96,7 +96,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
       {/* Page container */}
       <div className="flex flex-col items-center sm:min-h-screen ">
         {/* Class details */}
-        <section className="flex flex-col   sm:min-w-[900px] sm:mt-12 mt sm:gap-5 sm:mb-5 items-center justify-center sm:items-start mt-20  sm:h-[380px] sm:w-2/3 sm:flex-row ">
+        <section className="flex flex-col   sm:min-w-[900px] sm:mt-12 mt sm:gap-5 sm:mb-5 items-center justify-center sm:items-start   sm:h-[380px] sm:w-2/3 sm:flex-row ">
           {/* Image */}
           {/* Mobile image carousel */}
           <div className="flex w-full h-64 mb-3 overflow-x-scroll sm:hidden ">
@@ -150,7 +150,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
                 {sessions.map((session, i) => (
                   <div className="flex flex-col">
                     {i !== 0 && (
-                      <div className="w-full h-[1px] mb-2 mt-1 bg-gray-300 "></div>
+                      <div className="w-full h-[1px] mb-4 sm:mb-2 mt-1 bg-gray-300 "></div>
                     )}
                     <div key={i} className="flex justify-between gap-5 ">
                       <p className="flex-grow text-lg sm:text-base sm:w-24 sm:flex-grow-0 ">

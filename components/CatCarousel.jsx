@@ -5,7 +5,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 export const CatCarousel = (props) => {
   return (
-    <div className="flex w-screen gap-2 px-5 my-4 overflow-scroll scrollbar-hide sm:px-0 sm:mb-6 sm:w-full sm:overflow-hidden ">
+    <div className="flex w-screen px-[5%] gap-2 my-4 overflow-x-scroll  scrollbar-hide sm:px-0 sm:mb-6 sm:w-full sm:overflow-hidden ">
       {props.activeFilters &&
         props.activeFilters.map((catagory, i) => {
           return (

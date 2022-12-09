@@ -117,11 +117,12 @@ const Classes = ({ products, trainers, sessions }) => {
   });
 
   return (
-    <div className="flex  justify-start  py-4 sm:min-h-[90vh]  sm:py-0 ">
+    <div className="flex  justify-center overflow-clip  py-4 sm:min-h-[90vh]  sm:py-0 ">
+      {/* main section */}
       <div className=" sm:w-2/3 sm:pl-12 sm:h-full">
-        <div className="z-10 bg-white s sm:py-6 ">
-          <div className="relative    sm:min-w-[500px] ">
-            <AiOutlineSearch className="w-5 absolute top-2 left-3 text-[#a0a0a0] h-6" />
+        <div className="z-10 bg-white sm:py-6 ">
+          <div className="relative sm:ml-0 ml-[5%] sm:w-full  w-[90%]  sm:min-w-[500px] ">
+            <AiOutlineSearch className="w-5 absolute top-1 sm:top-2 left-3 text-[#a0a0a0] h-6" />
             <input
               className="flex items-center justify-start w-full gap-2 px-5 pl-10 text-sm text-left sm:py-2 searchBar"
               type="text"
@@ -153,8 +154,8 @@ const Classes = ({ products, trainers, sessions }) => {
           </div>
         )}
         {!searchTerm ? (
-          <div className="">
-            <div className="">
+          <div className="flex flex-col items-center">
+            <div className=" sm:w-[100%] w-[90%]">
               {filteredProducts.map((product) => (
                 <Product
                   setActiveClassName={setActiveClassName}
@@ -194,7 +195,8 @@ const Classes = ({ products, trainers, sessions }) => {
             ))
         )}
       </div>
-      <div className="w-1/3 px-12 py-6 sticky top-5 left-0 h-[93vh]">
+      {/* sticky feature */}
+      <div className="w-1/3 hidden px-12 py-6 sm:block sticky top-5 left-0 h-[93vh]">
         <div
           className={`relative flex flex-col transition-all duration-300 gap-6 p-6 shadow-lg sm:bg-gray-100 sm:bg-opacity-50 rounded-xl  ${
             !showFeature
