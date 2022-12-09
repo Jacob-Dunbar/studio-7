@@ -175,7 +175,7 @@ const Cart = () => {
         <Link href="/">
           <h1
             onClick={() => setShowCart(false)}
-            className="pt-1 text-4xl font-semibold tracking-wider sm:hidden font-PlayfairDisplay"
+            className="pt-1 pl-2 text-4xl font-semibold tracking-wider sm:pl-0 sm:hidden font-PlayfairDisplay"
           >
             STUDIO 7
           </h1>
@@ -192,7 +192,7 @@ const Cart = () => {
         {/* Hello user and basket intro */}
 
         <div>
-          <h2 className="px-4 text-xl sm:text-lg">
+          <h2 className="text-xl px-7 sm:px-4 sm:text-lg">
             {user ? user.given_name + "'s" : "Your"} Basket :
           </h2>
         </div>
@@ -211,7 +211,7 @@ const Cart = () => {
                   {/* Continue shopping button  */}
                 </div>
                 <button
-                  className="button w-[95%] sm:w-[60%] sm:text-sm sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
+                  className="button w-[80%] sm:w-[60%] sm:text-sm sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
                   onClick={() => setShowCart(false)}
                 >
                   <Link href="/"> Continue shopping</Link>
@@ -283,12 +283,14 @@ const Cart = () => {
         </div>
         <div className="flex flex-col items-center justify-end flex-grow gap-3 ">
           {cartItems.length > 0 && (
-            <div className="flex flex-col w-full gap-4 px-4 ">
-              <h3 className="text-2xl sm:text-lg ">Total : £{totalPrice}</h3>
+            <div className="flex flex-col items-center w-full gap-4 px-4 ">
+              <h3 className="self-start text-2xl sm:text-lg ">
+                Total : £{totalPrice}
+              </h3>
 
               {user ? (
                 <button
-                  className="button w-[95%] ml-3 sm:text-sm sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
+                  className="button w-[80%] ml-3 sm:text-sm sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
                   type="button"
                   onClick={handleCheckout}
                 >
@@ -297,7 +299,7 @@ const Cart = () => {
               ) : (
                 <Link href="/api/auth/login">
                   <button
-                    className="button w-[95%]  ml-3 sm:text-sm sm:w-[95%] sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  "
+                    className="button w-[80vw]  ml-3 sm:text-sm sm:w-[95%] sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  "
                     type="button"
                   >
                     Login to checkout

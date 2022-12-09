@@ -14,7 +14,7 @@ const Product = (props) => {
             alt=""
           />
 
-          <div className="flex flex-col self-center gap-2 sm:h-full sm:justify-between sm:flex-grow">
+          <div className="flex flex-col self-center gap-2 px-4 sm:px-0 sm:h-full sm:justify-between sm:flex-grow">
             <h1 className="text-3xl font-semibold tracking-wider sm:text-2xl sm:mt-5 font-PlayfairDisplay">
               {props.product.name}
             </h1>
@@ -45,7 +45,7 @@ const Product = (props) => {
                 })
               )}
             </div>
-            <p className="text-xs leading-4 line-clamp-3 sm:line-clamp-3 indent-5">
+            <p className="mb-3 text-xs leading-4 sm:mb-0 line-clamp-3 sm:line-clamp-3 indent-5">
               {props.product.details}
             </p>
             {/* <p className="">£{price}</p> */}
