@@ -28,25 +28,25 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="w-full overflow-x-clipped ">
+    <div className="justify-between w-full overflow-x-clipped ">
       <div
         className={`fixed w-screen h-screen  duration-500 z-10 transition-all overflow-hidden bg-black ${
           showCart ? "bg-opacity-70" : " pointer-events-none bg-opacity-0"
         } `}
       ></div>
 
-      <div className="z-30  flex items-center justify-between duration-700 w-full px-4 pt-2 pb-2 shadow-md bg-gray-100 bg-opacity-50 sm:px-8 sm:mb-[1vh] sm:h-[9vh]">
+      <div className="z-30  flex items-center  duration-700 w-full px-4 pt-2 pb-2 shadow-md bg-gray-100 bg-opacity-50 sm:px-8 sm:mb-[1vh] sm:h-[9vh]">
         {/* logo */}
         <Link href="/">
           <h1
             // onClick={showCart && setShowCart(false)}
-            className="text-2xl font-bold tracking-wider cursor-pointer sm:w-64 font-PlayfairDisplay"
+            className="w-48 overflow-x-visible text-2xl font-bold tracking-wider cursor-pointer font-PlayfairDisplay"
           >
             STUDIO 7
           </h1>
         </Link>
         {/* Desktop Menu */}
-        <div className="items-center hidden gap-2 sm:flex">
+        <div className="items-center self-center hidden gap-2 ml-auto sm:flex">
           <div className="flex items-center h-full gap-5 ">
             <Link href="/">
               <h1
@@ -77,7 +77,7 @@ const Navbar = () => {
           </div>
         </div>
         {/* Desktop login and cart button*/}
-        <div className="items-center justify-end hidden w-64 gap-5 sm:flex">
+        <div className="items-center justify-end hidden w-48 gap-5 ml-auto v sm:flex">
           {/* Login or logout button */}
           {!user ? (
             <Link href="/api/auth/login">
@@ -117,7 +117,7 @@ const Navbar = () => {
         </div>
         {/*Mobile Cart icon */}
         <button
-          className="relative sm:hidden "
+          className="relative ml-auto sm:hidden "
           type="button"
           onClick={() => setShowCart(true)}
         >
