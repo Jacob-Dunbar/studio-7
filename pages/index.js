@@ -115,7 +115,7 @@ const index = () => {
         />
         <link rel="icon" href="/s7icon.svg" />
       </Head>
-      <div className="w-full relative sm:-mt-[1vh] sm:h-[91vh] ">
+      <div className="w-full relative sm:-mt-[1vh] sm:h-[91vh] h-[93vh]">
         {/* <img
         className="object-cover object-right h-screen"
         src="/images/home-bg2.jpg"
@@ -126,10 +126,10 @@ const index = () => {
         <img
           src="/images/homeImage.jpg"
           alt="Background image"
-          className="object-cover object-right h-screen sm:hidden"
+          className="object-cover object-right h-full sm:hidden"
         />
         <video
-          className="hidden object-cover w-full h-screen sm:h-full sm:block sm:mb-5"
+          className="hidden object-cover w-full sm:h-full sm:block sm:mb-5"
           autoPlay
           loop
           muted
@@ -137,8 +137,8 @@ const index = () => {
           src="/studio7Video.mp4"
         />
 
-        <div className="absolute top-0 flex flex-col sm:h-full items-center justify-center w-full z-10  bottom-[10%]">
-          <h1 className="mb-16 text-3xl font-medium text-center text-gray-300 sm:pt-8 sm:mt-auto sm:text-8xl font-PlayfairDisplay">
+        <div className="absolute top-0 flex flex-col h-[93vh] sm:h-full items-center justify-center w-full z-10  bottom-[10%]">
+          <h1 className="mb-16 font-medium text-center text-gray-300 text-7xl sm:pt-8 sm:mt-auto sm:text-8xl font-PlayfairDisplay">
             Training : Mind & Body
           </h1>
           {/* <p className="hidden mb-10 text-white sm:block">
@@ -152,7 +152,7 @@ const index = () => {
           <Link href="/classes">Explore Our Classes</Link>
           <AiOutlineArrowRight className="w-5 h-5 -mr-1" />
         </button> */}
-          <div className="flex flex-col items-center gap-1 text-gray-300 sm:pb-3 sm:mt-auto mt-60">
+          <div className="absolute flex flex-col items-center gap-1 text-gray-300 sm:block bottom-6 sm:pb-3 sm:mt-auto mt-60">
             {/* <HiOutlineChevronDoubleDown className="w-6 h-6" /> */}
             <h1 className="text-xl ">Learn More</h1>
             <AiOutlineArrowDown className="w-6 h-6" />
@@ -164,13 +164,13 @@ const index = () => {
       </button> */}
       <section
         id="about"
-        className="flex flex-col items-center w-full gap-5 pt-10 mb-10 overflow-x-hidden "
+        className="flex flex-col items-center self-center w-full gap-5 pt-10 mb-10 overflow-x-hidden sm:w-full "
       >
-        <div className="flex flex-col gap-5 sm:w-full sm:px-24">
-          <h1 className="px-5 mb-3 text-4xl sm:mt-14 sm:text-center font-PlayfairDisplay">
+        <div className="flex flex-col gap-5 px-5 sm:px-24 sm:w-full">
+          <h1 className="px-5 mb-3 text-4xl text-center sm:mt-14 font-PlayfairDisplay">
             About Studio 7
           </h1>
-          <p className="px-5 mb-10 sm:px-44 sm:mb-16 sm:text-center indent-5 ">
+          <p className="px-5 mb-10 text-center sm:px-44 sm:mb-16 indent-5 ">
             Studio 5 is a multi-purpose fitness studio situated in Bermondsey,
             London, specialising in holistic fitness and overall well-being. Our
             pay-as-you-go classes range in focus from cardiovascular health,
@@ -183,7 +183,7 @@ const index = () => {
           <motion.div
             ref={ref}
             animate={animationFromLeft}
-            className="flex flex-col items-center  shadow-lg rounded-lg overflow-clip w-full pb-5 sm:mr-2 sm:w-[50%] bg-slate-100 "
+            className="flex ml-5 sm:ml-0 flex-col items-center  shadow-lg rounded-lg overflow-clip w-[95%] pb-5 sm:mr-2 sm:w-[50%] bg-slate-100 "
           >
             <Image
               height="600"
@@ -207,7 +207,7 @@ const index = () => {
           <motion.div
             ref={ref1}
             animate={animationFromRight}
-            className="flex flex-col sm:w-[50%] sm:min-w-[370px] shadow-lg rounded-lg overflow-clip sm:-mt-80 sm:self-end  items-center w-full pb-5 bg-slate-100"
+            className="flex  flex-col sm:w-[50%] sm:min-w-[370px] w-[95%] shadow-lg rounded-lg overflow-clip sm:-mt-80 sm:self-end  items-center  pb-5 bg-slate-100"
           >
             <Image
               height="600"
@@ -231,7 +231,7 @@ const index = () => {
           <motion.div
             ref={ref2}
             animate={animationFromLeft1}
-            className="flex flex-col rounded-lg sm:min-w-[370px] shadow-lg overflow-clip  sm:-mt-36     sm:w-[50%] items-center w-full pb-5 bg-slate-100"
+            className="flex flex-col ml-5 sm:ml-0 rounded-lg sm:min-w-[370px] shadow-lg overflow-clip  sm:-mt-36     sm:w-[50%] items-center w-[95%] pb-5 bg-slate-100"
           >
             <Image
               height="600"
@@ -256,7 +256,7 @@ const index = () => {
           <motion.div
             ref={ref3}
             animate={animationFromRight1}
-            className="flex rounded-lg overflow-clip sm:min-w-[370px] shadow-lg flex-col sm:mt-[-345px] sm:w-[50%] sm:self-end items-center w-full pb-5 bg-slate-100"
+            className="flex rounded-lg  overflow-clip sm:min-w-[370px] shadow-lg flex-col sm:mt-[-345px] sm:w-[50%] sm:self-end items-center w-[95%] pb-5 bg-slate-100"
           >
             <Image
               height="600"

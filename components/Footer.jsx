@@ -7,9 +7,11 @@ import {
 
 const Footer = () => {
   return (
-    <div className="flex flex-col items-center justify-between gap-2 text-black border-t shadow-md sm:mt-9 sm:gap-3 sm:pt-8 sm:pb-0 sm:h-48 sm:text-sm tems-center ">
-      <div className="flex gap-2 mt-3 text-sm font-semibold uppercase sm:mt-0 sm:gap-20 sm:text-sm">
-        <Link href="/">House rules</Link>
+    <div className="flex flex-col items-center justify-between w-full gap-2 text-black border-t shadow-md sm:mt-9 sm:gap-3 sm:pt-8 sm:pb-0 sm:h-48 sm:text-sm tems-center ">
+      <div className="flex justify-between gap-5 px-6 mt-3 mb-2 text-xs font-semibold text-center uppercase sm:mt-0 sm:gap-20 sm:text-sm">
+        <Link className="w-min" href="/">
+          House rules
+        </Link>
         <Link href="/">Terms and conditions</Link>
         <Link href="/">Contact us</Link>
         <Link href="/">Careers</Link>

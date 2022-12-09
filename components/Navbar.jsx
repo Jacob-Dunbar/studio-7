@@ -40,7 +40,7 @@ const Navbar = () => {
         <Link href="/">
           <h1
             // onClick={showCart && setShowCart(false)}
-            className="text-4xl font-bold tracking-wider cursor-pointer sm:w-64 sm:text-2xl font-PlayfairDisplay"
+            className="text-2xl font-bold tracking-wider cursor-pointer sm:w-64 font-PlayfairDisplay"
           >
             STUDIO 7
           </h1>
