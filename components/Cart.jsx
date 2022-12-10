@@ -281,7 +281,7 @@ const Cart = () => {
               ))}
           </div>
         </div>
-        <div className="flex flex-col items-center justify-end flex-grow space-y-3 ">
+        <div className="flex flex-col items-center justify-end flex-grow w-full space-y-3 ">
           {cartItems.length > 0 && (
             <div className="flex flex-col items-center w-full px-4 space-y-4 ">
               <h3 className="self-start text-2xl sm:text-lg ">
@@ -297,14 +297,12 @@ const Cart = () => {
                   Pay with Stripe
                 </button>
               ) : (
-                <Link href="/api/auth/login">
-                  <button
-                    className="button w-[80vw]  ml-3 sm:text-sm sm:w-[95%] sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  "
-                    type="button"
-                  >
-                    Login to checkout
-                  </button>
-                </Link>
+                <button
+                  className="button w-[80vw]  ml-3 sm:text-sm sm:w-[90%] sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  "
+                  type="button"
+                >
+                  <Link href="/api/auth/login">Login to checkout </Link>
+                </button>
               )}
             </div>
           )}

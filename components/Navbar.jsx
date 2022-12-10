@@ -77,7 +77,7 @@ const Navbar = () => {
           </div>
         </div>
         {/* Desktop login and cart button*/}
-        <div className="items-center justify-end hidden w-48 ml-auto space-x-5 v sm:flex">
+        <div className="items-center justify-end hidden ml-auto space-x-5 v sm:flex">
           {/* Login or logout button */}
           {!user ? (
             <Link href="/api/auth/login">
