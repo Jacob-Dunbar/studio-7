@@ -196,13 +196,13 @@ const Cart = () => {
             {user ? user.given_name + "'s" : "Your"} Basket :
           </h2>
         </div>
-        <div className="flex flex-col items-center h-full gap-4 my-4 ">
+        <div className="flex flex-col items-center h-full my-4 space-y-4 ">
           {/* Card contents - empty */}
           {!cartItems ||
             (cartItems.length < 1 && (
               // Container
               <div className="flex flex-col items-center justify-between w-full h-full ">
-                <div className="flex flex-col items-center w-full gap-4 py-5 justify-self-end ">
+                <div className="flex flex-col items-center w-full py-5 space-y-4 justify-self-end ">
                   {/* Icon and tagline */}
                   <AiOutlineShopping className="w-16 h-16 sm:w-12 sm:h-12" />
                   <h3 className="text-lg sm:text-base ">
@@ -211,7 +211,7 @@ const Cart = () => {
                   {/* Continue shopping button  */}
                 </div>
                 <button
-                  className="button w-[80%] sm:w-[60%] sm:text-sm sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
+                  className="button w-[80%] py-1  sm:text-sm sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
                   onClick={() => setShowCart(false)}
                 >
                   <Link href="/"> Continue shopping</Link>
@@ -219,7 +219,7 @@ const Cart = () => {
               </div>
             ))}
           {/* Card contents - full */}
-          <div className="flex flex-col w-screen gap-5 sm:gap-3 sm:w-full ">
+          <div className="flex flex-col w-screen space-y-5 sm:space-y-3 sm:w-full ">
             {cartItems &&
               // Group
               groupArr.map((group, i) => (
@@ -229,7 +229,7 @@ const Cart = () => {
                     <div className="self-center w-[8px] h-[8px] sm:w-[6px] sm:h-[6px] bg-gray-800 mb-5 sm:mb-3 rounded-full "></div>
                   )}
 
-                  <div className="flex w-screen gap-4 px-4 py-4 sm:w-full bg-gray-50">
+                  <div className="flex w-screen px-4 py-4 space-x-4 sm:w-full bg-gray-50">
                     <Link href={`/product/${group[0].class}`}>
                       <img
                         className="object-cover w-20 h-20 rounded-full cursor-pointer aspect-square"
@@ -248,7 +248,7 @@ const Cart = () => {
                         </h1>
                       </Link>
                       {/* sessions */}
-                      <div className="flex flex-col w-full gap-2 ">
+                      <div className="flex flex-col w-full space-y-2 ">
                         {group.map((session, i) => (
                           <div
                             key={i}
@@ -281,9 +281,9 @@ const Cart = () => {
               ))}
           </div>
         </div>
-        <div className="flex flex-col items-center justify-end flex-grow gap-3 ">
+        <div className="flex flex-col items-center justify-end flex-grow space-y-3 ">
           {cartItems.length > 0 && (
-            <div className="flex flex-col items-center w-full gap-4 px-4 ">
+            <div className="flex flex-col items-center w-full px-4 space-y-4 ">
               <h3 className="self-start text-2xl sm:text-lg ">
                 Total : £{totalPrice}
               </h3>

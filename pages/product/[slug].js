@@ -96,7 +96,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
       {/* Page container */}
       <div className="flex flex-col items-center sm:min-h-screen ">
         {/* Class details */}
-        <section className="flex flex-col   sm:max-w-[90vw] sm:mt-12 mt sm:gap-5 sm:mb-5 items-center justify-center sm:items-start   sm:h-[380px] sm:w-[900px] sm:flex-row ">
+        <section className="flex flex-col   sm:max-w-[90vw] sm:mt-12  sm:space-y-5 sm:mb-10 items-center justify-center sm:items-start   sm:h-[380px] sm:w-[900px] sm:flex-row ">
           {/* Image */}
           {/* Mobile image carousel */}
           <div className="flex h-64 mb-3 sm:hidden ">
@@ -110,22 +110,22 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             ))}
           </div>
           {/* Desktop image */}
-          <div className="hidden h-full max-w-[30vw] sm:block aspect-square">
+          <div className="hidden h-full mr-6 sm:block aspect-square">
             <img
               className="object-cover w-full h-full rounded-md"
               src={urlFor(image[index])}
             />
           </div>
           {/* Copy */}
-          <div className="flex flex-col sm:h-full sm:justify-between">
+          <div className="flex flex-col sm:w-full sm:h-full sm:justify-between">
             {/* Details container */}
-            <div className="flex flex-col self-center w-full gap-3 px-5 sm:px-0">
+            <div className="flex flex-col self-center w-full px-5 space-y-3 sm:px-0">
               {/* Heading */}
               <h1 className="text-3xl font-semibold tracking-wider font-PlayfairDisplay">
                 {name}
               </h1>
               {/* time - intensity - price */}
-              <div className="flex gap-3 text-sm font-bold text-gray-500">
+              <div className="flex space-x-3 text-sm font-bold text-gray-500">
                 <p>{length} hour</p>
                 <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div>
                 <p>{intensity}</p>
@@ -133,7 +133,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
                 <p>£{price}</p>
               </div>
               {/*  Categories */}
-              <div className="flex gap-2 ">
+              <div className="flex space-x-2 ">
                 {catagories.map((catagory, i) => (
                   <p key={i} className="chip-active">
                     {catagory}
@@ -146,13 +146,13 @@ const ProductDetails = ({ product, sessions, trainers }) => {
 
             {/* Sessions */}
             <section className="flex flex-col self-center justify-center w-full bg-gray-100 sm:self-start sm:justify-start sm:shadow-lg sm:rounded-xl sm:py-4 px-7 py-7 ">
-              <div className="flex flex-col gap-3 sm:gap-1 sm:w-full">
+              <div className="flex flex-col space-y-3 sm:space-y-1 sm:w-full">
                 {sessions.map((session, i) => (
                   <div className="flex flex-col">
                     {i !== 0 && (
                       <div className="w-full h-[1px] mb-4 sm:mb-2 mt-1 bg-gray-300 "></div>
                     )}
-                    <div key={i} className="flex justify-between gap-5 ">
+                    <div key={i} className="flex justify-between space-x-5 ">
                       <p className="flex-grow text-lg sm:text-base sm:w-24 sm:flex-grow-0 ">
                         {date
                           .addDays(session.number)
@@ -164,12 +164,12 @@ const ProductDetails = ({ product, sessions, trainers }) => {
                       {/* <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div> */}
 
                       <button
-                        className="flex items-center gap-2 px-2 text-xs sm:px-3 sm:py-0 sm:scale-95 sm:hover:scale-100"
+                        className="flex items-center px-2 space-x-2 text-xs sm:px-3 sm:py-0 sm:scale-95 sm:hover:scale-100"
                         type="button"
                         onClick={() => onAdd(session)}
                       >
                         Add To Cart
-                        <AiOutlinePlus className="w-4 h-4 " />
+                        <AiOutlinePlus className="w-4 h-4 ml-2" />
                       </button>
                     </div>
                   </div>
@@ -180,13 +180,13 @@ const ProductDetails = ({ product, sessions, trainers }) => {
         </section>
 
         {/* Trainer section */}
-        <div className="flex flex-col py-5 sm:w-[900px]  mb-12 sm:shadow-lg  px-5  items-center w-full mt-5 bg-gray-100 sm:gap-5 sm:overflow-clip sm:rounded-xl sm:mb-6 sm:py-5 sm:px-5 sm:max-w-[90vw] sm:flex-row ">
+        <div className="flex flex-col py-5 sm:w-[900px]  mb-12 sm:shadow-lg  px-5  items-center w-full mt-5 bg-gray-100 sm:overflow-clip sm:rounded-xl sm:mb-6 sm:py-5 sm:px-5 sm:max-w-[90vw] sm:flex-row ">
           <img
-            className="w-1/2 rounded-full aspect-square sm:w-44 "
+            className="w-1/2 mr-4 rounded-full aspect-square sm:w-44 "
             src={urlFor(classTrainer.image && classTrainer.image)}
             alt="trainer profile picture"
           />
-          <div className="flex flex-col items-center mt-3 sm:items-start sm:mt-0 sm:gap-3">
+          <div className="flex flex-col items-center sm:items-start sm:space-y-3">
             <h2 className="text-center sm:-mb-3 sm:text-left ">Trainer :</h2>
             <h1 className="mb-4 text-2xl font-semibold text-center sm:text-left sm:mb-0 font-PlayfairDisplay ">
               {classTrainer.name}
@@ -196,7 +196,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             </p>
             {/* <Link href={`/trainer/${classTrainer.slug.current}`}>
               <button
-                className="button-sec sm:-mt-3 justify-center  flex items-center gap-3 sm:hover:bg-[#e4816b]  sm:border-2 border-[#e4816b] sm:hover:text-white sm:w-fit z-10 sm:px-6 font-bold sm:font-semibold tracking-wide w-[90%]"
+                className="button-sec sm:-mt-3 justify-center  flex items-center space-x-3 sm:hover:bg-[#e4816b]  sm:border-2 border-[#e4816b] sm:hover:text-white sm:w-fit z-10 sm:px-6 font-bold sm:font-semibold tracking-wide w-[90%]"
                 type="button"
               >
                 More about {classTrainer.firstName}

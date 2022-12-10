@@ -51,7 +51,7 @@ const ProductDetails = (props) => {
       {/* Page container */}
       <div className="flex flex-col items-center h-full">
         {/* Class details */}
-        <section className="flex flex-row items-center justify-center mt-20 sm:w-full sm:mt-2 mt sm:gap-5 sm:mb-5 sm:items-start ">
+        <section className="flex flex-row items-center justify-center mt-20 sm:w-full sm:mt-2 mt sm:space-x-5 sm:mb-5 sm:items-start ">
           {/* Desktop image */}
           <div className="hidden w-full h-60 sm:block aspect-square">
             <img

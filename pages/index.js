@@ -146,13 +146,13 @@ const index = () => {
           Let's do this.
         </p> */}
           {/* <button
-          className="button-sec flex justify-center items-center gap-3 text-white sm:border-2 sm:hover:border-[#e4816b] sm:hover:text-[#e4816b] sm:w-fit px-6 font-bold sm:font-semibold tracking-wide  border-white w-[70%]"
+          className="button-sec flex justify-center items-center space-x-3 text-white sm:border-2 sm:hover:border-[#e4816b] sm:hover:text-[#e4816b] sm:w-fit px-6 font-bold sm:font-semibold tracking-wide  border-white w-[70%]"
           type="button"
         >
           <Link href="/classes">Explore Our Classes</Link>
           <AiOutlineArrowRight className="w-5 h-5 -mr-1" />
         </button> */}
-          <div className="absolute flex flex-col items-center gap-1 sm:text-gray-300 text-gray-50 bottom-6 sm:pb-3 sm:mt-auto mt-60">
+          <div className="absolute flex flex-col items-center space-y-1 sm:text-gray-300 text-gray-50 bottom-6 sm:pb-3 sm:mt-auto mt-60">
             {/* <HiOutlineChevronDoubleDown className="w-6 h-6" /> */}
             <h1 className="text-xl ">Learn More</h1>
             <AiOutlineArrowDown className="w-6 h-6" />
@@ -164,10 +164,10 @@ const index = () => {
       </button> */}
       <section
         id="about"
-        className="flex flex-col items-center self-center w-full gap-5 pt-10 mb-10 overflow-x-hidden sm:w-full "
+        className="flex flex-col items-center self-center w-full pt-10 pb-10 mb-10 space-y-5 overflow-x-hidden sm:w-full "
       >
-        <div className="flex flex-col gap-5 px-5 sm:px-24 sm:w-full">
-          <h1 className="px-5 mb-3 text-4xl text-center sm:mt-14 font-PlayfairDisplay">
+        <div className="flex flex-col px-5 sm:px-24 sm:w-full">
+          <h1 className="px-5 mb-6 text-4xl text-center sm:mt-14 font-PlayfairDisplay">
             About Studio 7
           </h1>
           <p className="px-5 mb-10 self-center sm:max-w-[700px] text-center sm:mb-16 indent-5 ">
@@ -189,7 +189,7 @@ const index = () => {
               height="600"
               width="600"
               placeholder="blur"
-              className="object-cover w-full h-48 mb-4 sm:h-80"
+              className="object-cover w-full h-48 mb-4 rounded-t-xl sm:h-80"
               src={flexible}
               alt="flexible"
             />
@@ -213,7 +213,7 @@ const index = () => {
               height="600"
               width="600"
               placeholder="blur"
-              className="object-cover object-top w-full h-48 mb-4 sm:h-80"
+              className="object-cover object-top w-full h-48 mb-4 rounded-t-xl sm:h-80"
               src={friendly}
               alt="flexible"
             />
@@ -231,13 +231,13 @@ const index = () => {
           <motion.div
             ref={ref2}
             animate={animationFromLeft1}
-            className="flex flex-col ml-5 sm:ml-0 rounded-lg shadow-lg overflow-clip  sm:-mt-36     sm:w-[50%] items-center w-[95%] pb-5 bg-slate-100"
+            className="flex flex-col ml-5 sm:ml-0 rounded-lg shadow-lg overflow-clip  sm:-mt-24     sm:w-[50%] items-center w-[95%] pb-5 bg-slate-100"
           >
             <Image
               height="600"
               width="600"
               placeholder="blur"
-              className="object-cover object-top w-full h-48 mb-4 sm:h-80"
+              className="object-cover object-top w-full h-48 mb-4 rounded-t-xl sm:h-80"
               src={inclusive}
               alt="flexible"
             />
@@ -256,13 +256,13 @@ const index = () => {
           <motion.div
             ref={ref3}
             animate={animationFromRight1}
-            className="flex rounded-lg  overflow-clip  shadow-lg flex-col sm:mt-[-345px] sm:w-[50%] sm:self-end items-center w-[95%] pb-5 bg-slate-100"
+            className="flex rounded-xl   overflow-clip  shadow-lg flex-col sm:mt-[-345px] sm:w-[50%] sm:self-end items-center w-[95%] pb-5 bg-slate-100"
           >
             <Image
               height="600"
               width="600"
               placeholder="blur"
-              className="object-cover object-top w-full h-48 mb-4 sm:h-80"
+              className="object-cover object-top w-full h-48 mb-4 rounded-t-xl sm:h-80"
               src={location}
               alt="flexible"
             />

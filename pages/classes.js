@@ -124,7 +124,7 @@ const Classes = ({ products, trainers, sessions }) => {
           <div className="relative sm:ml-0 ml-[5%] sm:w-full  w-[90%]   ">
             <AiOutlineSearch className="w-5 absolute top-1 sm:top-2 left-3 text-[#a0a0a0] h-6" />
             <input
-              className="flex items-center justify-start w-full gap-2 px-5 pl-10 text-sm text-left sm:py-2 searchBar"
+              className="flex items-center justify-start w-full px-5 pl-10 space-x-2 text-sm text-left sm:py-2 searchBar"
               type="text"
               placeholder="Search our classes"
               onChange={(event) => setSearchTerm(event.target.value)}
@@ -203,13 +203,13 @@ const Classes = ({ products, trainers, sessions }) => {
       {/* sticky feature */}
       <div className="w-1/3 hidden px-12 py-6 sm:block sticky top-5 left-0 h-[93vh]">
         <div
-          className={`relative flex flex-col transition-all duration-300 gap-6 p-6 shadow-lg sm:bg-gray-100 sm:bg-opacity-50 rounded-xl  ${
+          className={`relative flex flex-col transition-all duration-300 space-y-6 p-6 shadow-lg sm:bg-gray-100 sm:bg-opacity-50 rounded-xl  ${
             !showFeature
               ? "opacity-0 sm:-right-5    pointer-events-none"
               : "opacity-100 sm:right-0"
           }`}
         >
-          <div className="flex items-center gap-3 border-b border-gray-300">
+          <div className="flex items-center space-x-3 border-b border-gray-300">
             <AiOutlineStar className="w-6 h-6 mb-3" />
             <h1 className="w-full pb-4 text-3xl font-semibold tracking-wider sm:text-2xl font-PlayfairDisplay">
               Featured Trainer
@@ -219,7 +219,7 @@ const Classes = ({ products, trainers, sessions }) => {
             onClick={() => setShowFeature(false)}
             className="absolute w-5 h-5 cursor-pointer right-4 top-4 "
           />
-          <div className="flex flex-col items-center w-full gap-3">
+          <div className="flex flex-col items-center w-full space-y-3">
             <img
               className="w-1/2 rounded-full "
               src={urlFor(trainers[0].image && trainers[0].image)}

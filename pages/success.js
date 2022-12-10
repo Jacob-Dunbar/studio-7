@@ -25,7 +25,7 @@ const Success = () => {
         />
         <link rel="icon" href="/s7icon.svg" />
       </Head>
-      <div className="flex flex-col items-center justify-start gap-5 mt-10 ">
+      <div className="flex flex-col items-center justify-start mt-10 space-y-5 ">
         <p>
           <BsBagCheckFill className="w-20 h-20 mb-5" />
         </p>

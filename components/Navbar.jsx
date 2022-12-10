@@ -46,8 +46,8 @@ const Navbar = () => {
           </h1>
         </Link>
         {/* Desktop Menu */}
-        <div className="items-center self-center hidden gap-2 ml-auto sm:flex">
-          <div className="flex items-center h-full gap-5 ">
+        <div className="items-center self-center hidden ml-auto sm:flex">
+          <div className="flex items-center h-full space-x-5 ">
             <Link href="/">
               <h1
                 onClick={() => setShowMenu(false)}
@@ -77,7 +77,7 @@ const Navbar = () => {
           </div>
         </div>
         {/* Desktop login and cart button*/}
-        <div className="items-center justify-end hidden w-48 gap-5 ml-auto v sm:flex">
+        <div className="items-center justify-end hidden w-48 ml-auto space-x-5 v sm:flex">
           {/* Login or logout button */}
           {!user ? (
             <Link href="/api/auth/login">
@@ -89,7 +89,7 @@ const Navbar = () => {
               </button>
             </Link>
           ) : (
-            <div className="flex items-center gap-5">
+            <div className="flex items-center space-x-5">
               <div className="flex items-center justify-center bg-[#E4816B] text-white rounded-full w-8 aspect-square ">
                 <h1 className="text-lg ">{user.given_name.charAt(0)}</h1>
               </div>
@@ -153,13 +153,13 @@ const Navbar = () => {
 
           {/* Menu */}
 
-          <div className="flex flex-col items-center justify-center flex-grow w-full gap-6 ">
+          <div className="flex flex-col items-center justify-center flex-grow w-full space-y-6 ">
             {user && (
-              <div className="flex flex-col items-center w-full gap-5 pl-1">
+              <div className="flex flex-col items-center w-full pl-1 space-y-5">
                 <div className="flex items-center justify-center bg-[#E4816B] text-white rounded-full w-fit aspect-square ">
                   <h1 className="p-5 text-4xl ">{user.given_name.charAt(0)}</h1>
                 </div>
-                <div className="flex gap-1 text-lg mb-9">
+                <div className="flex space-x-1 text-lg mb-9">
                   <p>Hello, </p>
                   <span className="font-bold ">{user.given_name}</span>
                 </div>

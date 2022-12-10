@@ -5,14 +5,14 @@ import { AiOutlineClose } from "react-icons/ai";
 
 export const CatCarousel = (props) => {
   return (
-    <div className="flex w-screen px-[5%] gap-2 my-4 overflow-x-scroll  scrollbar-hide sm:px-0 sm:mb-6 sm:w-full sm:overflow-hidden ">
+    <div className="flex w-screen px-[5%] space-x-2 my-4 overflow-x-scroll  scrollbar-hide sm:px-0 sm:mb-6 sm:w-full sm:overflow-hidden ">
       {props.activeFilters &&
         props.activeFilters.map((catagory, i) => {
           return (
             <div
               key={i}
               onClick={() => props.removeFilter(catagory)}
-              className="flex items-center gap-1 cursor-pointer chip-active"
+              className="flex items-center space-x-1 cursor-pointer chip-active"
             >
               <p className="">{catagory}</p>
               {catagory !== "All" && <AiOutlineClose />}
@@ -25,7 +25,7 @@ export const CatCarousel = (props) => {
             <div
               key={i}
               onClick={() => props.addFilter(catagory)}
-              className="flex items-center gap-1 cursor-pointer chip"
+              className="flex items-center space-x-1 cursor-pointer chip"
             >
               <p className="">{catagory}</p>
             </div>
