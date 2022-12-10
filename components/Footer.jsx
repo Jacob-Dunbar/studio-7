@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div className="flex flex-col items-center justify-between w-full space-y-2 text-black border-t shadow-md sm:mt-9 sm:space-y-3 sm:pt-8 sm:pb-0 sm:h-48 sm:text-sm tems-center ">
       <div className="flex justify-between px-6 mt-3 mb-2 space-x-5 text-xs font-semibold text-center uppercase sm:mt-0 sm:space-x-20 sm:text-sm">
-        <Link className="w-min" href="/">
+        <Link className="w-min sm:w-max" href="/">
           House rules
         </Link>
         <Link href="/">Terms and conditions</Link>
