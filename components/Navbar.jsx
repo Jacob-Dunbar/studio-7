@@ -95,7 +95,7 @@ const Navbar = () => {
               </div>
               <Link href="/api/auth/logout">
                 <h1
-                  className="px-5 py-1 hover:text-[#bd6450] cursor-pointer hover:border-[#bd6450] text-xs text-black border-black  border-[2px] button-sec"
+                  className="px-5 py-1 hover:text-[#bd6450] cursor-pointer hover:border-[#bd6450] text-xs text-black border-black  border-[1px] button-sec"
                   onClick={() => setShowMenu(false)}
                 >
                   Log out

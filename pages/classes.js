@@ -217,7 +217,7 @@ const Classes = ({ products, trainers, sessions }) => {
           </div>
           <AiOutlineClose
             onClick={() => setShowFeature(false)}
-            className="absolute w-5 h-5 cursor-pointer right-4 top-4 "
+            className="absolute w-5 h-5 cursor-pointer -top-0 right-4 "
           />
           <div className="flex flex-col items-center w-full space-y-3">
             <img
