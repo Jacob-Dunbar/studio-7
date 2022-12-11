@@ -51,7 +51,7 @@ const Product = (props) => {
             {/* <p className="">£{price}</p> */}
             <Link href={`/product/${props.product.slug.current}`}>
               <button
-                className="relative flex justify-center w-full py-1 mb-5 transition-all duration-75 ease-in sm:text-sm button sm:opacity-80 sm:hover:opacity-100"
+                className="relative flex justify-center w-full py-1 mt-2 mb-5 transition-all duration-75 ease-in sm:mt-0 sm:text-sm button sm:opacity-80 sm:hover:opacity-100"
                 type="button"
               >
                 <p className="ml-auto ">More Details</p>

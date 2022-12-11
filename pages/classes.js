@@ -3,7 +3,6 @@ import Product from "../components/Product";
 import { client, urlFor } from "../lib/client";
 import { CatCarousel } from "../components/CatCarousel";
 import { AiOutlineSearch, AiOutlineStar, AiOutlineClose } from "react-icons/ai";
-import ProductPanel from "../components/productPannel";
 // Fetch classes and trainers
 
 export const getServerSideProps = async () => {
