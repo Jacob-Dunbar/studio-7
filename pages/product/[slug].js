@@ -145,7 +145,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
             </div>
 
             {/* Sessions */}
-            <section className="flex flex-col self-center justify-center w-full bg-gray-100 sm:self-start sm:justify-start sm:shadow-lg sm:rounded-xl sm:py-4 px-7 py-7 ">
+            <section className="flex flex-col self-center justify-center w-full mt-5 bg-gray-100 sm:mt-0 sm:self-start sm:justify-start sm:shadow-lg sm:rounded-xl sm:py-4 px-7 py-7 ">
               <div className="flex flex-col space-y-3 sm:space-y-1 sm:w-full">
                 {sessions.map((session, i) => (
                   <div className="flex flex-col">
