@@ -290,7 +290,7 @@ const Cart = () => {
 
               {user ? (
                 <button
-                  className="button w-[80%] ml-3 sm:text-sm sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
+                  className="button w-[80%] py-2 ml-3 sm:text-sm sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  self-center"
                   type="button"
                   onClick={handleCheckout}
                 >
@@ -298,7 +298,7 @@ const Cart = () => {
                 </button>
               ) : (
                 <button
-                  className="button w-[80vw] sm:py-2 mt-5  ml-3 sm:text-sm sm:w-[90%] sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  "
+                  className="button w-[80vw] py-2 mt-5  ml-3 sm:text-sm sm:w-[90%] sm:bg-transparent sm:hover:bg-[#e4816b] sm:text-[#e4816b] sm:hover:text-white  "
                   type="button"
                 >
                   <Link href="/api/auth/login">Login to checkout </Link>
