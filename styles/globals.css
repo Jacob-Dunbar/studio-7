@@ -11,17 +11,17 @@
     text-align: center;
     font-weight: 700;
     border-radius: 40px;
-    padding-block: 0.35rem;
+
     font-weight: 500;
   }
   .button-sec {
     border: 3px solid #e4816b;
 
     color: #e4816b;
-    padding-block: 5px;
+
     text-align: center;
     border-radius: 40px;
-    padding-block: 0.3rem;
+
     font-weight: 600;
   }
 
@@ -30,7 +30,6 @@
     width: 100%;
     text-align: center;
     border-radius: 40px;
-    padding-block: 0.25rem;
   }
 
   .searchBar {
