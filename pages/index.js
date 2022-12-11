@@ -183,7 +183,7 @@ const index = () => {
           <motion.div
             ref={ref}
             animate={animationFromLeft}
-            className="flex ml-5 sm:ml-0  flex-col items-center  shadow-lg rounded-lg overflow-clip w-[95%] pb-5 sm:mr-2 sm:w-[50%] bg-slate-100 "
+            className="flex ml-5 sm:ml-0 mb-5 sm:mb-0 flex-col items-center  shadow-lg rounded-lg overflow-clip w-[95%] pb-5 sm:mr-2 sm:w-[50%] bg-slate-100 "
           >
             <Image
               height="600"
@@ -207,7 +207,7 @@ const index = () => {
           <motion.div
             ref={ref1}
             animate={animationFromRight}
-            className="flex  flex-col sm:w-[50%]  w-[95%] shadow-lg rounded-lg overflow-clip  sm:-mt-80 sm:self-end  items-center  pb-5 bg-slate-100"
+            className="flex  flex-col mb-5 sm:mb-0 sm:w-[50%]  w-[95%] shadow-lg rounded-lg overflow-clip  sm:-mt-80 sm:self-end  items-center  pb-5 bg-slate-100"
           >
             <Image
               height="600"
@@ -231,7 +231,7 @@ const index = () => {
           <motion.div
             ref={ref2}
             animate={animationFromLeft1}
-            className="flex flex-col ml-5 sm:ml-0 rounded-lg shadow-lg overflow-clip  sm:-mt-24     sm:w-[50%] items-center w-[95%] pb-5 bg-slate-100"
+            className="flex flex-col mb-5 sm:mb-0 ml-5 sm:ml-0 rounded-lg shadow-lg overflow-clip  sm:-mt-24     sm:w-[50%] items-center w-[95%] pb-5 bg-slate-100"
           >
             <Image
               height="600"
@@ -256,7 +256,7 @@ const index = () => {
           <motion.div
             ref={ref3}
             animate={animationFromRight1}
-            className="flex rounded-xl   overflow-clip  shadow-lg flex-col sm:mt-[-345px] sm:w-[50%] sm:self-end items-center w-[95%] pb-5 bg-slate-100"
+            className="flex rounded-xl mb-5 sm:mb-0  overflow-clip  shadow-lg flex-col sm:mt-[-345px] sm:w-[50%] sm:self-end items-center w-[95%] pb-5 bg-slate-100"
           >
             <Image
               height="600"
