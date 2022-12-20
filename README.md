@@ -1,34 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Studio 7 - E-Commerce Website
 
-## Getting Started
+A Website designed and build for a fictitious south London fitness studio, where users can book themselves into, and pay for classes.
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- [Overview](#overview)
+  - [About](#about)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### About
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Studio 7 is a fully responsive Next.js site deployed with Vercel. 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- The products a managed by Sanity CMS and the Classes page allows users to search for classes using the search bar and stackable filters. The site will display results that meet the criteria of both the search term and the applied filters. 
 
-## Learn More
+- The site uses react context to keep track of the user’s cart, which can be accessed at any time by clicking the cart icon. I coded the cart to group classes of the same type together under one heading for a better user experience, instead of listing each individual class separately.
 
-To learn more about Next.js, take a look at the following resources:
+- Auth0 is implemented to allow users to log in with their Google accounts.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Stripe payment management allows users to checkout their carts and pay for the classes added. 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- The site is styled with Tailwind and features Framer Motion animations
 
-## Deploy on Vercel
+### Screenshot
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![](./screenshot.jpg)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Links
+
+- [Live site](https://www.studio-7.net/)
+
+## My process
+
+### Built with
+
+- Next.js
+- Tailwind
+- Framer Motion
+- Sanity CMS
+- Auth0
+- Stripe payment management
+
+### What I learned
+
+This Project really cemented my knowledge of using headless CMS.
+
+This was an extremely enjoyable project and I found e-commerce to be an especially interesting and challenging field. 
+
+I learned how to use many technologies I hadn't used before such as Auth0 and Stripe payment management.
+
+This project also broadened my knowledge of Next.js and React, specifically react context and the useContext hook.
+
+### Continued development
+
+I would like to see this project offer the user a calendar, with their classes plotted into their respective dates. I would also like to add a user dashboard where a user can see their specific attendance stats and earn badges etc. based on classes attended. This is definitely something I would like to revisit at some point or implement in another project.
+
+### Useful resources
+
+- [Stripe Docs](https://stripe.com/docs) - The Stripe documentation proved invaluable when working on the payment portion of the site. I found the documentation clear and helpful and could not have completed this project without it. 
+- [Framer Motion Tutorial - LogRocket](https://blog.logrocket.com/framer-motion-tutorial/) - This article by Glyn Lewington was really helpful when using Framer Motion to add animations to the About section of the site. The article covers all the basics of setting up your animations and provided me with all I needed to create my animations.
+
+## Author
+
+Jacob Dunbar
+[jacobdunbar.com](https://www.jacobdunbar.com)
