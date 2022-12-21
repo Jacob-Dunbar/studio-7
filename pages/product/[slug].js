@@ -164,7 +164,7 @@ const ProductDetails = ({ product, sessions, trainers }) => {
                       {/* <div className="self-center w-[6px] h-[6px] bg-gray-500 rounded-full "></div> */}
 
                       <button
-                        className="flex items-center px-2 space-x-2 text-xs sm:px-3 sm:py-0 sm:scale-95 sm:hover:scale-100"
+                        className="flex items-center px-2 space-x-2 text-sm font-semibold sm:px-3 sm:py-0 sm:scale-95 sm:hover:scale-100"
                         type="button"
                         onClick={() => onAdd(session)}
                       >
