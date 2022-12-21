@@ -1,6 +1,6 @@
 # Studio 7 - E-Commerce Website
 
-A Website designed and build for a fictitious south London fitness studio, where users can book themselves into, and pay for classes.
+An e-commerce website designed and build for a fictitious south London fitness studio, where users can book themselves into, and pay for classes.
 
 ## Table of contents
 
