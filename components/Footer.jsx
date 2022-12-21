@@ -25,7 +25,10 @@ const Footer = () => {
 
       <div className="flex flex-col sm:text-xs  justify-center items-center w-full space-y-2 py-2 bg-[#e4816b] sm:flex-row">
         <p>Designed and developed by Jacob Dunbar -</p>
-        <Link href="https://jacobdunbar.com" className="font-semibold ">
+        <Link
+          href="https://jacobdunbar.com"
+          className="pb-2 pl-1 font-semibold"
+        >
           www.jacobdunbar.com
         </Link>
         {/* </div> */}
